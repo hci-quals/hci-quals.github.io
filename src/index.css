@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens follow the OECS palette: warm paper, near-black ink, cyan brand. */
+:root {
+  --hq-surface: #fafaf8;
+  --hq-surface-alt: #f3f1ed;
+  --hq-card: #ffffff;
+  --hq-ink: #1a1a1a;
+  --hq-ink-light: #6b6b6b;
+  --hq-ink-lighter: #8a8a8a;
+  --hq-border: #e5e2db;
+}
+.dark {
+  --hq-surface: #111111;
+  --hq-surface-alt: #1a1a1a;
+  --hq-card: #161616;
+  --hq-ink: #e8e8e8;
+  --hq-ink-light: #a0a0a0;
+  --hq-ink-lighter: #8a8a8a;
+  --hq-border: #2a2a2a;
+}
+
+@theme inline {
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-surface: var(--hq-surface);
+  --color-surface-alt: var(--hq-surface-alt);
+  --color-card: var(--hq-card);
+  --color-ink: var(--hq-ink);
+  --color-ink-light: var(--hq-ink-light);
+  --color-ink-lighter: var(--hq-ink-lighter);
+  --color-line: var(--hq-border);
+  --color-brand-50: #ecfcff;
+  --color-brand-100: #cef6ff;
+  --color-brand-200: #a3eeff;
+  --color-brand-300: #5fe0ff;
+  --color-brand-400: #1ad2ff;
+  --color-brand-500: #06b6da;
+  --color-brand-600: #0090b8;
+  --color-brand-700: #0a7193;
+  --color-brand-800: #115c76;
+  --color-brand-900: #144c61;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+body {
+  background: var(--hq-surface);
+  color: var(--hq-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.prose-oecs {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--hq-ink);
+}
+.prose-oecs p { margin: 0 0 1.1em; }
+.prose-oecs ul { list-style: disc; padding-left: 1.25em; margin: 0 0 1.1em; }
+.prose-oecs li { margin: 0.35em 0; padding-left: 0.2em; }
+.prose-oecs li::marker { color: var(--hq-ink-lighter); }
+.prose-oecs strong { font-weight: 600; }
+.prose-oecs em { color: var(--hq-ink-light); }
+.prose-oecs a { color: var(--color-brand-600); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.dark .prose-oecs a { color: var(--color-brand-400); }
+.prose-oecs blockquote {
+  border-left: 3px solid var(--color-brand-400);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 0 0 1.1em;
+  color: var(--hq-ink-light);
+  font-size: 1rem;
+}
+.prose-oecs blockquote p { margin: 0; }
+
+.fade-in { animation: fadeIn 0.35s ease-out both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.scrollbar-thin { scrollbar-width: thin; }

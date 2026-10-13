@@ -1,0 +1,48 @@
+# "Read these as pairs" — each pair puts an older idea next to newer work that tests or reuses it.
+# older/newer are reading ids (see the `readings:` list in each article's frontmatter).
+pairs:
+  - older: [bainbridge-1983]
+    newer: [simkute-2024]
+    question: Does generative AI repeat the ironies of automation for knowledge work?
+  - older: [licklider-1960, engelbart-1962]
+    newer: [satyanarayan-2024]
+    question: Should AI be judged by its intelligence or by the human agency it enables?
+  - older: [hutchins-1985]
+    newer: [subramonyam-2024, masson-2024]
+    question: What do the gulfs of execution and evaluation look like with prompting?
+  - older: [nass-1994]
+    newer: [park-2023]
+    question: What happens when machines give social cues on purpose and convincingly?
+  - older: [suchman-1987]
+    newer: [zamfirescu-pereira-2023]
+    question: Are prompts plans, and what breaks when people treat models as conversation partners?
+  - older: [kieras-1984]
+    newer: [bansal-2019]
+    question: Do accurate mental models help people work with AI the way they help with devices?
+  - older: [heider-1944, epley-2007]
+    newer: [shanahan-2023]
+    question: Why do people attribute minds to LLMs, and how should designers frame them?
+  - older: [fails-2003, amershi-2014]
+    newer: [ouyang-2022, bai-2022]
+    question: What did interactive ML know about human teachers that RLHF should use?
+  - older: [kirsh-1994, risko-2016]
+    newer: [lee-2025, bastani-2025]
+    question: When does offloading thinking to AI help, and when does it erode skill?
+  - older: [shneiderman-1997]
+    newer: [shneiderman-2020, yao-2023]
+    question: Is the control-versus-delegation tradeoff real for LLM agents?
+  - older: [clark-1991]
+    newer: [hancock-2020]
+    question: How does AI change the cost of building common ground between people?
+  - older: [jansson-1991, dow-2010]
+    newer: [doshi-2024]
+    question: Does AI-generated inspiration cause fixation and homogenize ideas?
+  - older: [gigerenzer-1995]
+    newer: [kay-2016]
+    question: Why do frequency formats make uncertainty easier to reason about?
+  - older: [lake-2017]
+    newer: [ullman-2023, binz-2023]
+    question: What would convince you a model has intuitive physics or psychology?
+  - older: [grudin-1988]
+    newer: [gray-2019]
+    question: Who does the hidden work that makes AI systems function?

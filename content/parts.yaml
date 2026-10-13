@@ -1,0 +1,156 @@
+# Parts and key ideas. Edit titles/intros here; article files reference these ids.
+parts:
+  - id: part-1
+    title: "Part I: Visions and historical foundations"
+    short: "Visions and historical foundations"
+    intro: "The field's founding bet is that computers should extend human thinking and communication, not just automate calculation. These readings trace that bet from essays to working systems to a self-aware discipline."
+    keyIdeas:
+      - id: part-1-ki1
+        title: "Computers as partners that augment thinking and connect people"
+        intro: "The founding visions cast the computer as a partner that extends individual thinking and, once networked, as a medium that connects people. Nearly every later agenda, from CSCW to AI copilots, inherits one of these two goals."
+      - id: part-1-ki2
+        title: "Interactive graphics and the personal computer"
+        intro: "A small set of systems showed that direct, visual, real-time interaction was possible and built the vocabulary of the desktop. Read them for the design decisions, not just the firsts."
+      - id: part-1-ki3
+        title: "How HCI became a discipline"
+        intro: "HCI formed by fusing cognitive psychology with engineering, and its object of study has kept moving outward. These readings explain why the field looks the way it does."
+  - id: part-2
+    title: "Part II: Theory, cognition and models of interaction"
+    short: "Theory, cognition and models of interaction"
+    intro: "HCI theory has moved from modeling one user's head, to modeling people acting in situations, to treating cognition as spread across people, tools and time. This part now adds computational cognitive science, which supplies the formal tools (rational analysis, levels of analysis, Bayesian models of intuitive theories) behind several of these ideas."
+    keyIdeas:
+      - id: part-2-ki1
+        title: "Users can be modeled as bounded-rational information processors"
+        intro: "If you specify the task, the environment and the user's cognitive limits, you can predict behavior and compare designs before building them. This is HCI's most direct link to cognitive science, from GOMS to computational rationality."
+      - id: part-2-ki2
+        title: "Cognition is situated, distributed and embodied"
+        intro: "Thinking happens in situations, across people and artifacts, and through bodies, not only inside one head. This critique reshaped HCI's methods and founded CSCW, and it is the main source of competing theories compared at the end of this key idea."
+      - id: part-2-ki3
+        title: "People build models of systems and treat them as social others"
+        intro: "Users reason about technology through mental models and intuitive theories, and they apply social rules to machines that show social cues. Both ideas now sit at the center of how people understand and trust AI."
+  - id: part-3
+    title: "Part III: Input, interaction techniques and interface paradigms"
+    short: "Input, interaction techniques and interface paradigms"
+    intro: "Interaction techniques are where theory meets the hand: models of movement and perception predict which techniques will work, and each new device reopens the question. Modern additions extend the classic models to touch, phones and generative design theory."
+    keyIdeas:
+      - id: part-3-ki1
+        title: "Input performance can be modeled and engineered"
+        intro: "Lawful models of movement, systematic design spaces of devices and statistical models of language let designers predict and compare input methods. They turned input from craft into engineering."
+      - id: part-3-ki2
+        title: "Direct manipulation of visible objects and spaces"
+        intro: "Interfaces feel usable when people act directly on visible objects and can move through large information spaces without losing context. This is the theory behind the GUI and most of its successors."
+      - id: part-3-ki3
+        title: "“Natural” interaction across speech, touch, pen and gesture"
+        intro: "Each new modality promises naturalness, but its value depends on dividing labor well and on feedback the body can feel. Critiques warn that “natural” is designed, not given."
+  - id: part-4
+    title: "Part IV: Ubiquitous, tangible and embodied computing"
+    short: "Ubiquitous, tangible and embodied computing"
+    intro: "When computing leaves the desktop, the interface becomes the environment, the object and the body. This part pairs the founding visions with their critiques and with work on how sensing systems fit into everyday life."
+    keyIdeas:
+      - id: part-4-ki1
+        title: "Computing woven into the environment"
+        intro: "Computers can recede into everyday settings and respond to context rather than demanding attention at a desk. The vision and its critiques launched ubiquitous computing and the Internet of Things."
+      - id: part-4-ki2
+        title: "Physical, embodied and immersive interaction"
+        intro: "Interaction can use the whole body and physical space: grasping objects, moving through rooms, or being immersed in virtual worlds. These lines share the claim that bodies and places matter for how people think and act."
+      - id: part-4-ki3
+        title: "Sensing people in daily life"
+        intro: "On-body and in-environment sensing enables new interaction and behavior-change systems, but it raises questions about how to evaluate long-term effects."
+  - id: part-5
+    title: "Part V: Design, prototyping and research through design"
+    short: "Design, prototyping and research through design"
+    intro: "Design is a way of knowing in its own right: problems are reframed as they are solved, and making things produces knowledge. Additions bring in design studies and the cognitive psychology of fixation."
+    keyIdeas:
+      - id: part-5-ki1
+        title: "Design is its own way of knowing"
+        intro: "Design problems are ill-structured and get reframed as they are worked on, and making artifacts can itself produce knowledge. These ideas are HCI's case for design as research, not just a step before evaluation."
+      - id: part-5-ki2
+        title: "Explore many alternatives, cheaply"
+        intro: "Rough, parallel prototypes, and tools that support them, lead to better designs and more useful feedback than committing early to one idea. This is the most empirically supported claim in HCI design research."
+      - id: part-5-ki3
+        title: "Bring users and experts into design and evaluation"
+        intro: "Users can shape designs through participation and probes, and experts can judge them through inspection, but each method limits who is included and how reliable the results are. These methods define everyday UX practice."
+  - id: part-6
+    title: "Part VI: Social computing, CSCW and crowdsourcing"
+    short: "Social computing, CSCW and crowdsourcing"
+    intro: "Group systems succeed or fail on social terms: who does the work, who benefits, what is visible and who governs. Additions bring in psycholinguistics, institutional economics and platform studies."
+    keyIdeas:
+      - id: part-6-ki1
+        title: "Collaboration depends on common ground and visibility"
+        intro: "Group tools work when they help people build shared understanding and see each other's activity, and they fail when the people doing the work are not the ones who benefit. This is CSCW's founding insight."
+      - id: part-6-ki2
+        title: "Communities and crowds can be designed, and they run on human labor"
+        intro: "Social science can guide how online communities and crowd systems recruit, motivate and coordinate people. The same systems depend on volunteer and low-paid labor that design often hides, including the labor behind AI training data."
+      - id: part-6-ki3
+        title: "Platforms shape what people see, say and present"
+        intro: "Algorithms, imagined audiences and moderation together govern social platforms, and people form folk theories about all three. This line connects HCI to platform studies, misinformation research and trust and safety."
+  - id: part-7
+    title: "Part VII: Programming, tools, toolkits and tools for thought"
+    short: "Programming, tools, toolkits and tools for thought"
+    intro: "Tools shape what people can make and think. This part follows that claim through toolkits, notations, end-user programming and the tools-for-thought revival, with additions from programming languages and learning science."
+    keyIdeas:
+      - id: part-7-ki1
+        title: "Tools and notations shape what people can make and think"
+        intro: "A tool's threshold, its ceiling and its notation decide who can use it and which ideas are easy to express. These are HCI's main lenses for judging programming systems."
+      - id: part-7-ki2
+        title: "Everyone can program, given the right tools"
+        intro: "Children and end users build working programs when languages fit their goals and tasks, or when systems infer programs from examples. This line runs from Logo and spreadsheets to program synthesis and LLM code generation."
+      - id: part-7-ki3
+        title: "Tools for understanding code, data and ideas"
+        intro: "Programming and thinking are acts of information seeking and exploration, so tools help most when they answer people's real questions and make process visible. Debuggers, notebooks and tools for thought apply this idea to different kinds of work."
+  - id: part-8
+    title: "Part VIII: Information and data visualization"
+    short: "Information and data visualization"
+    intro: "The core path still runs from Bertin's visual variables, through Cleveland and McGill's ranking, to Mackinlay's automation and the grammars that came after. Additions tie this path to the perception and judgment research in cognitive psychology that it rests on."
+    keyIdeas:
+      - id: part-8-ki1
+        title: "Encodings are judged by human perception"
+        intro: "Data maps onto a small set of visual channels, and how accurately people read each channel can be measured. This empirical core ties visualization to perception and cognitive psychology."
+      - id: part-8-ki2
+        title: "Visualization can be formalized, automated and used for analysis"
+        intro: "Grammars and effectiveness rules let systems build charts, and interactive tools turn charts into a medium for analysis with domain experts. This line produced Tableau, D3 and Vega-Lite."
+      - id: part-8-ki3
+        title: "Visualizations communicate, persuade and include or exclude"
+        intro: "Charts are arguments: design choices frame data, uncertainty is easy to misread and many readers are left out. This line connects visualization to journalism, decision-making and accessibility."
+  - id: part-9
+    title: "Part IX: Accessibility, values, equity and critical HCI"
+    short: "Accessibility, values, equity and critical HCI"
+    intro: "Technologies carry values and distribute power, so design is never neutral. This part moves from naming values, to critical practice, to equity, to accessibility, with additions from STS and recent work on AI and disability."
+    keyIdeas:
+      - id: part-9-ki1
+        title: "Technology carries values, and design can account for them"
+        intro: "Artifacts embody political and moral choices, and designers can surface and question those choices while they build. This is the shared starting point of critical HCI and responsible AI."
+      - id: part-9-ki2
+        title: "Design reproduces or challenges inequality"
+        intro: "Gender, race, colonial history and global inequality shape who technology serves and who gets to design it. These frames push HCI toward community-led and justice-oriented design."
+      - id: part-9-ki3
+        title: "Accessibility: from fixing users to changing systems"
+        intro: "Accessibility research has moved from compensating for deficits toward ability-based design, disability studies and interdependence. AI raises new questions about who it serves."
+  - id: part-10
+    title: "Part X: Methodological reflections and what counts as a contribution"
+    short: "Methodological reflections and what counts as a contribution"
+    intro: "HCI's methods come from many disciplines, so the field keeps arguing about what counts as knowledge and how to judge it. New clusters cover the replication crisis and the use of LLMs as stand-ins for participants."
+    keyIdeas:
+      - id: part-10-ki1
+        title: "HCI must say what kind of knowledge a paper contributes"
+        intro: "HCI draws on many methods and paradigms, each trading off generality, precision and realism, so the field has to name what kind of contribution a paper makes. These readings are the maps for framing your own work."
+      - id: part-10-ki2
+        title: "Evaluation and fieldwork should fit the contribution"
+        intro: "Ethnography is for understanding, not for producing requirements, and systems should not be forced through user studies that do not fit them. Both debates are about matching the method to the claim."
+      - id: part-10-ki3
+        title: "Rigor: replication and who counts as a participant"
+        intro: "HCI shares psychology's replication problems and now faces the temptation to replace participants with language models. Both raise the question of what makes HCI evidence trustworthy."
+  - id: ai
+    title: "Focus area: Human-AI interaction"
+    short: "Human-AI interaction"
+    intro: "Most questions in human-AI interaction are old questions about automation, agents and mental models, asked again of systems that are more capable and less predictable. This section is now organized into ten key ideas and adds the AI and cognitive science work that HCI papers in this area build on or respond to."
+    keyIdeas:
+      - id: ai-ki1
+        title: "Dividing work between people and machines"
+        intro: "Automation, delegation to agents and learning from human feedback are three ways of splitting work between people and AI, and each shifts human effort rather than removing it. This line runs from cockpit automation to RLHF."
+      - id: ai-ki2
+        title: "Designing for appropriate reliance and human values"
+        intro: "Good human-AI systems help people rely on AI when it is right, catch it when it is wrong and keep human agency and values in charge. Design guidelines, explanations and pluralistic approaches all aim at this, with mixed evidence."
+      - id: ai-ki3
+        title: "Generative AI as interface, as test subject and as influence on people"
+        intro: "Language models made natural language the interface, turned evaluation into an interaction problem and now shape how people work, think and judge minds. This is the fastest-moving cluster on the list."
