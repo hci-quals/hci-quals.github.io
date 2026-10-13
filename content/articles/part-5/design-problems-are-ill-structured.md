@@ -1,6 +1,6 @@
 ---
 id: design-problems-are-ill-structured
-title: "Design problems are ill-structured"
+title: "Design problems are ill-structured: design as a planning problem (frame problem)"
 part: part-5
 keyIdea: part-5-ki1
 order: 26
@@ -83,6 +83,30 @@ readings:
     urlKind: search
     doi: null
     verified: false
+  - id: simon-1973
+    citation: "Simon, “The Structure of Ill Structured Problems,” Artificial Intelligence, 1973"
+    authors: "Simon"
+    title: "The Structure of Ill Structured Problems"
+    venue: "Artificial Intelligence"
+    year: 1973
+    tag: Added
+    description: "Simon argues that ill-structured problems, design among them, become tractable once a problem solver imposes structure on them step by step. The paper connects design to planning and problem-space search in AI."
+    url: "https://ojs.unbc.ca/index.php/design/article/download/1273/1090"
+    urlKind: pdf
+    doi: "10.1016/0004-3702(73)90011-8"
+    verified: true
+  - id: ho-2022
+    citation: "Ho et al., “People Construct Simplified Mental Representations to Plan,” Nature, 2022"
+    authors: "Ho et al."
+    title: "People Construct Simplified Mental Representations to Plan"
+    venue: "Nature"
+    year: 2022
+    tag: Added
+    description: "Ho and colleagues show that people plan by building simplified task representations that leave out details irrelevant to their goal, and model this as value-guided construal. It gives a computational account of problem framing."
+    url: "https://www.nature.com/articles/s41586-022-04743-9.pdf"
+    urlKind: pdf
+    doi: "10.1038/s41586-022-04743-9"
+    verified: true
 ---
 
 ## Abstract

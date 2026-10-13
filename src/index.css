@@ -1,85 +1,70 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
-@custom-variant dark (&:where(.dark, .dark *));
 
-/* Tokens follow the OECS palette: warm paper, near-black ink, cyan brand. */
+/* Quiet palette: warm paper, ink, one muted accent used only for links. */
 :root {
-  --hq-surface: #fafaf8;
-  --hq-surface-alt: #f3f1ed;
+  --hq-paper: #fbfaf7;
   --hq-card: #ffffff;
-  --hq-ink: #1a1a1a;
-  --hq-ink-light: #6b6b6b;
-  --hq-ink-lighter: #8a8a8a;
-  --hq-border: #e5e2db;
+  --hq-ink: #1c1c1c;
+  --hq-muted: #6e6e6e;
+  --hq-faint: #a3a3a3;
+  --hq-rule: #e8e5df;
+  --hq-wash: #f3f1ec;
+  --hq-accent: #275d7a;
 }
-.dark {
-  --hq-surface: #111111;
-  --hq-surface-alt: #1a1a1a;
-  --hq-card: #161616;
-  --hq-ink: #e8e8e8;
-  --hq-ink-light: #a0a0a0;
-  --hq-ink-lighter: #8a8a8a;
-  --hq-border: #2a2a2a;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hq-paper: #141414;
+    --hq-card: #1a1a1a;
+    --hq-ink: #e9e7e3;
+    --hq-muted: #a09d98;
+    --hq-faint: #6c6a66;
+    --hq-rule: #2b2a28;
+    --hq-wash: #1f1e1c;
+    --hq-accent: #8dbdd6;
+  }
 }
 
 @theme inline {
   --font-serif: "Source Serif 4", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --color-surface: var(--hq-surface);
-  --color-surface-alt: var(--hq-surface-alt);
+  --color-paper: var(--hq-paper);
   --color-card: var(--hq-card);
   --color-ink: var(--hq-ink);
-  --color-ink-light: var(--hq-ink-light);
-  --color-ink-lighter: var(--hq-ink-lighter);
-  --color-line: var(--hq-border);
-  --color-brand-50: #ecfcff;
-  --color-brand-100: #cef6ff;
-  --color-brand-200: #a3eeff;
-  --color-brand-300: #5fe0ff;
-  --color-brand-400: #1ad2ff;
-  --color-brand-500: #06b6da;
-  --color-brand-600: #0090b8;
-  --color-brand-700: #0a7193;
-  --color-brand-800: #115c76;
-  --color-brand-900: #144c61;
+  --color-muted: var(--hq-muted);
+  --color-faint: var(--hq-faint);
+  --color-rule: var(--hq-rule);
+  --color-wash: var(--hq-wash);
+  --color-accent: var(--hq-accent);
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-}
+html { scroll-padding-top: 5rem; }
 body {
-  background: var(--hq-surface);
+  background: var(--hq-paper);
   color: var(--hq-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s, color 0.3s;
 }
 
-.prose-oecs {
+.prose-hq {
   font-family: var(--font-serif);
   font-size: 1.125rem;
   line-height: 1.75;
-  color: var(--hq-ink);
 }
-.prose-oecs p { margin: 0 0 1.1em; }
-.prose-oecs ul { list-style: disc; padding-left: 1.25em; margin: 0 0 1.1em; }
-.prose-oecs li { margin: 0.35em 0; padding-left: 0.2em; }
-.prose-oecs li::marker { color: var(--hq-ink-lighter); }
-.prose-oecs strong { font-weight: 600; }
-.prose-oecs em { color: var(--hq-ink-light); }
-.prose-oecs a { color: var(--color-brand-600); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
-.dark .prose-oecs a { color: var(--color-brand-400); }
-.prose-oecs blockquote {
-  border-left: 3px solid var(--color-brand-400);
-  padding: 0.25em 0 0.25em 1em;
-  margin: 0 0 1.1em;
-  color: var(--hq-ink-light);
-  font-size: 1rem;
+.prose-hq p { margin: 0 0 1em; }
+.prose-hq ul { list-style: disc; padding-left: 1.2em; margin: 0 0 1em; }
+.prose-hq li { margin: 0.4em 0; }
+.prose-hq li::marker { color: var(--hq-faint); }
+.prose-hq strong { font-weight: 600; }
+.prose-hq a { color: var(--hq-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose-hq blockquote { display: none; }
+
+/* Carousel rows drift slowly; they pause on hover and stop for reduced motion. */
+@keyframes hq-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.hq-track { animation: hq-drift var(--hq-duration, 120s) linear infinite; }
+.hq-track.reverse { animation-direction: reverse; }
+.hq-row:hover .hq-track { animation-play-state: paused; }
+.hq-row { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+@media (prefers-reduced-motion: reduce) {
+  .hq-track { animation: none; }
+  .hq-row { overflow-x: auto; }
 }
-.prose-oecs blockquote p { margin: 0; }
-
-.fade-in { animation: fadeIn 0.35s ease-out both; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-
-.scrollbar-thin { scrollbar-width: thin; }

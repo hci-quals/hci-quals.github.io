@@ -10,6 +10,8 @@ origin:
   reading: card-1983
   year: 1983
   blurb: "Card, Moran and Newell's 1983 book modeled the user as an information processor with perceptual, cognitive and motor stages, yielding the Model Human Processor and GOMS."
+pending:
+  - "RLHF, RL for user simulation, GUM, etc."
 readings:
   - id: card-1983
     citation: "Card, Moran and Newell, The Psychology of Human-Computer Interaction, 1983, ch. 2, 5, 8"

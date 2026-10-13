@@ -10,6 +10,9 @@ origin:
   reading: gentner-1983
   year: 1983
   blurb: "Gentner and Stevens's 1983 edited volume Mental Models, including Norman's observations on how people model devices, established mental models as a topic for cognitive science and HCI."
+pending:
+  - "Micheal and Wendy (Sub substrates)"
+  - "Concept Design?"
 readings:
   - id: kieras-1984
     citation: "Kieras and Bovair, “The Role of a Mental Model in Learning to Operate a Device,” Cognitive Science, 1984"

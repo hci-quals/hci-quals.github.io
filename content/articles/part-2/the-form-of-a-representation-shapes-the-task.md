@@ -10,6 +10,8 @@ origin:
   reading: larkin-1987
   year: 1987
   blurb: "Jill Larkin and Herbert Simon's 1987 paper showed that diagrams and sentences carrying the same information can differ sharply in how easily people search and draw inferences from them."
+pending:
+  - "More readings to be added"
 readings:
   - id: larkin-1987
     citation: "Larkin and Simon, “Why a Diagram Is (Sometimes) Worth Ten Thousand Words,” 1987"

@@ -1,6 +1,7 @@
 # HCI Quals Reading Group
 
-An OECS-style (oecs.mit.edu) reading-group site built from the *HCI Quals Reading List — Revised* Google Doc.
+A static site with two parts: an **encyclopedia** of key HCI ideas and a week-by-week **syllabus** for the reading group.
+Built from the *HCI Quals Reading List — Revised* Google Doc. Pushing to `main` deploys to https://hci-quals.github.io.
 React + Vite + TypeScript + Tailwind v4.
 
 ```bash
@@ -20,15 +21,14 @@ Everything lives in `content/`. The dev server hot-reloads on save.
   Any extra `## Heading` you add shows up in the article and its table of contents.
   Set `status: published` to drop the "Draft" badge.
 - `content/parts.yaml` — parts and key ideas (titles and intros).
-- `content/pairs.yaml` — the "Read these as pairs" table, by reading id.
+- `content/syllabus.yaml` — the syllabus: start date, interval and the ordered list of weeks (title + idea ids).
+  Each week shows the key idea, its controversies, discussion questions, readings and any paired readings.
+- `content/pairs.yaml` — the "Read these as pairs" table, by reading id. A pair is read in the syllabus week of its
+  newest reading, and the older reading is pulled into that week.
 
-`urlKind` controls the link button: `pdf | open | arxiv | author | archive | video` are shown as
-free full text (green dot); `doi | publisher | search` are shown as plain links. Every reading with a DOI
-also gets DOI and MIT Libraries proxy buttons.
+Optional frontmatter: `pending:` (readings to be added, shown as a note) and `people:` (names shown under the title).
+
+`urlKind` sets the link label (PDF, Read, arXiv, Watch, DOI, Find…).
 
 `scripts/generate_content.py` produced the initial files from the doc. It will not overwrite existing
 article files unless run with `--force`, so hand edits are safe.
-
-## Local state
-
-Read/interest marks and the session schedule are stored in the browser's localStorage.

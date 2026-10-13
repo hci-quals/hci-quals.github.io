@@ -10,6 +10,8 @@ origin:
   reading: ishii-1997
   year: 1997
   blurb: "In 1997 Hiroshi Ishii and Brygg Ullmer at the MIT Media Lab proposed Tangible Bits, coupling digital information to graspable physical objects and ambient media."
+people:
+  - "Stephanie Muller"
 readings:
   - id: ishii-1997
     citation: "Ishii and Ullmer, “Tangible Bits,” CHI 1997"

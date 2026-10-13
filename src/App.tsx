@@ -1,12 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { HomePage } from './pages/HomePage'
-import { BrowsePage } from './pages/BrowsePage'
-import { PartPage } from './pages/PartPage'
+import { EncyclopediaPage } from './pages/EncyclopediaPage'
 import { ArticlePage } from './pages/ArticlePage'
-import { TimelinePage } from './pages/TimelinePage'
-import { ReadingsPage } from './pages/ReadingsPage'
-import { SessionsPage } from './pages/SessionsPage'
+import { SyllabusPage } from './pages/SyllabusPage'
+
+function LegacyArticle() {
+  const { id } = useParams()
+  return <Navigate to={`/encyclopedia/${id}`} replace />
+}
 
 export default function App() {
   return (
@@ -14,13 +16,12 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="browse" element={<BrowsePage />} />
-          <Route path="part/:id" element={<PartPage />} />
-          <Route path="a/:id" element={<ArticlePage />} />
-          <Route path="timeline" element={<TimelinePage />} />
-          <Route path="readings" element={<ReadingsPage />} />
-          <Route path="sessions" element={<SessionsPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="encyclopedia" element={<EncyclopediaPage />} />
+          <Route path="encyclopedia/:id" element={<ArticlePage />} />
+          <Route path="syllabus" element={<SyllabusPage />} />
+          <Route path="a/:id" element={<LegacyArticle />} />
+          <Route path="timeline" element={<Navigate to="/encyclopedia?view=timeline" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

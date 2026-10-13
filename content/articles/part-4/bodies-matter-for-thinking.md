@@ -10,6 +10,8 @@ origin:
   reading: klemmer-2006
   year: 2006
   blurb: "In 2006 Klemmer, Hartmann and Takayama set out five themes for how bodies matter to interaction design, drawing on psychology and philosophy."
+people:
+  - "Jas Brooks"
 readings:
   - id: klemmer-2006
     citation: "Klemmer, Hartmann and Takayama, “How Bodies Matter,” DIS 2006"

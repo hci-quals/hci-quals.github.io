@@ -71,6 +71,30 @@ readings:
     urlKind: video
     doi: null
     verified: true
+  - id: pirolli-1999-b
+    citation: "Pirolli and Card, “Information Foraging,” Psychological Review, 1999"
+    authors: "Pirolli and Card"
+    title: "Information Foraging"
+    venue: "Psychological Review"
+    year: 1999
+    tag: Core
+    description: "Pirolli and Card model people searching for information as animals foraging for food, following information scent and choosing where to spend effort. The theory explains browsing behavior and guides the design of search and navigation."
+    url: "https://doi.org/10.1037/0033-295X.106.4.643"
+    urlKind: doi
+    doi: "10.1037/0033-295X.106.4.643"
+    verified: true
+  - id: marr-1982-b
+    citation: "Marr, Vision, 1982, ch. 1, “The Philosophy and the Approach”"
+    authors: "Marr"
+    title: "Vision: A Computational Investigation into the Human Representation and Processing of Visual Information"
+    venue: "W. H. Freeman (MIT Press reissue 2010)"
+    year: 1982
+    tag: Core
+    description: "Marr argues that an information-processing system must be understood at three levels: computational theory, representation and algorithm, and implementation. The chapter is the standard reference for what counts as explaining a cognitive system."
+    url: "https://people.ciirc.cvut.cz/~hlavac/pub/MiscTextForStudents/1982MarrDavidVisionBook.pdf"
+    urlKind: pdf
+    doi: null
+    verified: true
 ---
 
 ## Abstract
