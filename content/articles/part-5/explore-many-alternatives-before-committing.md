@@ -1,6 +1,7 @@
 ---
 id: explore-many-alternatives-before-committing
-title: "Explore many alternatives before committing"
+title: "Comparing several rough options beats committing early to one."
+topic: "Explore many alternatives before committing"
 part: part-5
 keyIdea: part-5-ki2
 order: 28

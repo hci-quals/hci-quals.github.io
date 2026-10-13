@@ -1,6 +1,7 @@
 ---
 id: people-reason-about-invisible-algorithms
-title: "People reason about invisible algorithms"
+title: "People form folk theories about the invisible algorithms that shape what they see."
+topic: "People reason about invisible algorithms"
 part: part-6
 keyIdea: part-6-ki3
 order: 36

@@ -1,6 +1,7 @@
 ---
 id: what-ethnography-is-for
-title: "What ethnography is for"
+title: "Ethnography’s value is understanding, not a list of design implications."
+topic: "What ethnography is for"
 part: part-10
 keyIdea: part-10-ki2
 order: 62

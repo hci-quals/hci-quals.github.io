@@ -1,6 +1,7 @@
 ---
 id: the-form-of-a-representation-shapes-the-task
-title: "The form of a representation shapes the task"
+title: "The form of a representation shapes how hard a task is."
+topic: "The form of a representation shapes the task"
 part: part-2
 keyIdea: part-2-ki2
 order: 9

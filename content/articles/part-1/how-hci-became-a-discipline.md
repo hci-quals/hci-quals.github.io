@@ -1,6 +1,7 @@
 ---
 id: how-hci-became-a-discipline
-title: "How HCI became a discipline"
+title: "The interface has moved outward, from hardware to the mind to the work group, and the field has moved with it."
+topic: "How HCI became a discipline"
 part: part-1
 keyIdea: part-1-ki3
 order: 3

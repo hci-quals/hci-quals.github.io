@@ -1,6 +1,7 @@
 ---
 id: every-method-trades-something-off
-title: "Every method trades something off"
+title: "Every method trades off generality, precision and realism."
+topic: "Every method trades something off"
 part: part-10
 keyIdea: part-10-ki1
 order: 59

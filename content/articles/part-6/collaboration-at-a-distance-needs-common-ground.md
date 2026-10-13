@@ -1,6 +1,7 @@
 ---
 id: collaboration-at-a-distance-needs-common-ground
-title: "Collaboration at a distance needs common ground"
+title: "Collaboration at a distance needs common ground, not a copy of face-to-face meetings."
+topic: "Collaboration at a distance needs common ground"
 part: part-6
 keyIdea: part-6-ki1
 order: 32

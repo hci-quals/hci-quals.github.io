@@ -1,6 +1,7 @@
 ---
 id: movement-can-be-modeled-and-predicted
-title: "Movement can be modeled and predicted (Fitts’ law)"
+title: "Pointing and steering follow lawful relationships, such as Fitts’ law, that predict movement time."
+topic: "Movement can be modeled and predicted (Fitts’ law)"
 part: part-3
 keyIdea: part-3-ki1
 order: 14

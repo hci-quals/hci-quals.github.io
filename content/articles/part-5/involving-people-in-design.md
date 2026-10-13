@@ -1,6 +1,7 @@
 ---
 id: involving-people-in-design
-title: "Involving people in design"
+title: "People affected by a design should take part in making it."
+topic: "Involving people in design"
 part: part-5
 keyIdea: part-5-ki3
 order: 30

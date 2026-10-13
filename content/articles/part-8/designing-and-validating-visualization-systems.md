@@ -1,6 +1,7 @@
 ---
 id: designing-and-validating-visualization-systems
-title: "Designing and validating visualization systems"
+title: "Visualization systems must be designed and validated at nested levels, together with domain experts."
+topic: "Designing and validating visualization systems"
 part: part-8
 keyIdea: part-8-ki2
 order: 50

@@ -1,6 +1,7 @@
 ---
 id: making-things-as-a-form-of-research
-title: "Making things as a form of research"
+title: "Making artifacts can itself produce research knowledge."
+topic: "Making things as a form of research"
 part: part-5
 keyIdea: part-5-ki1
 order: 27

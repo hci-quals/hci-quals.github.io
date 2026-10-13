@@ -1,6 +1,7 @@
 ---
 id: directness-and-instruments
-title: "Directness and instruments"
+title: "Interfaces feel direct when the gulfs between intention and effect are small."
+topic: "Directness and instruments"
 part: part-3
 keyIdea: part-3-ki2
 order: 17

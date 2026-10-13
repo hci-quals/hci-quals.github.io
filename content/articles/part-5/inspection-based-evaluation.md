@@ -1,6 +1,7 @@
 ---
 id: inspection-based-evaluation
-title: "Inspection-based evaluation"
+title: "Experts can find many usability problems cheaply, but their judgments vary."
+topic: "Inspection-based evaluation"
 part: part-5
 keyIdea: part-5-ki3
 order: 31

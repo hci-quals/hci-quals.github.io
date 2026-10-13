@@ -1,6 +1,7 @@
 ---
 id: visualization-as-interactive-analysis-and-sensemaking
-title: "Visualization as interactive analysis and sensemaking"
+title: "Visualization is a medium for interactive analysis and sensemaking."
+topic: "Visualization as interactive analysis and sensemaking"
 part: part-8
 keyIdea: part-8-ki2
 order: 49

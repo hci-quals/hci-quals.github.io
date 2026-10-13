@@ -1,6 +1,7 @@
 ---
 id: mental-models-explanation-and-appropriate-reliance
-title: "Mental models, explanation and appropriate reliance"
+title: "Explanations improve reliance on AI only when checking the AI is easy."
+topic: "Mental models, explanation and appropriate reliance"
 part: ai
 keyIdea: ai-ki2
 order: 70

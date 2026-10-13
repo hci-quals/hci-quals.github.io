@@ -1,6 +1,7 @@
 ---
 id: designing-communities-with-social-science
-title: "Designing communities with social science"
+title: "Social science theory can guide how online communities are designed."
+topic: "Designing communities with social science"
 part: part-6
 keyIdea: part-6-ki2
 order: 34

@@ -1,6 +1,7 @@
 ---
 id: navigating-information-larger-than-the-screen
-title: "Navigating information larger than the screen"
+title: "When information exceeds the screen, interfaces must trade detail against context."
+topic: "Navigating information larger than the screen"
 part: part-3
 keyIdea: part-3-ki2
 order: 18

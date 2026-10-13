@@ -1,6 +1,7 @@
 ---
 id: computers-as-partners-that-augment-the-intellect
-title: "Computers as partners that augment the intellect"
+title: "Computers should be partners that amplify the human intellect rather than replace it."
+topic: "Computers as partners that augment the intellect"
 part: part-1
 keyIdea: part-1-ki1
 order: 1

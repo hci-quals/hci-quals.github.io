@@ -1,6 +1,7 @@
 ---
 id: design-problems-are-ill-structured
-title: "Design problems are ill-structured: design as a planning problem (frame problem)"
+title: "Design problems are ill-structured, so designing is a planning problem of framing what to solve."
+topic: "Design problems are ill-structured: design as a planning problem (frame problem)"
 part: part-5
 keyIdea: part-5-ki1
 order: 26

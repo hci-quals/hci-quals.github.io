@@ -1,6 +1,7 @@
 ---
 id: cognition-extends-into-the-world
-title: "Cognition extends into the world"
+title: "Cognition extends beyond the head into people, artifacts and the world."
+topic: "Cognition extends into the world"
 part: part-2
 keyIdea: part-2-ki2
 order: 8

@@ -1,6 +1,7 @@
 ---
 id: design-and-power-gender-race-and-colonial-histories
-title: "Design and power: gender, race and colonial histories"
+title: "Gender, race and colonial history shape design, so affected communities should lead it."
+topic: "Design and power: gender, race and colonial histories"
 part: part-9
 keyIdea: part-9-ki2
 order: 56

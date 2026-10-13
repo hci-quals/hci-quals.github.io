@@ -1,6 +1,7 @@
 ---
 id: visual-variables-and-graphical-integrity
-title: "Visual variables and graphical integrity"
+title: "Data maps onto a small set of visual variables, and charts should show data honestly."
+topic: "Visual variables and graphical integrity"
 part: part-8
 keyIdea: part-8-ki1
 order: 45

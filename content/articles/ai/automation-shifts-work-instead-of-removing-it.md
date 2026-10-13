@@ -1,6 +1,7 @@
 ---
 id: automation-shifts-work-instead-of-removing-it
-title: "Automation shifts work instead of removing it"
+title: "Automation shifts work instead of removing it."
+topic: "Automation shifts work instead of removing it"
 part: ai
 keyIdea: ai-ki1
 order: 66

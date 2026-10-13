@@ -1,6 +1,7 @@
 ---
 id: input-devices-form-a-design-space
-title: "Input devices form a design space"
+title: "Input devices form a design space defined by what they sense and the states they support."
+topic: "Input devices form a design space"
 part: part-3
 keyIdea: part-3-ki1
 order: 15

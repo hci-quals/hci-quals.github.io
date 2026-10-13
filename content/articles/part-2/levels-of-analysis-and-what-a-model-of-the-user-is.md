@@ -1,6 +1,7 @@
 ---
 id: levels-of-analysis-and-what-a-model-of-the-user-is
-title: "Levels of analysis and what a “model of the user” is"
+title: "A model of the user must say which level of analysis it explains."
+topic: "Levels of analysis and what a “model of the user” is"
 part: part-2
 keyIdea: part-2-ki1
 order: 4

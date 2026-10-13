@@ -1,6 +1,7 @@
 ---
 id: tools-that-help-programmers-understand-code
-title: "Tools that help programmers understand code"
+title: "Debugging is information seeking, so tools should answer the questions programmers actually ask."
+topic: "Tools that help programmers understand code"
 part: part-7
 keyIdea: part-7-ki3
 order: 42

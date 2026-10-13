@@ -1,6 +1,7 @@
 ---
 id: effects-on-peoples-work-thinking-and-beliefs
-title: "Effects on people's work, thinking and beliefs"
+title: "Generative AI changes how people work, think and believe."
+topic: "Effects on people's work, thinking and beliefs"
 part: ai
 keyIdea: ai-ki3
 order: 75

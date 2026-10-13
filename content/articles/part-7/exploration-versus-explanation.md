@@ -1,6 +1,7 @@
 ---
 id: exploration-versus-explanation
-title: "Exploration versus explanation"
+title: "Much programming is exploration, and exploring is at odds with explaining results."
+topic: "Exploration versus explanation"
 part: part-7
 keyIdea: part-7-ki3
 order: 43

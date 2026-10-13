@@ -1,6 +1,7 @@
 ---
 id: natural-language-as-the-interface
-title: "Natural language as the interface"
+title: "Natural language has become the interface, reopening the gulfs of execution and evaluation."
+topic: "Natural language as the interface"
 part: ai
 keyIdea: ai-ki3
 order: 72

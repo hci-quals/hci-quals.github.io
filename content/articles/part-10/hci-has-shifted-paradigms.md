@@ -1,6 +1,7 @@
 ---
 id: hci-has-shifted-paradigms
-title: "HCI has shifted paradigms"
+title: "HCI has shifted paradigms, and each paradigm needs its own methods."
+topic: "HCI has shifted paradigms"
 part: part-10
 keyIdea: part-10-ki1
 order: 60

@@ -1,6 +1,7 @@
 ---
 id: behavior-as-adaptation-to-the-information-environment
-title: "Behavior as adaptation to the information environment"
+title: "Behavior is best explained as adaptation to the structure of the information environment."
+topic: "Behavior as adaptation to the information environment"
 part: part-2
 keyIdea: part-2-ki1
 order: 6

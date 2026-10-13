@@ -1,6 +1,7 @@
 ---
 id: embodiment-ecology-and-affordances
-title: "Embodiment, ecology and affordances"
+title: "Meaning comes from acting in a physical and social world, which is what affordances describe."
+topic: "Embodiment, ecology and affordances"
 part: part-2
 keyIdea: part-2-ki2
 order: 10

@@ -1,6 +1,7 @@
 ---
 id: statistics-replication-and-open-science
-title: "Statistics, replication and open science"
+title: "Flexible analyses produce false findings, so HCI needs open and replicable science."
+topic: "Statistics, replication and open science"
 part: part-10
 keyIdea: part-10-ki3
 order: 64

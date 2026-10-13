@@ -1,6 +1,7 @@
 ---
 id: language-models-as-models-of-minds-and-people
-title: "Language models as models of minds and people"
+title: "Language models can simulate minds and people, but passing a test is not understanding."
+topic: "Language models as models of minds and people"
 part: ai
 keyIdea: ai-ki3
 order: 74

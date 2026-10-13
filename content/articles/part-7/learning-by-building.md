@@ -1,6 +1,7 @@
 ---
 id: learning-by-building
-title: "Learning by building"
+title: "People learn powerful ideas by building things they care about."
+topic: "Learning by building"
 part: part-7
 keyIdea: part-7-ki2
 order: 40

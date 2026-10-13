@@ -1,6 +1,7 @@
 ---
 id: interactive-graphics-and-the-personal-computer
-title: "Interactive graphics and the personal computer"
+title: "Sketchpad, the Dynabook and the Star showed that direct, visual, real-time interaction could make computers personal."
+topic: "Interactive graphics and the personal computer"
 part: part-1
 keyIdea: part-1-ki2
 order: 2

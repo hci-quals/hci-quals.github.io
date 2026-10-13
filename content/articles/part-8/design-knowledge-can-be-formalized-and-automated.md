@@ -1,6 +1,7 @@
 ---
 id: design-knowledge-can-be-formalized-and-automated
-title: "Design knowledge can be formalized and automated"
+title: "Visualization design knowledge can be formalized and automated."
+topic: "Design knowledge can be formalized and automated"
 part: part-8
 keyIdea: part-8-ki2
 order: 48

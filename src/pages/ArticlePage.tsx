@@ -41,8 +41,14 @@ export function ArticlePage() {
         </aside>
 
         <article className="min-w-0 max-w-2xl">
-          <Crumbs items={[{ label: 'Encyclopedia', to: '/encyclopedia' }, { label: part.short, to: `/encyclopedia#${part.id}` }, { label: ki.title, to: `/encyclopedia#${ki.id}` }]} />
-          <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-[2.75rem]">{a.title}</h1>
+          <Crumbs items={[{ label: 'Encyclopedia', to: '/encyclopedia' }, { label: `${part.number}. ${part.short}`, to: `/encyclopedia#${part.id}` }]} />
+          <Link to={`/encyclopedia#${ki.id}`} className="mt-3 block font-serif text-[17px] leading-snug text-muted hover:text-ink">
+            {ki.number} {ki.title}
+          </Link>
+          <h1 className="mt-6 font-serif text-[2.1rem] font-semibold leading-tight tracking-tight sm:text-[2.5rem]">
+            <span className="mr-3 font-sans text-xl font-normal tabular-nums text-faint">{a.number}</span>
+            {a.title}
+          </h1>
           <p className="mt-4 text-[15px] text-muted">
             {origin && (
               <>
@@ -101,14 +107,14 @@ export function ArticlePage() {
           <nav className="mt-16 flex justify-between gap-6 border-t border-rule pt-6 text-sm">
             {prev ? (
               <Link to={`/encyclopedia/${prev.id}`} className="text-muted hover:text-ink">
-                ← {prev.title}
+                ← {prev.number} {prev.title}
               </Link>
             ) : (
               <span />
             )}
             {next && (
               <Link to={`/encyclopedia/${next.id}`} className="text-right text-muted hover:text-ink">
-                {next.title} →
+                {next.number} {next.title} →
               </Link>
             )}
           </nav>

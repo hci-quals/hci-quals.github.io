@@ -29,6 +29,7 @@ export interface Section {
 
 export interface Article {
   id: string
+  number: string
   title: string
   partId: string
   keyIdeaId: string
@@ -44,6 +45,7 @@ export interface Article {
 
 export interface KeyIdea {
   id: string
+  number: string
   title: string
   intro: string
   partId: string
@@ -52,9 +54,9 @@ export interface KeyIdea {
 
 export interface Part {
   id: string
+  number: string
   title: string
   short: string
-  numeral: string
   intro: string
   keyIdeas: KeyIdea[]
 }
@@ -99,6 +101,7 @@ function parseArticle(raw: string, path: string): Article {
   const readings: Reading[] = (fm.readings ?? []).map((r: Reading) => ({ ...r, articleId: fm.id }))
   return {
     id: fm.id,
+    number: '',
     title: fm.title,
     partId: fm.part,
     keyIdeaId: fm.keyIdea,
@@ -113,8 +116,6 @@ function parseArticle(raw: string, path: string): Article {
   }
 }
 
-const NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
-
 export const articles: Article[] = Object.entries(files)
   .map(([path, raw]) => parseArticle(raw, path))
   .sort((a, b) => a.order - b.order)
@@ -123,14 +124,22 @@ export const articleById = new Map(articles.map((a) => [a.id, a]))
 const partsDoc = parseYaml(partsRaw) as {
   parts: { id: string; title: string; short: string; intro: string; keyIdeas: { id: string; title: string; intro: string }[] }[]
 }
+// Outline numbering: parts 1, 2, …; key ideas 2.1; ideas 2.1.1.
 export const parts: Part[] = partsDoc.parts.map((p, i) => ({
   id: p.id,
+  number: String(i + 1),
   title: p.title,
   short: p.short,
-  numeral: p.id === 'ai' ? '' : NUMERALS[i] ?? String(i + 1),
   intro: p.intro,
-  keyIdeas: p.keyIdeas.map((k) => ({ ...k, partId: p.id, articles: articles.filter((a) => a.keyIdeaId === k.id) })),
+  keyIdeas: p.keyIdeas.map((k, j) => {
+    const number = `${i + 1}.${j + 1}`
+    const arts = articles.filter((a) => a.keyIdeaId === k.id)
+    arts.forEach((a, n) => (a.number = `${number}.${n + 1}`))
+    return { ...k, number, partId: p.id, articles: arts }
+  }),
 }))
+// Encyclopedia order follows the outline.
+articles.sort((a, b) => a.number.localeCompare(b.number, undefined, { numeric: true }))
 export const partById = new Map(parts.map((p) => [p.id, p]))
 export const keyIdeaById = new Map(parts.flatMap((p) => p.keyIdeas).map((k) => [k.id, k]))
 
@@ -218,4 +227,4 @@ export function listItems(body: string) {
 }
 
 export const fmtDate = (d: Date) => d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-export const partLabel = (p: Part) => (p.numeral ? `${p.numeral}. ${p.short}` : p.short)
+export const partLabel = (p: Part) => `${p.number}. ${p.short}`

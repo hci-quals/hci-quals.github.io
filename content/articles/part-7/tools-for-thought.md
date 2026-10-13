@@ -1,6 +1,7 @@
 ---
 id: tools-for-thought
-title: "Tools for thought"
+title: "Tools for thought change thinking through practices, not apps."
+topic: "Tools for thought"
 part: part-7
 keyIdea: part-7-ki3
 order: 44

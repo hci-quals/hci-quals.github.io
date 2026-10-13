@@ -3,142 +3,142 @@
 start: 2026-10-12   # Monday of week 1
 intervalDays: 7
 weeks:
-  - title: "Computers as partners that augment thinking and connect people"
+  - title: "Computers should augment human thinking and connect people, not just automate calculation."
     ideas:
       - computers-as-partners-that-augment-the-intellect
-  - title: "Interactive graphics and the personal computer"
+  - title: "A handful of interactive graphics systems invented the vocabulary of personal computing."
     ideas:
       - interactive-graphics-and-the-personal-computer
-  - title: "How HCI became a discipline"
+  - title: "HCI became a discipline by fusing cognitive psychology with engineering, and its focus keeps moving outward."
     ideas:
       - how-hci-became-a-discipline
-  - title: "Users can be modeled as bounded-rational information processors"
+  - title: "Users can be modeled as bounded-rational information processors."
     ideas:
       - levels-of-analysis-and-what-a-model-of-the-user-is
       - the-user-as-an-information-processor
       - behavior-as-adaptation-to-the-information-environment
-  - title: "Cognition is situated, distributed and embodied"
+  - title: "Cognition is situated, distributed and embodied."
     ideas:
       - action-is-situated-not-planned
       - cognition-extends-into-the-world
       - the-form-of-a-representation-shapes-the-task
       - embodiment-ecology-and-affordances
       - comparing-and-synthesizing-theories
-  - title: "People build models of systems and treat them as social others"
+  - title: "People build models of systems and treat them as social others."
     ideas:
       - mental-models-and-intuitive-theories
       - people-treat-computers-as-social-others
-  - title: "Input performance can be modeled and engineered"
+  - title: "Input performance can be modeled and engineered."
     ideas:
       - movement-can-be-modeled-and-predicted
       - input-devices-form-a-design-space
       - text-entry-as-a-modeling-and-recognition-problem
-  - title: "Direct manipulation of visible objects and spaces"
+  - title: "Interfaces work best when people act directly on visible objects."
     ideas:
       - directness-and-instruments
       - navigating-information-larger-than-the-screen
-  - title: "“Natural” interaction across speech, touch, pen and gesture"
+  - title: "“Natural” interaction is designed, not given."
     ideas:
       - natural-interaction-across-speech-touch-pen-and-gesture
-  - title: "Computing woven into the environment"
+  - title: "Computing should recede into the everyday environment."
     ideas:
       - computing-that-disappears-and-its-critics
       - context-is-something-systems-sense-and-people-make
-  - title: "Physical, embodied and immersive interaction"
+  - title: "Bodies and physical space matter for interaction."
     ideas:
       - physical-objects-as-interfaces
       - bodies-matter-for-thinking
       - immersive-and-mixed-reality
-  - title: "Sensing people in daily life"
+  - title: "Sensing people in daily life enables new interaction but is hard to evaluate."
     ideas:
       - sensing-people-in-daily-life
-  - title: "Design is its own way of knowing"
+  - title: "Design is its own way of knowing."
     ideas:
       - design-problems-are-ill-structured
       - making-things-as-a-form-of-research
-  - title: "Explore many alternatives, cheaply"
+  - title: "Exploring many alternatives cheaply leads to better designs."
     ideas:
       - explore-many-alternatives-before-committing
       - tools-that-support-design-itself
-  - title: "Bring users and experts into design and evaluation"
+  - title: "Users and experts should shape design and evaluation, within each method’s limits."
     ideas:
       - involving-people-in-design
       - inspection-based-evaluation
-  - title: "Collaboration depends on common ground and visibility"
+  - title: "Collaboration depends on common ground and visibility."
     ideas:
       - collaboration-at-a-distance-needs-common-ground
       - make-social-activity-visible
-  - title: "Communities and crowds can be designed, and they run on human labor"
+  - title: "Communities and crowds can be designed, and they run on human labor."
     ideas:
       - designing-communities-with-social-science
       - crowds-as-computation-and-the-labor-behind-them
-  - title: "Platforms shape what people see, say and present"
+  - title: "Platforms shape what people see, say and present."
     ideas:
       - people-reason-about-invisible-algorithms
       - self-presentation-and-governance-online
-  - title: "Tools and notations shape what people can make and think"
+  - title: "Tools and notations shape what people can make and think."
     ideas:
       - low-threshold-high-ceiling
       - notations-are-tools-for-thought
-  - title: "Everyone can program, given the right tools"
+  - title: "Everyone can program, given the right tools."
     ideas:
       - learning-by-building
       - programming-for-everyone-else
-  - title: "Tools for understanding code, data and ideas"
+  - title: "Tools help most when they answer people’s real questions and make process visible."
     ideas:
       - tools-that-help-programmers-understand-code
       - exploration-versus-explanation
       - tools-for-thought
-  - title: "Encodings are judged by human perception"
+  - title: "Visual encodings should be judged by human perception."
     ideas:
       - visual-variables-and-graphical-integrity
       - encodings-can-be-ranked-by-perceptual-accuracy
       - how-people-comprehend-graphs
-  - title: "Visualization can be formalized, automated and used for analysis"
+  - title: "Visualization can be formalized, automated and used for analysis."
     ideas:
       - design-knowledge-can-be-formalized-and-automated
       - visualization-as-interactive-analysis-and-sensemaking
       - designing-and-validating-visualization-systems
-  - title: "Visualizations communicate, persuade and include or exclude"
+  - title: "Visualizations communicate, persuade, and include or exclude."
     ideas:
       - visualizations-tell-stories-and-make-arguments
       - communicating-uncertainty
       - who-visualization-serves
-  - title: "Technology carries values, and design can account for them"
+  - title: "Technology carries values, and design can account for them."
     ideas:
       - artifacts-embody-values
       - building-with-critical-reflection
-  - title: "Design reproduces or challenges inequality"
+  - title: "Design reproduces or challenges inequality."
     ideas:
       - design-and-power-gender-race-and-colonial-histories
       - designing-for-and-with-the-global-south
-  - title: "Accessibility: from fixing users to changing systems"
+  - title: "Accessibility should change systems, not fix users."
     ideas:
       - accessibility-from-fixing-users-to-changing-systems
-  - title: "HCI must say what kind of knowledge a paper contributes"
+  - title: "HCI must say what kind of knowledge a paper contributes."
     ideas:
       - every-method-trades-something-off
       - hci-has-shifted-paradigms
       - ways-of-knowing
-  - title: "Evaluation and fieldwork should fit the contribution"
+  - title: "Evaluation and fieldwork should fit the contribution."
     ideas:
       - what-ethnography-is-for
       - evaluate-systems-on-their-own-terms
-  - title: "Rigor: replication and who counts as a participant"
+  - title: "HCI evidence must be replicable and come from real people."
     ideas:
       - statistics-replication-and-open-science
       - can-models-stand-in-for-people
-  - title: "Dividing work between people and machines"
+  - title: "Dividing work between people and machines shifts human effort rather than removing it."
     ideas:
       - automation-shifts-work-instead-of-removing-it
       - delegation-versus-control-agents-and-mixed-initiative
       - people-teach-machines
-  - title: "Designing for appropriate reliance and human values"
+  - title: "Human-AI systems should support appropriate reliance and keep human values in charge."
     ideas:
       - designing-for-uncertain-capable-systems
       - mental-models-explanation-and-appropriate-reliance
       - whose-values-whose-voices
-  - title: "Generative AI as interface, as test subject and as influence on people"
+  - title: "Generative AI is now an interface, a test subject and an influence on people."
     ideas:
       - natural-language-as-the-interface
       - evaluating-models-with-and-through-people

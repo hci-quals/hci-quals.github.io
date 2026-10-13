@@ -1,6 +1,7 @@
 ---
 id: programming-for-everyone-else
-title: "Programming for everyone else"
+title: "End users can program when languages fit their tasks or systems infer programs from examples."
+topic: "Programming for everyone else"
 part: part-7
 keyIdea: part-7-ki2
 order: 41

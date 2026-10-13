@@ -1,6 +1,7 @@
 ---
 id: encodings-can-be-ranked-by-perceptual-accuracy
-title: "Encodings can be ranked by perceptual accuracy"
+title: "Encodings can be ranked by how accurately people read them."
+topic: "Encodings can be ranked by perceptual accuracy"
 part: part-8
 keyIdea: part-8-ki1
 order: 46

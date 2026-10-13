@@ -1,6 +1,7 @@
 ---
 id: evaluate-systems-on-their-own-terms
-title: "Evaluate systems on their own terms"
+title: "Systems should be evaluated on their own terms, not forced through user studies."
+topic: "Evaluate systems on their own terms"
 part: part-10
 keyIdea: part-10-ki2
 order: 63

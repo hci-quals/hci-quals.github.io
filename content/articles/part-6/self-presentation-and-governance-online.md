@@ -1,6 +1,7 @@
 ---
 id: self-presentation-and-governance-online
-title: "Self-presentation and governance online"
+title: "People perform for imagined audiences online, and communities govern themselves through volunteer labor."
+topic: "Self-presentation and governance online"
 part: part-6
 keyIdea: part-6-ki3
 order: 37

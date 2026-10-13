@@ -1,6 +1,7 @@
 ---
 id: sensing-people-in-daily-life
-title: "Sensing people in daily life"
+title: "On-body and environmental sensing can support behavior change, but long-term effects are hard to show."
+topic: "Sensing people in daily life"
 part: part-4
 keyIdea: part-4-ki3
 order: 25

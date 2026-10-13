@@ -39,8 +39,8 @@ export function SearchPalette({ open, onClose }: { open: boolean; onClose: () =>
     if (!q.trim()) return []
     const out: Hit[] = []
     for (const a of articles) {
-      const s = score(`${a.title} ${a.label}`, q) * 3
-      if (s) out.push({ kind: 'Idea', title: a.title, sub: String(a.origin.year), to: `/encyclopedia/${a.id}`, score: s })
+      const s = score(`${a.number} ${a.title} ${a.label}`, q) * 3
+      if (s) out.push({ kind: 'Idea', title: a.title, sub: a.number, to: `/encyclopedia/${a.id}`, score: s })
     }
     for (const r of readings) {
       const s = score(`${r.citation} ${r.title}`, q)
@@ -79,7 +79,7 @@ export function SearchPalette({ open, onClose }: { open: boolean; onClose: () =>
               <li key={h.to + i}>
                 <button onMouseEnter={() => setSel(i)} onClick={() => go(h)} className={`flex w-full items-baseline gap-3 px-4 py-2 text-left ${i === sel ? 'bg-wash' : ''}`}>
                   <span className="min-w-0 flex-1 truncate text-sm">{h.title}</span>
-                  <span className="shrink-0 text-xs text-faint">{h.kind === 'Idea' ? `Idea · ${h.sub}` : h.sub}</span>
+                  <span className="shrink-0 text-xs text-faint">{h.kind === 'Idea' ? h.sub : h.sub}</span>
                 </button>
               </li>
             ))}

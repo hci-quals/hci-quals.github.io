@@ -45,7 +45,7 @@ function WeekBody({ w }: { w: Week }) {
           <ul className="max-w-2xl list-disc space-y-2 pl-5 font-serif text-[16px] leading-relaxed text-ink/85 marker:text-faint">
             {disagreements.map(({ a, text }) => (
               <li key={a.id}>
-                {multi && <span className="font-semibold">{a.title}. </span>}
+                {multi && <span className="font-sans text-sm tabular-nums text-faint">{a.number} </span>}
                 <Inline>{text}</Inline>
               </li>
             ))}
@@ -75,7 +75,10 @@ function WeekBody({ w }: { w: Week }) {
               <div key={a.id}>
                 {multi && (
                   <div className="mb-4 flex items-baseline justify-between gap-4 border-b border-rule pb-2">
-                    <h5 className="font-serif text-lg font-semibold">{a.title}</h5>
+                    <h5 className="font-serif text-lg font-semibold leading-snug">
+                      <span className="mr-2 font-sans text-sm font-normal tabular-nums text-faint">{a.number}</span>
+                      {a.title}
+                    </h5>
                     <Link to={`/encyclopedia/${a.id}`} className="shrink-0 text-sm text-muted hover:text-ink">
                       Entry →
                     </Link>
@@ -171,6 +174,9 @@ export function SyllabusPage() {
                   <span className="block text-xs text-faint">{fmtDate(w.start)}</span>
                 </span>
                 <span className={`flex-1 font-serif text-[19px] leading-snug ${past ? 'text-muted' : ''}`}>
+                  {w.articles[0] && keyIdeaById.get(w.articles[0].keyIdeaId)?.title === w.title && (
+                    <span className="mr-2 font-sans text-sm tabular-nums text-faint">{keyIdeaById.get(w.articles[0].keyIdeaId)?.number}</span>
+                  )}
                   {w.title}
                   {isNow && <span className="ml-3 align-middle font-sans text-xs font-medium text-accent">This week</span>}
                 </span>

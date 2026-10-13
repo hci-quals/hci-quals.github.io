@@ -1,6 +1,7 @@
 ---
 id: communicating-uncertainty
-title: "Communicating uncertainty"
+title: "Uncertainty becomes usable when it is shown in the right format, such as frequencies."
+topic: "Communicating uncertainty"
 part: part-8
 keyIdea: part-8-ki3
 order: 52

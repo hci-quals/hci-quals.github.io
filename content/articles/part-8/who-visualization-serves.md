@@ -1,6 +1,7 @@
 ---
 id: who-visualization-serves
-title: "Who visualization serves"
+title: "Visualization serves some people and excludes others unless it is designed otherwise."
+topic: "Who visualization serves"
 part: part-8
 keyIdea: part-8-ki3
 order: 53

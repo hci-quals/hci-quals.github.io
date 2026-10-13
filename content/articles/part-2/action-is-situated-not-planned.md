@@ -1,6 +1,7 @@
 ---
 id: action-is-situated-not-planned
-title: "Action is situated, not planned"
+title: "Action is situated, not planned."
+topic: "Action is situated, not planned"
 part: part-2
 keyIdea: part-2-ki2
 order: 7

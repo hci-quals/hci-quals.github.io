@@ -1,6 +1,7 @@
 ---
 id: tools-that-support-design-itself
-title: "Tools that support design itself"
+title: "Design tools should keep work rough and connect design, testing and analysis."
+topic: "Tools that support design itself"
 part: part-5
 keyIdea: part-5-ki2
 order: 29

@@ -1,6 +1,7 @@
 ---
 id: computing-that-disappears-and-its-critics
-title: "Computing that disappears, and its critics"
+title: "Computing should disappear into the background, though critics argue it should engage people instead."
+topic: "Computing that disappears, and its critics"
 part: part-4
 keyIdea: part-4-ki1
 order: 20

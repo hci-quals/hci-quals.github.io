@@ -1,6 +1,7 @@
 ---
 id: low-threshold-high-ceiling
-title: "Low threshold, high ceiling"
+title: "Good tools have a low threshold and a high ceiling."
+topic: "Low threshold, high ceiling"
 part: part-7
 keyIdea: part-7-ki1
 order: 38

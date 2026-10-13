@@ -1,6 +1,7 @@
 ---
 id: physical-objects-as-interfaces
-title: "Physical objects as interfaces"
+title: "Digital information should take physical forms that people can grasp."
+topic: "Physical objects as interfaces"
 part: part-4
 keyIdea: part-4-ki2
 order: 22

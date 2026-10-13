@@ -5,11 +5,11 @@ function IdeaCard({ a }: { a: Article }) {
   return (
     <Link
       to={`/encyclopedia/${a.id}`}
-      className="flex h-28 w-72 shrink-0 flex-col justify-between rounded-lg border border-rule bg-card px-5 py-4 transition-colors hover:border-faint"
+      className="flex h-36 w-80 shrink-0 flex-col justify-between rounded-lg border border-rule bg-card px-5 py-4 transition-colors hover:border-faint"
     >
-      <span className="font-serif text-[17px] font-semibold leading-snug">{a.title}</span>
+      <span className="line-clamp-3 font-serif text-[16.5px] font-semibold leading-snug">{a.title}</span>
       <span className="text-xs text-muted">
-        {a.origin.year} · {partById.get(a.partId)?.short}
+        {a.number} · {partById.get(a.partId)?.short}
       </span>
     </Link>
   )
@@ -49,7 +49,7 @@ export function HomePage() {
         </div>
         {week && (
           <Link to={`/syllabus#week-${week.number}`} className="mt-8 inline-block text-sm text-muted hover:text-ink">
-            This week: <span className="text-ink">Week {week.number}, {week.title}</span> →
+            This week: <span className="text-ink">Week {week.number}. {week.title}</span> →
           </Link>
         )}
       </section>

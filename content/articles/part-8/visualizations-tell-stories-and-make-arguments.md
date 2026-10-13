@@ -1,6 +1,7 @@
 ---
 id: visualizations-tell-stories-and-make-arguments
-title: "Visualizations tell stories and make arguments"
+title: "Visualizations tell stories and make arguments; no chart is neutral."
+topic: "Visualizations tell stories and make arguments"
 part: part-8
 keyIdea: part-8-ki3
 order: 51

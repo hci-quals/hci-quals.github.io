@@ -1,6 +1,7 @@
 ---
 id: whose-values-whose-voices
-title: "Whose values, whose voices"
+title: "AI systems encode whose values and voices count."
+topic: "Whose values, whose voices"
 part: ai
 keyIdea: ai-ki2
 order: 71

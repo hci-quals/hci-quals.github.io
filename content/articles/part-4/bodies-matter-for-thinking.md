@@ -1,6 +1,7 @@
 ---
 id: bodies-matter-for-thinking
-title: "Bodies matter for thinking"
+title: "Physical action supports thinking, learning and collaboration."
+topic: "Bodies matter for thinking"
 part: part-4
 keyIdea: part-4-ki2
 order: 23

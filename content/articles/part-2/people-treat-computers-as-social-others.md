@@ -1,6 +1,7 @@
 ---
 id: people-treat-computers-as-social-others
-title: "People treat computers as social others"
+title: "People automatically treat computers that show social cues as social actors."
+topic: "People treat computers as social others"
 part: part-2
 keyIdea: part-2-ki3
 order: 13

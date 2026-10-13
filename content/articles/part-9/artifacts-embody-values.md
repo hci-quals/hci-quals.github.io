@@ -1,6 +1,7 @@
 ---
 id: artifacts-embody-values
-title: "Artifacts embody values"
+title: "Artifacts embody values and politics."
+topic: "Artifacts embody values"
 part: part-9
 keyIdea: part-9-ki1
 order: 54

@@ -1,6 +1,7 @@
 ---
 id: mental-models-and-intuitive-theories
-title: "Mental models and intuitive theories"
+title: "People reason about systems through mental models that are incomplete but revisable."
+topic: "Mental models and intuitive theories"
 part: part-2
 keyIdea: part-2-ki3
 order: 12

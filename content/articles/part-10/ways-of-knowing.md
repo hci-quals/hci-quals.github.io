@@ -1,6 +1,7 @@
 ---
 id: ways-of-knowing
-title: "Ways of knowing"
+title: "HCI produces knowledge in several distinct ways, each with its own standards."
+topic: "Ways of knowing"
 part: part-10
 keyIdea: part-10-ki1
 order: 61

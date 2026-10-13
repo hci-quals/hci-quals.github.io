@@ -1,6 +1,7 @@
 ---
 id: context-is-something-systems-sense-and-people-make
-title: "Context is something systems sense and people make"
+title: "Context is not just data a system senses; people make it through activity."
+topic: "Context is something systems sense and people make"
 part: part-4
 keyIdea: part-4-ki1
 order: 21

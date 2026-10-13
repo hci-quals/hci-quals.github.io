@@ -1,6 +1,7 @@
 ---
 id: people-teach-machines
-title: "People teach machines"
+title: "People teach machines, and human feedback is now the core training signal."
+topic: "People teach machines"
 part: ai
 keyIdea: ai-ki1
 order: 68

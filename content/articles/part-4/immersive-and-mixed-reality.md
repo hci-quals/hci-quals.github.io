@@ -1,6 +1,7 @@
 ---
 id: immersive-and-mixed-reality
-title: "Immersive and mixed reality"
+title: "Immersive systems work by creating presence somewhere along the real–virtual continuum."
+topic: "Immersive and mixed reality"
 part: part-4
 keyIdea: part-4-ki2
 order: 24

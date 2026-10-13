@@ -1,6 +1,7 @@
 ---
 id: comparing-and-synthesizing-theories
-title: "Comparing and synthesizing theories"
+title: "No single theory covers HCI, so theories must be compared by what each one sees and misses."
+topic: "Comparing and synthesizing theories"
 part: part-2
 keyIdea: part-2-ki2
 order: 11

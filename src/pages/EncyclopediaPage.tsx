@@ -12,13 +12,17 @@ function ByTopic() {
           <div className="mt-6 space-y-8">
             {p.keyIdeas.map((k) => (
               <div key={k.id} id={k.id} className="scroll-mt-24">
-                <h3 className="text-sm font-medium text-muted">{k.title}</h3>
-                <ul className="mt-2 border-t border-rule">
+                <h3 className="flex gap-3 font-serif text-lg font-semibold leading-snug">
+                  <span className="w-10 shrink-0 font-sans text-sm font-normal tabular-nums leading-7 text-faint">{k.number}</span>
+                  <span>{k.title}</span>
+                </h3>
+                <ul className="mt-2 ml-[3.25rem] border-t border-rule">
                   {k.articles.map((a) => (
                     <li key={a.id} className="border-b border-rule">
-                      <Link to={`/encyclopedia/${a.id}`} className="flex items-baseline gap-4 py-3 hover:text-accent">
-                        <span className="flex-1 font-serif text-[17px]">{a.title}</span>
-                        <span className="text-sm tabular-nums text-faint">{a.origin.year}</span>
+                      <Link to={`/encyclopedia/${a.id}`} className="flex items-baseline gap-3 py-3 hover:text-accent">
+                        <span className="w-12 shrink-0 text-sm tabular-nums text-faint">{a.number}</span>
+                        <span className="flex-1 font-serif text-[16.5px] leading-snug">{a.title}</span>
+                        <span className="pl-2 text-sm tabular-nums text-faint">{a.origin.year}</span>
                       </Link>
                     </li>
                   ))}
@@ -40,10 +44,12 @@ function TimelineRow({ a }: { a: Article }) {
       <div className="flex items-baseline gap-4 py-3">
         <span className="w-12 shrink-0 text-sm tabular-nums text-muted">{a.origin.year}</span>
         <div className="min-w-0 flex-1">
-          <Link to={`/encyclopedia/${a.id}`} className="font-serif text-[17px] hover:text-accent">
+          <Link to={`/encyclopedia/${a.id}`} className="font-serif text-[16.5px] leading-snug hover:text-accent">
             {a.title}
           </Link>
-          <div className="text-xs text-faint">{partById.get(a.partId)?.short}</div>
+          <div className="mt-0.5 text-xs text-faint">
+            {a.number} · {partById.get(a.partId)?.short}
+          </div>
         </div>
         {followUps.length > 0 && (
           <button onClick={() => setOpen((o) => !o)} className="flex shrink-0 items-center gap-1 text-xs text-muted hover:text-ink" aria-expanded={open}>

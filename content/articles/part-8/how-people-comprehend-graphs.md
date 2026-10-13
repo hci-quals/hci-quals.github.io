@@ -1,6 +1,7 @@
 ---
 id: how-people-comprehend-graphs
-title: "How people comprehend graphs"
+title: "Reading a graph means matching visual patterns to mental schemas."
+topic: "How people comprehend graphs"
 part: part-8
 keyIdea: part-8-ki1
 order: 47

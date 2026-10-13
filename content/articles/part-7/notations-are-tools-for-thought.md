@@ -1,6 +1,7 @@
 ---
 id: notations-are-tools-for-thought
-title: "Notations are tools for thought"
+title: "Notations are tools for thought that make some ideas easy to express and others hard."
+topic: "Notations are tools for thought"
 part: part-7
 keyIdea: part-7-ki1
 order: 39

@@ -1,6 +1,7 @@
 ---
 id: designing-for-and-with-the-global-south
-title: "Designing for and with the Global South"
+title: "Designing with the Global South requires questioning assumptions about development."
+topic: "Designing for and with the Global South"
 part: part-9
 keyIdea: part-9-ki2
 order: 57

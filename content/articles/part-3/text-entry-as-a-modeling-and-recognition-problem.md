@@ -1,6 +1,7 @@
 ---
 id: text-entry-as-a-modeling-and-recognition-problem
-title: "Text entry as a modeling and recognition problem"
+title: "Text entry succeeds by exploiting the statistics of language and movement."
+topic: "Text entry as a modeling and recognition problem"
 part: part-3
 keyIdea: part-3-ki1
 order: 16

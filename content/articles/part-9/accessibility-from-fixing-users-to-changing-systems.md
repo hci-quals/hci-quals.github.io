@@ -1,6 +1,7 @@
 ---
 id: accessibility-from-fixing-users-to-changing-systems
-title: "Accessibility: from fixing users to changing systems"
+title: "Accessibility should build on what people can do and on interdependence."
+topic: "Accessibility: from fixing users to changing systems"
 part: part-9
 keyIdea: part-9-ki3
 order: 58

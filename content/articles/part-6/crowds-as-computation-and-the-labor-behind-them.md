@@ -1,6 +1,7 @@
 ---
 id: crowds-as-computation-and-the-labor-behind-them
-title: "Crowds as computation, and the labor behind them"
+title: "Crowds can do work algorithms cannot, but their labor is often invisible and underpaid."
+topic: "Crowds as computation, and the labor behind them"
 part: part-6
 keyIdea: part-6-ki2
 order: 35

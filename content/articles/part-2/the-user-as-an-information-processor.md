@@ -1,6 +1,7 @@
 ---
 id: the-user-as-an-information-processor
-title: "The user as an information processor"
+title: "Modeling perception, memory and motor stages lets designers predict expert performance."
+topic: "The user as an information processor"
 part: part-2
 keyIdea: part-2-ki1
 order: 5

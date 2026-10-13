@@ -1,6 +1,7 @@
 ---
 id: can-models-stand-in-for-people
-title: "Can models stand in for people?"
+title: "Language models cannot stand in for human participants."
+topic: "Can models stand in for people?"
 part: part-10
 keyIdea: part-10-ki3
 order: 65

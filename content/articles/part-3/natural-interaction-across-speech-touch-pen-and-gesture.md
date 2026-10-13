@@ -1,6 +1,7 @@
 ---
 id: natural-interaction-across-speech-touch-pen-and-gesture
-title: "“Natural” interaction across speech, touch, pen and gesture"
+title: "Speech, touch, pen and gesture help only when labor is divided well and the body gets feedback."
+topic: "“Natural” interaction across speech, touch, pen and gesture"
 part: part-3
 keyIdea: part-3-ki3
 order: 19

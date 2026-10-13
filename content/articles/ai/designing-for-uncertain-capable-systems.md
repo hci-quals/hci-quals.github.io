@@ -1,6 +1,7 @@
 ---
 id: designing-for-uncertain-capable-systems
-title: "Designing for uncertain, capable systems"
+title: "AI should augment human agency even though its capabilities are uncertain."
+topic: "Designing for uncertain, capable systems"
 part: ai
 keyIdea: ai-ki2
 order: 69

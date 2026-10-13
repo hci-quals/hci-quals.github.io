@@ -1,6 +1,7 @@
 ---
 id: building-with-critical-reflection
-title: "Building with critical reflection"
+title: "Researchers should build systems while critically reflecting on their own assumptions."
+topic: "Building with critical reflection"
 part: part-9
 keyIdea: part-9-ki1
 order: 55

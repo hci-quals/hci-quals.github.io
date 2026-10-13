@@ -1,6 +1,7 @@
 ---
 id: evaluating-models-with-and-through-people
-title: "Evaluating models with and through people"
+title: "AI models should be evaluated with and through people, not only on benchmarks."
+topic: "Evaluating models with and through people"
 part: ai
 keyIdea: ai-ki3
 order: 73

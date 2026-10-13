@@ -1,6 +1,7 @@
 ---
 id: delegation-versus-control-agents-and-mixed-initiative
-title: "Delegation versus control: agents and mixed initiative"
+title: "Systems should act for people only when the expected benefit outweighs the cost of being wrong."
+topic: "Delegation versus control: agents and mixed initiative"
 part: ai
 keyIdea: ai-ki1
 order: 67

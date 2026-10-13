@@ -1,6 +1,7 @@
 ---
 id: make-social-activity-visible
-title: "Make social activity visible"
+title: "Making social activity visible lets groups coordinate and hold each other accountable."
+topic: "Make social activity visible"
 part: part-6
 keyIdea: part-6-ki1
 order: 33
