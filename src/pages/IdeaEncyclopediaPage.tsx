@@ -8,7 +8,7 @@ import { SectionBar } from '../components/ui'
 // Draft regrouping by deep idea; the entries themselves are the same as in the encyclopedia.
 const doc = parseYaml(raw) as {
   communities: Record<string, string>
-  ideas: { id: string; title: string; gloss: string; articles: string[] }[]
+  ideas: { id: string; name: string; claim: string; articles: string[] }[]
 }
 const ideas = doc.ideas.map((d, i) => {
   const entries = d.articles.map((id) => articleById.get(id)).filter((a): a is Article => !!a)
@@ -35,7 +35,7 @@ function Span({ years }: { years: number[] }) {
 }
 
 export function IdeaEncyclopediaPage() {
-  const sections = useMemo(() => ideas.map((d) => ({ id: d.id, mark: d.number, title: `${d.number}. ${d.title}` })), [])
+  const sections = useMemo(() => ideas.map((d) => ({ id: d.id, mark: d.number, title: `${d.number}. ${d.name}` })), [])
 
   return (
     <div className="mx-auto max-w-3xl px-5 pt-14 pb-14 sm:px-8">
@@ -49,10 +49,10 @@ export function IdeaEncyclopediaPage() {
           <section key={d.id} id={d.id} className="scroll-mt-32">
             <h2 className="flex gap-3 font-serif text-2xl font-semibold">
               <span className="w-8 shrink-0 font-sans text-base font-normal tabular-nums leading-8 text-faint">{d.number}</span>
-              <span>{d.title}</span>
+              <span className="leading-snug">{d.claim}</span>
             </h2>
             <div className="ml-11">
-              <p className="mt-2 font-serif text-[17px] leading-relaxed text-muted">{d.gloss}</p>
+              <p className="mt-2 text-sm text-muted">{d.name}</p>
               <div className="mt-4 flex justify-between text-xs text-faint">
                 <span>{d.communities.join(' · ')}</span>
                 <span className="tabular-nums">
