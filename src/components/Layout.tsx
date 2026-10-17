@@ -61,7 +61,7 @@ export function Layout() {
   }, [loc.pathname])
 
   // The home page belongs to neither side, so a faint ghost drifts between the options to show the switch is clickable.
-  const side = loc.pathname.startsWith('/syllabus') ? 'syllabus' : loc.pathname.startsWith('/encyclopedia') ? 'encyclopedia' : null
+  const side = loc.pathname.startsWith('/syllabus') ? 'syllabus' : /^\/(idea-)?encyclopedia/.test(loc.pathname) ? 'encyclopedia' : null
   const tab = (active: boolean) => `relative z-10 rounded px-3 py-1 text-center text-sm transition-colors duration-300 ${active ? 'text-paper' : 'text-muted hover:text-ink'}`
 
   return (

@@ -1,0 +1,162 @@
+# DRAFT proposal: the same entries regrouped by deep idea instead of subfield.
+# Each entry appears once, under the deep idea it most clearly instantiates.
+# `communities` gives a short name for each current part, used to show how widely an idea travels.
+
+communities:
+  part-1: Foundations
+  part-2: Theory
+  part-3: Input
+  part-4: Ubicomp
+  part-5: Design
+  part-6: Social
+  part-7: Programming
+  part-8: Visualization
+  part-9: Values
+  part-10: Methods
+  ai: AI
+
+ideas:
+  - id: models-of-behaviour
+    title: Models of behaviour
+    gloss: Behaviour can be predicted from models of perception, movement and rational adaptation, if the model says what level it explains.
+    articles:
+      - the-user-as-an-information-processor
+      - movement-can-be-modeled-and-predicted
+      - text-entry-as-a-modeling-and-recognition-problem
+      - levels-of-analysis-and-what-a-model-of-the-user-is
+      - language-models-as-models-of-minds-and-people
+      - can-models-stand-in-for-people
+
+  - id: mental-models
+    title: Mental models and folk theories
+    gloss: People act on their own theories of how a system works, and those theories decide what they trust.
+    articles:
+      - mental-models-and-intuitive-theories
+      - people-treat-computers-as-social-others
+      - people-reason-about-invisible-algorithms
+      - mental-models-explanation-and-appropriate-reliance
+
+  - id: cognition-beyond-the-head
+    title: Cognition beyond the head
+    gloss: Thinking happens across bodies, artifacts and other people, so designing an artifact means designing a part of cognition.
+    articles:
+      - cognition-extends-into-the-world
+      - embodiment-ecology-and-affordances
+      - bodies-matter-for-thinking
+      - tools-for-thought
+
+  - id: planning-and-situated-action
+    title: Planning and situated action
+    gloss: Neither people using systems nor people designing them follow plans; they frame and reframe the problem as they act.
+    articles:
+      - action-is-situated-not-planned
+      - context-is-something-systems-sense-and-people-make
+      - design-problems-are-ill-structured
+      - explore-many-alternatives-before-committing
+      - tools-that-support-design-itself
+      - design-knowledge-can-be-formalized-and-automated
+
+  - id: representation
+    title: Graphical representation
+    gloss: The form of a representation decides which inferences come cheaply and which arguments it makes.
+    articles:
+      - the-form-of-a-representation-shapes-the-task
+      - notations-are-tools-for-thought
+      - visual-variables-and-graphical-integrity
+      - encodings-can-be-ranked-by-perceptual-accuracy
+      - how-people-comprehend-graphs
+      - communicating-uncertainty
+      - navigating-information-larger-than-the-screen
+      - visualizations-tell-stories-and-make-arguments
+
+  - id: reification
+    title: Reification and directness
+    gloss: Turning commands, data and intentions into things people can see and grasp narrows the gulf between intention and effect.
+    articles:
+      - interactive-graphics-and-the-personal-computer
+      - directness-and-instruments
+      - input-devices-form-a-design-space
+      - physical-objects-as-interfaces
+      - immersive-and-mixed-reality
+      - natural-interaction-across-speech-touch-pen-and-gesture
+      - natural-language-as-the-interface
+
+  - id: malleability
+    title: Malleability and end-user programming
+    gloss: People should be able to reshape their tools, which takes a low threshold, a high ceiling and a reason to build.
+    articles:
+      - programming-for-everyone-else
+      - low-threshold-high-ceiling
+      - learning-by-building
+
+  - id: sensemaking
+    title: Sensemaking and foraging
+    gloss: People explore information by following scent toward answers, whether the information is data, code or the web.
+    articles:
+      - behavior-as-adaptation-to-the-information-environment
+      - visualization-as-interactive-analysis-and-sensemaking
+      - tools-that-help-programmers-understand-code
+      - exploration-versus-explanation
+
+  - id: augmentation
+    title: Augmentation and delegation
+    gloss: Computers can amplify people or act for them, and every system takes a position on how much to hand over.
+    articles:
+      - computers-as-partners-that-augment-the-intellect
+      - delegation-versus-control-agents-and-mixed-initiative
+      - designing-for-uncertain-capable-systems
+      - effects-on-peoples-work-thinking-and-beliefs
+
+  - id: common-ground
+    title: Common ground and awareness
+    gloss: Groups coordinate by making activity visible and building shared understanding, online or off.
+    articles:
+      - collaboration-at-a-distance-needs-common-ground
+      - make-social-activity-visible
+      - designing-communities-with-social-science
+
+  - id: invisible-work
+    title: Invisible work
+    gloss: Automation and platforms rarely remove work; they move it to people whose labour goes unseen.
+    articles:
+      - automation-shifts-work-instead-of-removing-it
+      - crowds-as-computation-and-the-labor-behind-them
+      - people-teach-machines
+      - self-presentation-and-governance-online
+
+  - id: values-and-power
+    title: Values and power
+    gloss: Every artifact encodes someone's values, so who designs it and who it serves are design questions.
+    articles:
+      - artifacts-embody-values
+      - building-with-critical-reflection
+      - involving-people-in-design
+      - accessibility-from-fixing-users-to-changing-systems
+      - design-and-power-gender-race-and-colonial-histories
+      - designing-for-and-with-the-global-south
+      - who-visualization-serves
+      - whose-values-whose-voices
+
+  - id: ways-of-knowing
+    title: Ways of knowing
+    gloss: HCI makes knowledge by building, observing, measuring and critiquing, and each needs its own standard of evidence.
+    articles:
+      - how-hci-became-a-discipline
+      - hci-has-shifted-paradigms
+      - comparing-and-synthesizing-theories
+      - ways-of-knowing
+      - every-method-trades-something-off
+      - what-ethnography-is-for
+      - making-things-as-a-form-of-research
+      - evaluate-systems-on-their-own-terms
+      - inspection-based-evaluation
+      - designing-and-validating-visualization-systems
+      - statistics-replication-and-open-science
+      - evaluating-models-with-and-through-people
+
+  - id: unplaced
+    title: Not yet placed
+    gloss: Entries that still read as a subfield rather than an idea.
+    articles:
+      - computing-that-disappears-and-its-critics
+      - sensing-people-in-daily-life

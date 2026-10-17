@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage'
 import { EncyclopediaPage } from './pages/EncyclopediaPage'
 import { ArticlePage } from './pages/ArticlePage'
 import { SyllabusPage } from './pages/SyllabusPage'
+import { IdeaEncyclopediaPage } from './pages/IdeaEncyclopediaPage'
 
 function LegacyArticle() {
   const { id } = useParams()
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="encyclopedia" element={<EncyclopediaPage />} />
           <Route path="encyclopedia/:id" element={<ArticlePage />} />
           <Route path="syllabus" element={<SyllabusPage />} />
+          <Route path="idea-encyclopedia" element={<IdeaEncyclopediaPage />} />
           <Route path="a/:id" element={<LegacyArticle />} />
           <Route path="timeline" element={<Navigate to="/encyclopedia?view=timeline" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
