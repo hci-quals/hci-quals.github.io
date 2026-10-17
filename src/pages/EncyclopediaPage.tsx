@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { articles, lineage, partById, partLabel, parts, readingAuthors, readingTitle, type Article } from '../data/content'
-import { Chevron } from '../components/ui'
+import { Chevron, SectionBar } from '../components/ui'
 
 function ByTopic() {
   return (
     <div className="space-y-14">
       {parts.map((p) => (
-        <section key={p.id} id={p.id} className="scroll-mt-24">
+        <section key={p.id} id={p.id} className="scroll-mt-32">
           <h2 className="font-serif text-2xl font-semibold">{partLabel(p)}</h2>
           <div className="mt-6 space-y-8">
             {p.keyIdeas.map((k) => (
-              <div key={k.id} id={k.id} className="scroll-mt-24">
+              <div key={k.id} id={k.id} className="scroll-mt-32">
                 <h3 className="flex gap-3 font-serif text-lg font-semibold leading-snug">
                   <span className="w-10 shrink-0 font-sans text-sm font-normal tabular-nums leading-7 text-faint">{k.number}</span>
                   <span>{k.title}</span>
@@ -81,16 +81,17 @@ function TimelineRow({ a }: { a: Article }) {
   )
 }
 
+const byYear = [...articles].sort((x, y) => x.origin.year - y.origin.year || x.order - y.order)
+const decades = [...new Set(byYear.map((a) => Math.floor(a.origin.year / 10) * 10))]
+
 function Chronological() {
-  const sorted = [...articles].sort((x, y) => x.origin.year - y.origin.year || x.order - y.order)
-  const decades = [...new Set(sorted.map((a) => Math.floor(a.origin.year / 10) * 10))]
   return (
     <div className="space-y-10">
       {decades.map((d) => (
-        <section key={d}>
+        <section key={d} id={`d-${d}`} className="scroll-mt-32">
           <h2 className="font-serif text-2xl font-semibold text-muted">{d}s</h2>
           <ul className="mt-3 border-t border-rule">
-            {sorted
+            {byYear
               .filter((a) => Math.floor(a.origin.year / 10) * 10 === d)
               .map((a) => (
                 <TimelineRow key={a.id} a={a} />
@@ -106,28 +107,36 @@ export function EncyclopediaPage() {
   const [params, setParams] = useSearchParams()
   const view = params.get('view') === 'timeline' ? 'timeline' : 'topic'
 
+  const sections = useMemo(
+    () =>
+      view === 'topic'
+        ? parts.map((p) => ({ id: p.id, mark: String(p.number), title: partLabel(p) }))
+        : decades.map((d) => ({ id: `d-${d}`, mark: `${d}s`, title: `${d}s` })),
+    [view],
+  )
+
   return (
-    <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8">
-      <h1 className="font-serif text-4xl font-semibold tracking-tight">Encyclopedia</h1>
-      <p className="mt-3 max-w-xl font-serif text-lg text-muted">
-        Each entry covers one idea: where it came from, its core concepts, what is still debated, and the readings behind it.
-      </p>
-      <div className="mt-8 mb-10 inline-flex rounded-md border border-rule p-0.5 text-sm">
-        {(
-          [
-            ['topic', 'By topic'],
-            ['timeline', 'Chronological'],
-          ] as const
-        ).map(([v, label]) => (
-          <button
-            key={v}
-            onClick={() => setParams(v === 'topic' ? {} : { view: v }, { replace: true })}
-            className={`rounded px-4 py-1.5 transition-colors ${view === v ? 'bg-wash text-ink' : 'text-muted hover:text-ink'}`}
-          >
-            {label}
-          </button>
-        ))}
+    <div className="mx-auto max-w-3xl px-5 pt-14 pb-14 sm:px-8">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <h1 className="font-serif text-4xl font-semibold tracking-tight">Encyclopedia</h1>
+        <div className="inline-flex rounded-md border border-rule p-0.5 text-sm">
+          {(
+            [
+              ['topic', 'By topic'],
+              ['timeline', 'Chronological'],
+            ] as const
+          ).map(([v, label]) => (
+            <button
+              key={v}
+              onClick={() => setParams(v === 'topic' ? {} : { view: v }, { replace: true })}
+              className={`rounded px-3 py-1 transition-colors ${view === v ? 'bg-wash text-ink' : 'text-muted hover:text-ink'}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
+      <SectionBar sections={sections} />
       {view === 'topic' ? <ByTopic /> : <Chronological />}
     </div>
   )

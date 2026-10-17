@@ -11,8 +11,9 @@
   --hq-wash: #f3f1ec;
   --hq-accent: #275d7a;
 }
+/* Dark follows the system unless the header toggle has set data-theme on <html>. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --hq-paper: #141414;
     --hq-card: #1a1a1a;
     --hq-ink: #e9e7e3;
@@ -22,6 +23,16 @@
     --hq-wash: #1f1e1c;
     --hq-accent: #8dbdd6;
   }
+}
+:root[data-theme="dark"] {
+  --hq-paper: #141414;
+  --hq-card: #1a1a1a;
+  --hq-ink: #e9e7e3;
+  --hq-muted: #a09d98;
+  --hq-faint: #6c6a66;
+  --hq-rule: #2b2a28;
+  --hq-wash: #1f1e1c;
+  --hq-accent: #8dbdd6;
 }
 
 @theme inline {
@@ -58,11 +69,16 @@ body {
 .prose-hq a { color: var(--hq-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .prose-hq blockquote { display: none; }
 
-/* Carousel rows drift slowly; they pause on hover and stop for reduced motion. */
+/* Ghost highlight on the home page: rests on each option, then slides to the other; it holds still while hovered. */
+@keyframes hq-ghost { 0%, 35% { transform: translateX(0); } 50%, 85% { transform: translateX(100%); } 100% { transform: translateX(0); } }
+.hq-ghost { animation: hq-ghost 5s ease-in-out infinite; }
+.hq-switch:hover .hq-ghost, .hq-switch:focus-within .hq-ghost { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hq-ghost { animation: none; } }
+
+/* Carousel rows drift slowly and keep moving under the cursor; they stop only for reduced motion. */
 @keyframes hq-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .hq-track { animation: hq-drift var(--hq-duration, 120s) linear infinite; }
 .hq-track.reverse { animation-direction: reverse; }
-.hq-row:hover .hq-track { animation-play-state: paused; }
 .hq-row { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
 @media (prefers-reduced-motion: reduce) {
   .hq-track { animation: none; }

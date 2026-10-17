@@ -1,5 +1,15 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { articles, currentWeek, partById, type Article } from '../data/content'
+import { articles, partById, type Article } from '../data/content'
+
+function shuffled<T>(items: T[]): T[] {
+  const out = [...items]
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
 
 function IdeaCard({ a }: { a: Article }) {
   return (
@@ -28,30 +38,19 @@ function Row({ items, reverse, duration }: { items: Article[]; reverse?: boolean
 }
 
 export function HomePage() {
-  const rows = [0, 1, 2].map((r) => articles.filter((_, i) => i % 3 === r))
-  const week = currentWeek()
+  // Shuffled once per visit so the ribbons mix topics instead of reading out the list in order.
+  const [rows] = useState(() => {
+    const mixed = shuffled(articles)
+    return [0, 1, 2].map((r) => mixed.filter((_, i) => i % 3 === r))
+  })
 
   return (
     <div>
       <section className="mx-auto max-w-5xl px-5 pb-16 pt-20 sm:px-8 sm:pt-28">
-        <h1 className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">HCI Quals Readings</h1>
+        <h1 id="hq-hero-title" className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">The Informal ‘HCI Quals’</h1>
         <p className="mt-6 max-w-2xl font-serif text-xl leading-relaxed text-muted">
-          A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI. Browse it as an encyclopedia, or follow the
-          syllabus week by week.
+          A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI.
         </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link to="/encyclopedia" className="rounded-md border border-ink bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-85">
-            Encyclopedia
-          </Link>
-          <Link to="/syllabus" className="rounded-md border border-rule bg-card px-5 py-2.5 text-sm font-medium transition-colors hover:border-faint">
-            Syllabus
-          </Link>
-        </div>
-        {week && (
-          <Link to={`/syllabus#week-${week.number}`} className="mt-8 inline-block text-sm text-muted hover:text-ink">
-            This week: <span className="text-ink">Week {week.number}. {week.title}</span> →
-          </Link>
-        )}
       </section>
 
       <section className="space-y-4 pb-8" aria-label="Ideas">

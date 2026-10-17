@@ -151,10 +151,6 @@ export function SyllabusPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8">
       <h1 className="font-serif text-4xl font-semibold tracking-tight">Syllabus</h1>
-      <p className="mt-3 max-w-xl font-serif text-lg text-muted">
-        One key idea per week. Each week states the core idea, where people disagree and what to think about, then lists the readings, with paired readings to
-        read side by side.
-      </p>
       <div className="mt-8 flex justify-end">
         <button onClick={() => setOpen(allOpen ? new Set() : new Set(weeks.map((w) => w.number)))} className="text-sm text-muted hover:text-ink">
           {allOpen ? 'Collapse all' : 'Expand all'}
