@@ -60,9 +60,6 @@ export function Layout() {
     return () => obs.disconnect()
   }, [loc.pathname])
 
-  // The home page belongs to neither side, so a faint ghost drifts between the options to show the switch is clickable.
-  const side = loc.pathname.startsWith('/syllabus') ? 'syllabus' : /^\/(idea-)?encyclopedia/.test(loc.pathname) ? 'encyclopedia' : null
-  const tab = (active: boolean) => `relative z-10 rounded px-3 py-1 text-center text-sm transition-colors duration-300 ${active ? 'text-paper' : 'text-muted hover:text-ink'}`
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -76,20 +73,6 @@ export function Layout() {
           >
             The Informal ‘HCI Quals’
           </Link>
-          <nav className="hq-switch relative grid grid-cols-2 rounded-md border border-rule p-0.5">
-            <span
-              aria-hidden
-              className={`absolute bottom-0.5 left-0.5 top-0.5 w-[calc(50%-2px)] rounded transition-[transform,background-color] duration-300 ease-out ${
-                side ? 'bg-ink' : 'hq-ghost bg-ink/10'
-              } ${side === 'syllabus' ? 'translate-x-full' : ''}`}
-            />
-            <Link to="/encyclopedia" className={tab(side === 'encyclopedia')} aria-current={side === 'encyclopedia' ? 'page' : undefined}>
-              Encyclopedia
-            </Link>
-            <Link to="/syllabus" className={tab(side === 'syllabus')} aria-current={side === 'syllabus' ? 'page' : undefined}>
-              Syllabus
-            </Link>
-          </nav>
           <ThemeToggle />
         </div>
       </header>

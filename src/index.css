@@ -69,12 +69,6 @@ body {
 .prose-hq a { color: var(--hq-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .prose-hq blockquote { display: none; }
 
-/* Ghost highlight on the home page: rests on each option, then slides to the other; it holds still while hovered. */
-@keyframes hq-ghost { 0%, 35% { transform: translateX(0); } 50%, 85% { transform: translateX(100%); } 100% { transform: translateX(0); } }
-.hq-ghost { animation: hq-ghost 5s ease-in-out infinite; }
-.hq-switch:hover .hq-ghost, .hq-switch:focus-within .hq-ghost { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .hq-ghost { animation: none; } }
-
 /* Carousel rows drift slowly and keep moving under the cursor; they stop only for reduced motion. */
 @keyframes hq-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .hq-track { animation: hq-drift var(--hq-duration, 120s) linear infinite; }
