@@ -136,7 +136,7 @@ export function SectionBar({ sections }: { sections: BarSection[] }) {
         <span className={`min-w-0 flex-1 truncate font-serif text-[15px] font-semibold transition-opacity ${title ? 'opacity-100' : 'opacity-0'}`} aria-live="polite">
           {title ?? '\u00a0'}
         </span>
-        <nav aria-label="Sections" className="-mx-1 flex shrink-0 gap-0.5 overflow-x-auto px-1">
+        <nav aria-label="Sections" className="-mx-1 flex min-w-0 max-w-full shrink-0 gap-0.5 overflow-x-auto px-1">
           {sections.map((s) => (
             <button
               key={s.id}

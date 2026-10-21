@@ -68,13 +68,3 @@ body {
 .prose-hq strong { font-weight: 600; }
 .prose-hq a { color: var(--hq-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .prose-hq blockquote { display: none; }
-
-/* Carousel rows drift slowly and keep moving under the cursor; they stop only for reduced motion. */
-@keyframes hq-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.hq-track { animation: hq-drift var(--hq-duration, 120s) linear infinite; }
-.hq-track.reverse { animation-direction: reverse; }
-.hq-row { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-@media (prefers-reduced-motion: reduce) {
-  .hq-track { animation: none; }
-  .hq-row { overflow-x: auto; }
-}

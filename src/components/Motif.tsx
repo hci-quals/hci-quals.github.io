@@ -57,7 +57,7 @@ const Loop = ({ m, top = BASE, bottom = BASE }: { m: { ink: string; base: string
 
 const VARIANTS: Record<string, { label: string; h?: number; draw: (m: { ink: string; base: string }) => ReactNode }> = {
   augmentation: {
-    label: 'The medium amplifies the person: rings widen around them.',
+    label: 'The loop with the medium widens the person: rings grow around them.',
     draw: (m) => (
       <>
         <Human /> <Medium /> <Loop m={m} bottom={INK} />
@@ -66,19 +66,8 @@ const VARIANTS: Record<string, { label: string; h?: number; draw: (m: { ink: str
       </>
     ),
   },
-  'invisible-work': {
-    label: 'Hidden workers beneath the medium keep it running.',
-    h: 132,
-    draw: (m) => (
-      <>
-        <Human /> <Medium /> <Loop m={m} />
-        <Human x={188} y={64} s={0.5} style={INK} dash={DASH} />
-        <Human x={212} y={64} s={0.5} style={INK} dash={DASH} />
-      </>
-    ),
-  },
-  'lawful-behaviour': {
-    label: 'The action is measured along a ruler and predicted by a law.',
+  models: {
+    label: 'A law written above the loop predicts how long the action will take.',
     draw: (m) => (
       <>
         <Human /> <Medium /> <Loop m={m} top={INK} />
@@ -92,20 +81,27 @@ const VARIANTS: Record<string, { label: string; h?: number; draw: (m: { ink: str
       </>
     ),
   },
-  foraging: {
-    label: 'The person hops between patches of information, following scent to the richest one.',
+  sensemaking: {
+    label: 'The person gathers scattered pieces from the medium and arranges them into a structure.',
     draw: (m) => (
       <>
-        <Human />
-        <Medium x={148} y={18} size={22} dots={false} dash={DASH} />
-        <Medium x={198} y={14} size={22} dots={false} dash={DASH} />
-        <Medium x={182} y={58} size={38} style={INK} />
-        <path d="M64 54 Q100 36 146 32 M172 26 Q184 18 196 22 M208 38 Q212 48 204 54" style={INK} strokeDasharray="1 4" markerEnd={m.ink} />
-        <path d="M178 84 Q122 98 66 74" style={BASE} markerEnd={m.base} />
+        <Human /> <Medium dots={false} />
+        {[[188, 50], [207, 47], [196, 63], [212, 70], [186, 72]].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r={2} style={{ fill: 'var(--hq-faint)', stroke: 'none' }} />
+        ))}
+        <path d={TOP} style={BASE} markerEnd={m.base} />
+        <path d="M172 76 Q140 92 110 88" style={INK} markerEnd={m.ink} />
+        <g style={INK}>
+          <path d="M86 70 L72 82 M86 70 L86 84 M86 70 L100 82" />
+          <circle cx={86} cy={68} r={2.6} style={{ fill: 'var(--hq-ink)', stroke: 'none' }} />
+          {[72, 86, 100].map((x) => (
+            <circle key={x} cx={x} cy={86} r={2.6} style={{ fill: 'var(--hq-ink)', stroke: 'none' }} />
+          ))}
+        </g>
       </>
     ),
   },
-  'mental-models': {
+  'intuitive-theories': {
     label: 'The person acts on an imagined, slightly wrong version of the medium.',
     draw: (m) => (
       <>
@@ -113,108 +109,98 @@ const VARIANTS: Record<string, { label: string; h?: number; draw: (m: { ink: str
         <circle cx={53} cy={35} r={2} style={INK} />
         <circle cx={60} cy={27} r={3} style={INK} />
         <ellipse cx={86} cy={17} rx={22} ry={13} style={INK} />
-        <rect x={78} y={10} width={15} height={14} rx={3} style={INK} strokeDasharray="2 2" transform="rotate(-12 85 17)" />
+        <rect x={78} y={10} width={15} height={14} rx={3} style={INK} strokeDasharray="2 2" transform="rotate(-14 85 17)" />
       </>
     ),
   },
-  'distributed-cognition': {
-    label: 'A boundary drawn around person and medium together: the thinking system.',
+  offloading: {
+    label: 'Something held in the head moves out into the medium, and person and medium think together.',
     draw: (m) => (
       <>
         <Human /> <Medium /> <Loop m={m} />
-        <rect x={10} y={22} width={222} height={80} rx={24} style={INK} strokeDasharray="5 4" />
+        <circle cx={40} cy={48} r={3} style={INK} strokeDasharray="1.5 1.5" />
+        <path d="M46 36 Q120 -2 196 42" style={INK} markerEnd={m.ink} />
+        <circle cx={200} cy={50} r={4} style={{ fill: 'var(--hq-ink)', stroke: 'none' }} />
+        <rect x={10} y={4} width={222} height={98} rx={26} style={INK} opacity={0.35} strokeDasharray="4 4" />
       </>
     ),
   },
-  'situated-action': {
-    label: 'A straight dashed plan, and the winding path the action actually takes.',
+  situated: {
+    label: 'The plan is a straight dashed line; the action bends around what the situation presents.',
     draw: (m) => (
       <>
         <Human /> <Medium />
         <path d="M66 52 L170 52" style={BASE} strokeDasharray={DASH} />
-        <path d="M66 52 C84 28 96 66 114 44 S142 26 150 50 S164 58 170 52" style={INK} markerEnd={m.ink} />
+        <circle cx={100} cy={52} r={4} style={{ fill: 'var(--hq-faint)', stroke: 'none' }} />
+        <circle cx={140} cy={52} r={4} style={{ fill: 'var(--hq-faint)', stroke: 'none' }} />
+        <path d="M66 52 C80 52 86 36 100 36 S112 52 120 52 S128 68 140 68 S160 52 170 52" style={INK} markerEnd={m.ink} />
         <path d={BOTTOM} style={BASE} markerEnd={m.base} />
       </>
     ),
   },
-  gulfs: {
-    label: 'Both arrows break across a gap between intention and effect.',
+  'direct-manipulation': {
+    label: 'The distant medium and its long loop give way to a medium right at hand, where acting and seeing the result are one short step.',
     draw: (m) => (
       <>
-        <Human /> <Medium />
-        <path d="M66 52 Q86 42 104 40" style={INK} />
-        <path d="M136 40 Q154 42 170 52" style={INK} markerEnd={m.ink} />
-        <path d="M170 72 Q154 80 136 82" style={INK} />
-        <path d="M104 82 Q86 80 66 72" style={INK} markerEnd={m.ink} />
-        <path d="M112 30 L112 92 M128 30 L128 92" style={BASE} strokeDasharray="2 3" />
-        <text x={120} y={20} textAnchor="middle" fontSize={8} style={{ fill: 'var(--hq-faint)' }}>
-          execution
-        </text>
-        <text x={120} y={106} textAnchor="middle" fontSize={8} style={{ fill: 'var(--hq-faint)' }}>
-          evaluation
-        </text>
+        <Human />
+        <g opacity={0.6}>
+          <Medium dash={DASH} dots={false} />
+          <path d="M138 40 Q156 40 170 50" style={BASE} strokeDasharray={DASH} />
+          <path d="M170 74 Q156 84 138 84" style={BASE} strokeDasharray={DASH} />
+        </g>
+        <Medium x={100} y={45} size={34} style={INK} dots={false} />
+        <rect x={111} y={56} width={12} height={12} rx={2} style={{ fill: 'var(--hq-ink)', stroke: 'none' }} />
+        <path d="M64 62 L94 62" style={INK} markerEnd={m.ink} markerStart={m.ink} />
       </>
     ),
   },
   reification: {
-    label: 'An abstraction leaves the medium as an object the person can grasp.',
+    label: 'An abstraction inside the medium becomes an object the person can pick up.',
     draw: (m) => (
       <>
-        <Human /> <Medium />
-        <path d="M178 60 L150 60" style={BASE} strokeDasharray={DASH} />
+        <Human /> <Medium dots={false} />
+        <text x={200} y={64} textAnchor="middle" fontSize={11} fontFamily="var(--font-serif)" fontStyle="italic" style={{ fill: 'var(--hq-faint)' }}>
+          f(x)
+        </text>
+        <path d="M178 60 L144 60" style={BASE} strokeDasharray={DASH} markerEnd={m.base} />
         <g style={INK}>
           <path d="M118 56 L132 56 L132 70 L118 70 Z" />
           <path d="M118 56 L124 50 L138 50 L132 56 M138 50 L138 64 L132 70" />
         </g>
-        <path d="M66 60 L110 60" style={INK} markerEnd={m.ink} />
+        <path d="M66 62 L110 62" style={INK} markerEnd={m.ink} />
       </>
     ),
   },
   representation: {
-    label: 'The same data as a table and as a chart; only the chart reaches the person easily.',
+    label: 'The same numbers as a table and as a chart; only the chart reaches the person easily.',
     draw: (m) => (
       <>
         <Human />
-        <Medium x={172} y={20} size={30} dots={false} dash={DASH} />
-        <text x={187} y={39} textAnchor="middle" fontSize={8} fontFamily="var(--font-sans)" style={{ fill: 'var(--hq-faint)' }}>
+        <Medium x={176} y={16} size={34} dots={false} dash={DASH} />
+        <text x={193} y={36} textAnchor="middle" fontSize={8} style={{ fill: 'var(--hq-faint)' }}>
           12 7 31
         </text>
-        <Medium x={186} y={58} size={40} dots={false} style={INK} />
-        <path d="M196 88 L196 78 M204 88 L204 72 M212 88 L212 66" style={INK} strokeWidth={3} strokeLinecap="butt" />
-        <path d="M66 52 Q120 30 166 34" style={BASE} markerEnd={m.base} />
-        <path d="M180 84 Q120 96 66 74" style={INK} strokeWidth={2.2} markerEnd={m.ink} />
+        <Medium x={176} y={62} size={40} dots={false} style={INK} />
+        <path d="M188 94 L188 84 M196 94 L196 78 M204 94 L204 70" style={INK} strokeWidth={3} strokeLinecap="butt" />
+        <path d="M172 34 Q120 38 66 54" style={BASE} strokeDasharray={DASH} markerEnd={m.base} />
+        <path d="M172 84 Q120 92 66 74" style={INK} strokeWidth={2.2} markerEnd={m.ink} />
       </>
     ),
   },
-  calm: {
-    label: 'The medium sits faintly at the periphery, glowing rather than demanding attention.',
+  background: {
+    label: 'The person looks ahead; the medium sits quietly at the edge of attention.',
     draw: () => (
       <>
         <Human />
-        <path d="M66 62 L150 62" style={BASE} strokeDasharray="1 4" />
+        <path d="M66 52 L160 52" style={BASE} strokeDasharray="1 4" />
         <Medium x={196} y={78} size={22} dots={false} dash="2 3" />
         <path d="M190 78 A18 18 0 0 1 224 72" style={INK} opacity={0.5} />
         <path d="M184 74 A26 26 0 0 1 230 64" style={INK} opacity={0.25} />
       </>
     ),
   },
-  framing: {
-    label: 'The arrow branches toward several possible problems, and one is chosen.',
-    draw: (m) => (
-      <>
-        <Human />
-        <Medium x={176} y={10} size={26} dots={false} dash={DASH} />
-        <Medium x={188} y={46} size={30} style={INK} />
-        <Medium x={176} y={86} size={26} dots={false} dash={DASH} />
-        <path d="M66 56 Q110 56 128 56" style={INK} />
-        <path d="M128 56 Q150 26 170 24" style={BASE} markerEnd={m.base} />
-        <path d="M128 56 Q150 60 182 61" style={INK} markerEnd={m.ink} />
-        <path d="M128 56 Q150 98 170 98" style={BASE} markerEnd={m.base} />
-      </>
-    ),
-  },
   malleability: {
-    label: 'The person reaches into the medium and reshapes it.',
+    label: 'The person reaches into the medium and drags it into a new shape.',
     draw: (m) => (
       <>
         <Human /> <Medium />
@@ -225,55 +211,57 @@ const VARIANTS: Record<string, { label: string; h?: number; draw: (m: { ink: str
       </>
     ),
   },
+  'end-user-programming': {
+    label: 'The person writes into the medium: a few lines of their own program take shape inside it.',
+    draw: (m) => (
+      <>
+        <Human /> <Medium style={INK} dots={false} />
+        {[
+          [188, 50, 24],
+          [194, 58, 16],
+          [194, 66, 20],
+          [188, 74, 12],
+        ].map(([x, y, w]) => (
+          <path key={y} d={`M${x} ${y} h${w}`} style={INK} strokeWidth={2.4} />
+        ))}
+        <path d={TOP} style={INK} markerEnd={m.ink} />
+        <path d={BOTTOM} style={BASE} markerEnd={m.base} />
+      </>
+    ),
+  },
   'common-ground': {
-    label: 'Two people share one medium, with an arc of awareness between them.',
+    label: 'Two people share one medium; their thought bubbles overlap where they understand the same thing.',
     draw: (m) => (
       <>
         <Human x={30} />
         <Human x={210} />
-        <Medium x={104} y={48} size={32} />
-        <path d="M54 72 L98 66" style={BASE} markerEnd={m.base} />
-        <path d="M186 72 L142 66" style={BASE} markerEnd={m.base} />
-        <path d="M44 30 Q120 -8 196 30" style={INK} strokeDasharray="1 4" markerEnd={m.ink} markerStart={m.ink} />
+        <Medium x={104} y={58} size={32} />
+        <path d="M54 76 L98 74" style={BASE} markerEnd={m.base} />
+        <path d="M186 76 L142 74" style={BASE} markerEnd={m.base} />
+        <circle cx={100} cy={24} r={20} style={INK} />
+        <circle cx={140} cy={24} r={20} style={INK} />
+        <path d="M120 8 A20 20 0 0 1 120 40 A20 20 0 0 1 120 8 Z" style={{ fill: 'var(--hq-ink)', stroke: 'none' }} opacity={0.18} />
       </>
     ),
   },
-  values: {
-    label: 'The medium sits on a tipped scale: it leans to one side.',
+  'beyond-being-there': {
+    label: 'Two people at different times meet through a medium that keeps a lasting record, something no meeting could.',
     draw: (m) => (
       <>
-        <Human /> <Loop m={m} />
-        <g transform="rotate(-9 200 60)">
-          <Medium />
-        </g>
-        <path d="M174 96 L228 88" style={INK} />
-        <path d="M201 92 L195 104 L207 104 Z" style={INK} />
+        <Human x={30} />
+        <Human x={210} dash={DASH} />
+        <Medium x={100} y={44} size={40} dots={false} style={INK} />
+        {[56, 64, 72].map((y, i) => (
+          <path key={y} d={`M108 ${y} h${24 - i * 6}`} style={INK} />
+        ))}
+        <circle cx={140} cy={44} r={7} style={{ ...INK, fill: 'var(--hq-paper)' }} />
+        <path d="M140 40 L140 44 L143 46" style={INK} />
+        <path d="M54 72 L94 66" style={BASE} markerEnd={m.base} />
+        <path d="M146 66 L186 72" style={BASE} markerEnd={m.base} />
       </>
     ),
   },
-  participation: {
-    label: 'Several people, not one, help shape the medium.',
-    h: 132,
-    draw: (m) => (
-      <>
-        <Human /> <Medium /> <Loop m={m} />
-        <Human x={110} y={62} s={0.55} style={INK} />
-        <Human x={140} y={66} s={0.55} style={INK} />
-        <path d="M120 104 Q160 104 182 84 M150 108 Q176 104 192 86" style={INK} markerEnd={m.ink} />
-      </>
-    ),
-  },
-  'building-is-knowing': {
-    label: 'Building the medium itself gives off new knowledge.',
-    draw: (m) => (
-      <>
-        <Human /> <Medium style={INK} /> <Loop m={m} />
-        <path d="M200 36 L200 26" style={INK} strokeDasharray="2 2" />
-        <path d="M200 2 L203 11 L212 14 L203 17 L200 26 L197 17 L188 14 L197 11 Z" style={{ ...INK, fill: 'var(--hq-ink)' }} />
-      </>
-    ),
-  },
-  pluralism: {
+  meta: {
     label: 'Several observers watch the same loop from different positions, each seeing part of it.',
     h: 132,
     draw: (m) => {

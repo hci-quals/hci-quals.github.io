@@ -1,374 +1,117 @@
-# The big ideas. Each is a claim someone could disagree with (`claim`) plus a short name (`name`).
-# `alternatives` are other ways to state the claim, each with a note on what it emphasizes.
-# `articles` lists the old entries whose readings belong to the idea; the entries themselves are no longer shown.
-# Each reading's subfield comes from fields.yaml.
+# The big ideas. Each has a short `name` and an opinionated `position`.
+# `aka` is an alternative name still under discussion; `problem` is an open question the idea raises.
+# `draft: true` marks a position Claude wrote or completed where the team's wording was missing or unfinished.
+# `readings` lists reading ids (from content/articles/**). Readings unfold or illustrate the position, and some challenge it;
+# a reading may sit under more than one idea.
+# Readings under no idea are listed at the bottom of the site as "Not yet placed".
 
 ideas:
-  # What computers are for
   - id: augmentation
     name: Augmentation over automation
-    claim: Computers should amplify human intellect, not replace it.
-    alternatives:
-      - text: "Judge a tool by what its users can still do without it afterward, not only by what they do with it."
-        emphasis: "Lasting skill: augmentation should leave people more capable, not more dependent."
-      - text: "People given a tool that does the task for them learn less and catch fewer of its mistakes than people given a tool that helps them do it."
-        emphasis: "A testable prediction about learning and oversight."
-      - text: "Keep the person in charge of the goal and let the computer handle the steps, never the reverse."
-        emphasis: "Division of labour: who decides versus who executes."
-      - text: "A person working with a computer should do better than either one alone; if not, the design has failed."
-        emphasis: "Complementarity as the success criterion."
-      - text: "The best tools turn novices into experts; the worst make experts and novices equally dependent."
-        emphasis: "Who benefits, and what kind of benefit."
-    articles:
-      - computers-as-partners-that-augment-the-intellect
-      - delegation-versus-control-agents-and-mixed-initiative
-      - designing-for-uncertain-capable-systems
-      - effects-on-peoples-work-thinking-and-beliefs
+    position: Computers should improve human intelligence, not replace it.
+    readings: [bush-1945, licklider-1960, engelbart-1962, engelbart-1968, bardini-2000, victor-2014,
+      bainbridge-1983, endsley-1995, parasuraman-1997, parasuraman-2000, lee-2004,
+      norman-1994, shneiderman-1997, horvitz-1998, horvitz-1999, shneiderman-2020, amershi-2019, yang-2020, heer-2019,
+      yao-2023, sumers-2024, kapoor-2024, satyanarayan-2024, lee-2022, barke-2023,
+      noy-2023, brynjolfsson-2025, dell-acqua-2026, simkute-2024, tankelevitch-2024, lee-2025, bastani-2025, doshi-2024, jakesch-2023, sharma-2024]
 
-  - id: invisible-work
-    name: Invisible work
-    claim: Automation never removes work; it moves it to someone less visible.
-    alternatives:
-      - text: "For every task a system automates, ask who now has to label, check, fix or moderate it. There is always someone."
-        emphasis: "An audit question designers can act on."
-      - text: "Automation makes the remaining human work rarer, harder and more stressful: watching the machine and stepping in when it fails."
-        emphasis: "The ironies of automation: what is left over gets worse."
-      - text: "Much of what looks like machine intelligence is the stored work of people who labelled, rated and corrected the data."
-        emphasis: "The labour behind AI."
-      - text: "Work that users and designers can't see gets underpaid and ignored, so making it visible is part of the design job."
-        emphasis: "Visibility determines value."
-      - text: "Automating 90% of a job but not the last 10% often makes the job worse, not easier."
-        emphasis: "A falsifiable claim about partial automation."
-    articles:
-      - automation-shifts-work-instead-of-removing-it
-      - crowds-as-computation-and-the-labor-behind-them
-      - people-teach-machines
+  - id: models
+    name: Model of behaviour
+    position: Much of what people do with computers is tractable enough to predict with simple models.
+    problem: Do these models need to know internal mechanisms?
+    readings: [fitts-1954, card-1978, card-1983, mackenzie-1992, accot-1997, zhai-2003, bi-2013, palin-2019, card-1991,
+      marr-1982, anderson-1990, gallistel-1990, gershman-2015, lieder-2020, oulasvirta-2022,
+      binz-2023, park-2023, argyle-2023, dillion-2023, hamalainen-2023, agnew-2024]
 
-  # How people think and act
-  - id: lawful-behaviour
-    name: Models of behaviour
-    claim: Much of what people do with computers is lawful enough to predict with simple models.
-    alternatives:
-      - text: "You can predict how long a click, a keystroke or a menu choice will take before anyone has used the design."
-        emphasis: "Prediction before testing."
-      - text: "Bigger and closer targets are faster to hit, by an amount you can calculate."
-        emphasis: "The most concrete law (Fitts) as the headline."
-      - text: "Simple models of people beat intuition for routine, skilled tasks, and fail for learning, errors and judgment."
-        emphasis: "Where models work and where they stop working."
-      - text: "Assume people act sensibly given their limits and surroundings; strange behaviour usually means strange surroundings."
-        emphasis: "People as rational adapters, not as error-prone."
-      - text: "A model that claims to simulate people should match real people on new questions, not just on the ones it was built from."
-        emphasis: "The test any model of people, including an AI, must pass."
-    articles:
-      - the-user-as-an-information-processor
-      - movement-can-be-modeled-and-predicted
-      - text-entry-as-a-modeling-and-recognition-problem
-      - levels-of-analysis-and-what-a-model-of-the-user-is
-      - language-models-as-models-of-minds-and-people
+  - id: sensemaking
+    name: Sensemaking
+    position: Understanding comes from building structure around what you find, not from finding more.
+    draft: true
+    readings: [anderson-1990, pirolli-1999, fu-2007, pirolli-2005, kandel-2012, yi-2007, heer-2012, shneiderman-1996, victor-2011,
+      kery-2017, rule-2018, ko-2004, brandt-2010]
 
-  - id: foraging
-    name: Information foraging and sensemaking
-    claim: People look for information the way animals forage, following scent and stopping when it is good enough.
-    alternatives:
-      - text: "People leave a source as soon as another looks more promising, so every link label is a bet on whether they'll follow it."
-        emphasis: "Scent: cues decide where people go next."
-      - text: "Search and analysis tools should make it cheap to judge where an answer probably is before going there."
-        emphasis: "A design rule for information tools."
-      - text: "Analysts spend most of their time finding and organizing information, not reasoning about it; tools should target that."
-        emphasis: "Sensemaking: where the effort really goes."
-      - text: "A programmer hunting a bug and a reader browsing the web use the same strategy: follow cues, stop when it's good enough."
-        emphasis: "One theory across very different domains."
-      - text: "People stop when the answer is good enough, not when it is best; design for the answer they will settle for."
-        emphasis: "Satisficing as a design target."
-    articles:
-      - behavior-as-adaptation-to-the-information-environment
-      - visualization-as-interactive-analysis-and-sensemaking
-      - tools-that-help-programmers-understand-code
-      - exploration-versus-explanation
+  - id: intuitive-theories
+    name: Intuitive theories
+    position: People act on their intuitive theory of the system, not on the system itself.
+    readings: [heider-1944, gentner-1983, kieras-1984, norman-1983, norman-1988, nass-1994, epley-2007, jara-ettinger-2016, lake-2017, ullman-2020, gambino-2020,
+      eslami-2015, devito-2017, doshi-velez-2017, bansal-2019, kocielnik-2019, miller-2019, liao-2020, bansal-2021, bucinca-2021, vasconcelos-2023,
+      kulesza-2015, zamfirescu-pereira-2023, mitchell-2023, shanahan-2023, ullman-2023]
 
-  - id: mental-models
-    name: Mental models and folk theories
-    claim: People act on their theory of the system, not on the system itself.
-    alternatives:
-      - text: "Users will invent an explanation of how your system works whether or not you give them one, and act on it."
-        emphasis: "Folk theories are inevitable."
-      - text: "Explaining how a system works helps only if it changes what people expect it to do next."
-        emphasis: "A test for explanations."
-      - text: "Give a system a voice, a name or a face and people treat it as a social being, even when they know better."
-        emphasis: "Social responses to machines."
-      - text: "Most user errors come from a reasonable but wrong idea of the system, not from carelessness."
-        emphasis: "Errors as evidence of mental models."
-      - text: "People rely on an AI appropriately only when they know where it tends to be wrong."
-        emphasis: "Trust calibration as the goal."
-    articles:
-      - mental-models-and-intuitive-theories
-      - people-treat-computers-as-social-others
-      - people-reason-about-invisible-algorithms
-      - mental-models-explanation-and-appropriate-reliance
+  - id: offloading
+    name: Cognitive offloading
+    aka: Distributed cognition
+    position: Tools should afford some kind of cognitive offloading.
+    readings: [bush-1945, kirsh-1994, zhang-1994, hutchins-1995, clark-1998, hollan-2000, wilson-2002, klemmer-2006, risko-2016,
+      roediger-2006, matuschak-2019, appleton-2022, lee-2025]
 
-  - id: distributed-cognition
-    name: Distributed cognition
-    claim: Thinking happens in the person plus their tools and colleagues, so that whole system is what we design.
-    alternatives:
-      - text: "Change the tools on the desk and you change what a person can think, remember and notice."
-        emphasis: "Tools reshape cognition."
-      - text: "To understand how a team gets things right, study the notes, screens and talk between people, not just what is in each head."
-        emphasis: "Where to look: the unit of analysis."
-      - text: "People rearrange their surroundings in order to think, by sorting, sketching and moving things; tools should make that cheap."
-        emphasis: "Thinking through action on the world."
-      - text: "Handing memory to a device is fine until the device is gone; design for what people still need to hold themselves."
-        emphasis: "The cost of offloading."
-      - text: "A real tool for thought changes what an ordinary person can understand, the way writing and arithmetic did."
-        emphasis: "The ambition, and the bar to clear."
-    articles:
-      - cognition-extends-into-the-world
-      - embodiment-ecology-and-affordances
-      - bodies-matter-for-thinking
-      - tools-for-thought
-
-  - id: situated-action
+  - id: situated
     name: Situated action
-    claim: Plans are resources for action, not programs that drive it.
-    alternatives:
-      - text: "People don't follow plans step by step; they use them as rough guides and improvise around what they find."
-        emphasis: "The core observation, plainly."
-      - text: "A system that expects users to follow its script breaks as soon as the situation differs from the one its designers imagined."
-        emphasis: "The design consequence."
-      - text: "Watch people where the work actually happens before designing; what they say they do and what they do differ."
-        emphasis: "The method it implies."
-      - text: "A device can't fully sense 'context', because people create context through what they are doing together."
-        emphasis: "Context is made, not measured."
-      - text: "Assistants fail when they assume they know your goal and succeed when they let you correct misunderstandings quickly."
-        emphasis: "Repair over prediction."
-    articles:
-      - action-is-situated-not-planned
-      - context-is-something-systems-sense-and-people-make
-      - what-ethnography-is-for
+    aka: Scaffolding actions
+    position: Plans are resources for action, not programs that drive it.
+    draft: true
+    readings: [simon-1969, simon-1973, rittel-1973, schon-1983, winograd-1986, suchman-1987, agre-1987, brooks-1991,
+      dey-2001, dourish-2001, bellotti-2002, dourish-2004, dorst-2011, ho-2022, shankar-2024, alkhatib-2019,
+      jansson-1991, landay-1995, tohidi-2006, hartmann-2006, buxton-2007-b, hartmann-2008, dow-2010]
 
-  # Interfaces
-  - id: gulfs
-    name: The gulfs of execution and evaluation
-    claim: An interface is only as good as the distance between what you mean and what happens.
-    alternatives:
-      - text: "Every interface has two gaps: working out how to do what you want, and working out whether it worked. Shrink both."
-        emphasis: "The two gulfs, stated as a goal."
-      - text: "If people can't see the result of an action immediately, they make more errors and learn more slowly."
-        emphasis: "A testable claim about feedback."
-      - text: "Chat made it easy to say what you want and hard to know what you can ask for or whether the answer is right."
-        emphasis: "Why language interfaces reopen the gaps."
-      - text: "Natural is not the same as easy: speech and gesture still need visible cues for what is possible."
-        emphasis: "Against 'natural' interfaces as a fix."
-      - text: "The best interfaces let you act directly on what you see, so the action and its result are the same thing."
-        emphasis: "Direct manipulation as the ideal."
-    articles:
-      - directness-and-instruments
-      - natural-interaction-across-speech-touch-pen-and-gesture
-      - natural-language-as-the-interface
+  - id: direct-manipulation
+    name: Direct manipulation
+    position: The best interfaces let you act directly on what you see, so the action and its result are the same thing.
+    readings: [sutherland-1963, sutherland-1968, gibson-1979, bolt-1980, shneiderman-1983, hutchins-1985, norman-1986, johnson-1989, buxton-1990, gaver-1991,
+      milgram-1994, oviatt-1999, beaudouin-lafon-2000, buxton-2007, slater-2009, wobbrock-2009, hinckley-2010, norman-2010, wigdor-2011,
+      beaudouin-lafon-2021, masson-2024, subramonyam-2024]
 
   - id: reification
     name: Reification
-    claim: Turn abstractions into objects people can see, point at and act on.
-    alternatives:
-      - text: "Turn commands into things: an object you can select, copy, undo and reuse beats an instruction you have to remember."
-        emphasis: "The design principle."
-      - text: "When an abstract concept such as a filter, a style or a query becomes a visible object, people discover and reuse it far more."
-        emphasis: "A testable prediction."
-      - text: "For tasks where hands and space matter, physical controls beat on-screen ones."
-        emphasis: "Reification all the way to physical objects."
-      - text: "Each step from typed commands to graphical objects to physical things opened computing to more people."
-        emphasis: "The historical arc."
-      - text: "If users keep repeating the same sequence of actions, that sequence should become an object."
-        emphasis: "A rule for when to reify."
-    articles:
-      - interactive-graphics-and-the-personal-computer
-      - input-devices-form-a-design-space
-      - physical-objects-as-interfaces
-      - immersive-and-mixed-reality
+    aka: Concept design
+    position: An abstraction becomes something people can think with once it is turned into an object they can see and manipulate.
+    draft: true
+    readings: [sutherland-1963, alexander-1977, hutchins-1985, ishii-1997, stolte-2002, wilkinson-2005, bostock-2011, ishii-2012, follmer-2013, satyanarayan-2017,
+      houde-1997, lim-2008]
 
   - id: representation
     name: Representation
-    claim: Change the representation and you change the problem.
-    alternatives:
-      - text: "Many hard problems become easy in the right picture, and finding that picture is most of the design work."
-        emphasis: "Representation as the main lever."
-      - text: "People compare positions on a shared scale far more accurately than areas, angles or colours; choose encodings accordingly."
-        emphasis: "A measured, ranked finding."
-      - text: "Show chances as counts ('3 out of 10') rather than percentages and people reason about them much better."
-        emphasis: "A concrete, replicated example."
-      - text: "A notation decides what is easy to see and what is easy to change; pick it for the changes users will make most."
-        emphasis: "Notations as tradeoffs."
-      - text: "Two displays of the same data can lead people to opposite decisions."
-        emphasis: "The warning version."
-    articles:
-      - the-form-of-a-representation-shapes-the-task
-      - notations-are-tools-for-thought
-      - visual-variables-and-graphical-integrity
-      - encodings-can-be-ranked-by-perceptual-accuracy
-      - how-people-comprehend-graphs
-      - communicating-uncertainty
-      - navigating-information-larger-than-the-screen
+    position: The way computers represent information to us sets the boundaries of what we think we can do.
+    readings: [bertin-1967, iverson-1980, treisman-1980, tufte-1983, cleveland-1984, furnas-1986, mackinlay-1986, larkin-1987, pinker-1990, gallistel-1990,
+      norman-1993, perlin-1993, zhang-1994, gigerenzer-1995, green-1996, card-1999, brewer-1999, tversky-2002, blackwell-2003, heer-2007,
+      cockburn-2009, heer-2010, segel-2010, hullman-2011, healey-2012, victor-2012, munzner-2014, nielsen-2014, kay-2016,
+      kim-2018, padilla-2018, hullman-2019, moritz-2019, franconeri-2021, lundgard-2022]
 
-  - id: calm
-    name: Calm computing
-    claim: The best technology recedes into the periphery of attention.
-    alternatives:
-      - text: "Technology should inform without demanding attention, moving to the centre only when it matters."
-        emphasis: "The calm ideal."
-      - text: "The best everyday technologies are the ones people stop noticing, like writing or electric light."
-        emphasis: "Disappearance as success."
-      - text: "Judge a notification by how often the interruption was worth it; most fail that test."
-        emphasis: "A measurable standard."
-      - text: "Technology that disappears also hides who controls it; people must be able to see and question it when they need to."
-        emphasis: "The critique of invisibility."
-      - text: "Ubiquitous computing should help people do things, not just stay out of the way."
-        emphasis: "The counter-position: engagement over calm."
-    articles:
-      - computing-that-disappears-and-its-critics
-      - sensing-people-in-daily-life
-
-  # Making things
-  - id: framing
-    name: Planning in design
-    claim: The hard part of design is deciding what the problem is.
-    alternatives:
-      - text: "Most design failures come from solving the wrong problem well; spend early effort deciding what the problem is."
-        emphasis: "Framing as the hard part."
-      - text: "Designers who make several rough versions in parallel end up with better designs than those who refine one."
-        emphasis: "A tested claim about process."
-      - text: "A prototype is a question; build the cheapest thing that answers the question you have now."
-        emphasis: "What prototypes are for."
-      - text: "Real design problems have no correct final answer; you stop when the solution is good enough for the people involved."
-        emphasis: "Wicked problems."
-      - text: "Sketch before you build: rough drafts invite criticism that polished ones shut down."
-        emphasis: "Roughness as a feature."
-    articles:
-      - design-problems-are-ill-structured
-      - explore-many-alternatives-before-committing
-      - tools-that-support-design-itself
-      - design-knowledge-can-be-formalized-and-automated
+  - id: background
+    name: Computing in the background
+    position: Technology should inform without demanding attention, moving to the centre only when it matters.
+    readings: [weiser-1991, weiser-1996, star-1999, horvitz-1999, rogers-2006, bell-2007, consolvo-2008, li-2010, harrison-2011, klasnja-2011, dourish-2011]
 
   - id: malleability
-    name: Malleability and end-user programming
-    claim: Everyone should be able to change the software they use.
-    alternatives:
-      - text: "Software should let its users change it, with a short path from using it to modifying it."
-        emphasis: "The core position."
-      - text: "Most people will program if the language looks like their task, as spreadsheets do, rather than like code."
-        emphasis: "End-user programming works when it fits the task."
-      - text: "A good tool is easy to start with and doesn't stop experts from building ambitious things."
-        emphasis: "Low threshold, high ceiling."
-      - text: "Instead of asking people to write programs, let them show examples and have the system work out the program."
-        emphasis: "Programming by example."
-      - text: "People learn powerful ideas best by building things they care about, so tools for learning should be tools for making."
-        emphasis: "Malleability as a way to learn."
-    articles:
-      - programming-for-everyone-else
-      - low-threshold-high-ceiling
-      - learning-by-building
+    name: Malleability
+    position: Existing software should be modifiable by people to fit their needs.
+    readings: [kay-1977, papert-1980, kay-1993, nardi-1993, myers-2000, woodruff-2007, gajos-2008, wobbrock-2011, beaudouin-lafon-2021]
 
-  # People together
+  - id: end-user-programming
+    name: End-user programming
+    position: The people closest to a problem should be able to build its solution themselves.
+    draft: true
+    readings: [cypher-1991, nardi-1993, myers-2000, fails-2003, fogarty-2008, resnick-2009, gulwani-2011, ko-2011, victor-2012, amershi-2014, kulesza-2015,
+      brown-2020, wei-2022, wu-2022, zamfirescu-pereira-2023, arawjo-2024, wobbrock-2007]
+
   - id: common-ground
-    name: Common ground and social translucence
-    claim: Groups coordinate through shared context and visible activity, and copying face-to-face does not supply either.
-    alternatives:
-      - text: "Remote teams suffer less from too little bandwidth than from too little shared context; build tools that share context, not video."
-        emphasis: "What distance really removes."
-      - text: "When people can see what others are doing, they coordinate without being told to."
-        emphasis: "Awareness."
-      - text: "Group tools fail when the people who do the extra work are not the ones who benefit."
-        emphasis: "The incentive problem."
-      - text: "Online communities thrive when they welcome newcomers and enforce their own rules."
-        emphasis: "Self-governance."
-      - text: "Remote tools should do things meetings can't, rather than imitate meetings."
-        emphasis: "Beyond being there."
-    articles:
-      - collaboration-at-a-distance-needs-common-ground
-      - make-social-activity-visible
-      - designing-communities-with-social-science
-      - self-presentation-and-governance-online
+    name: Establishing common ground
+    position: Working together depends on shared understanding, and every medium changes what that understanding costs to build.
+    draft: true
+    readings: [goffman-1959, grudin-1988, ostrom-1990, clark-1991, dourish-1992, orlikowski-1992, olson-2000, ackerman-2000, erickson-2000, beenen-2004,
+      kittur-2008, marwick-2011, kraut-2012, halfaker-2013, olson-2014, gillespie-2018, matias-2019]
 
-  - id: values
-    name: Values in artifacts
-    claim: Every artifact takes a side, including the ones that look neutral.
-    alternatives:
-      - text: "Every design choice decides who it serves and who it leaves out; ask who loses before you ship."
-        emphasis: "An actionable question."
-      - text: "A chart, a default or a ranking is an argument, and should be read and criticised like one."
-        emphasis: "No representation is neutral."
-      - text: "Bias in systems usually comes from ordinary choices about data, defaults and categories, not from bad intent."
-        emphasis: "How values get in."
-      - text: "If a technology works for the people who built it and fails for others, that is a design failure, not a user problem."
-        emphasis: "Where responsibility lies."
-      - text: "Name the values a system must uphold before building it, and test against them the way you test against bugs."
-        emphasis: "Values as requirements."
-    articles:
-      - artifacts-embody-values
-      - visualizations-tell-stories-and-make-arguments
-      - who-visualization-serves
-      - whose-values-whose-voices
-      - design-and-power-gender-race-and-colonial-histories
-      - building-with-critical-reflection
+  - id: beyond-being-there
+    name: Beyond being there
+    position: Computers should enable collaboration that being together cannot, rather than imitate being together.
+    draft: true
+    readings: [engelbart-1968, hill-1992, hollan-1992, von-2004, bernstein-2010, bigham-2010, patel-2010, kittur-2013, irani-2013, retelny-2014, gray-2019, starbird-2019, hancock-2020]
 
-  - id: participation
-    name: Participation
-    claim: The people a system affects should help make it.
-    alternatives:
-      - text: "The people who will live with a system should have real power over its design, not just be interviewed."
-        emphasis: "Power, not consultation."
-      - text: "Designs made with disabled people work better for them than designs made for them."
-        emphasis: "A testable claim from accessibility."
-      - text: "Design should start from what people can do, not from what they can't."
-        emphasis: "Ability-based design."
-      - text: "Participatory projects fail when they take ideas from communities without sharing decisions or benefits."
-        emphasis: "How participation goes wrong."
-      - text: "Systems built far from where they are used fail in predictable ways that local collaborators would catch early."
-        emphasis: "Distance from use as a risk."
-    articles:
-      - involving-people-in-design
-      - accessibility-from-fixing-users-to-changing-systems
-      - designing-for-and-with-the-global-south
-
-  # How HCI knows
-  - id: building-is-knowing
-    name: Systems as contributions
-    claim: Building a system is a way of knowing, and it should be judged on its own terms.
-    alternatives:
-      - text: "A new system can be a research result in itself, if it makes possible something that wasn't before."
-        emphasis: "The core position."
-      - text: "Judge new systems by what they enable, how general they are and how much effort they save, not only by user studies."
-        emphasis: "Better criteria for systems."
-      - text: "Usability tests can kill good early ideas; judge a radical idea by its potential, not its first version."
-        emphasis: "Evaluation can do harm."
-      - text: "Making a design teaches you things about the problem that studying it never would."
-        emphasis: "Making as inquiry."
-      - text: "Expert reviews find many usability problems cheaply, but different experts find different problems."
-        emphasis: "The limits of quick evaluation."
-    articles:
-      - making-things-as-a-form-of-research
-      - evaluate-systems-on-their-own-terms
-      - inspection-based-evaluation
-      - designing-and-validating-visualization-systems
-
-  - id: pluralism
-    name: Ways of knowing
-    claim: No single method or theory sees everything, so HCI needs many and must say what each one misses.
-    alternatives:
-      - text: "Every method is good at some questions and blind to others; choose it by the question, not by habit."
-        emphasis: "Methods as tradeoffs."
-      - text: "Lab studies, field studies and built designs each produce real knowledge of different kinds; none is the standard for all."
-        emphasis: "Against a single gold standard."
-      - text: "Report findings so others can check them: share data, plan analyses in advance and replicate key results."
-        emphasis: "Open, checkable science."
-      - text: "Language models can't replace study participants; they average away the very differences studies try to find."
-        emphasis: "A current, testable claim."
-      - text: "HCI's questions moved from efficiency to meaning to values, and each move needed new methods."
-        emphasis: "The field's history as an argument."
-    articles:
-      - how-hci-became-a-discipline
-      - hci-has-shifted-paradigms
-      - comparing-and-synthesizing-theories
-      - ways-of-knowing
-      - every-method-trades-something-off
-      - statistics-replication-and-open-science
-      - evaluating-models-with-and-through-people
-      - can-models-stand-in-for-people
+  - id: meta
+    name: Reflections on HCI
+    position: Every way of studying interaction reveals some things and hides others, so HCI must keep questioning what counts as a contribution.
+    draft: true
+    readings: [card-1986, grudin-1990, myers-1998, grudin-2017, cross-1982, stokes-1997, mcgrath-1995, nardi-1996, rogers-2004, kaptelinin-2006,
+      bdker-2006, harrison-2007, hornbk-2017, carroll-1992, shapiro-1994, dourish-2006, baumer-2011, olson-2014-b, gaver-1999, kensing-1998, boehner-2007, hutchinson-2003,
+      nielsen-1990, gray-1998, hertzum-2001, olsen-2007, greenberg-2008, bernstein-2011, dell-2012, ledo-2018, munzner-2009, sedlmair-2012,
+      fallman-2003, zimmerman-2007, gaver-2012, hook-2012, oulasvirta-2016, wobbrock-2016, simmons-2011, open-2015, kay-2016-b, cockburn-2018,
+      agre-1997, sengers-2005, bardzell-2010, irani-2010, dombrowski-2016, harrington-2019, ogbonnaya-ogburu-2020, dell-2016, mack-2021, lee-2023, zheng-2023]
