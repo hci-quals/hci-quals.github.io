@@ -2,13 +2,29 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ideas, unplaced, decadeOf, fieldOf, shortAuthors, type Idea } from '../data/ideas'
 import { readingTitle, type Reading } from '../data/content'
 import { ReadingItem, SectionBar } from '../components/ui'
-import { Motif } from '../components/Motif'
+import { jumpTo, useCurrentSection } from '../components/sections'
+import { BaseMotif, Motif } from '../components/Motif'
 
 /** Subfield × decade grid of an idea's readings; choosing a reading opens its details below. */
 function Matrix({ d }: { d: Idea }) {
   const [selected, setSelected] = useState<Reading | null>(null)
   const [hover, setHover] = useState<{ field: string; decade: number } | null>(null)
   const panel = useRef<HTMLDivElement>(null)
+  const scroller = useRef<HTMLDivElement>(null)
+  const [overflows, setOverflows] = useState(false)
+  useEffect(() => {
+    const el = scroller.current
+    if (!el) return
+    const check = () => setOverflows(el.scrollWidth > el.clientWidth + 1 && el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
+    check()
+    const ro = new ResizeObserver(check)
+    ro.observe(el)
+    el.addEventListener('scroll', check, { passive: true })
+    return () => {
+      ro.disconnect()
+      el.removeEventListener('scroll', check)
+    }
+  }, [])
 
   const cells = useMemo(() => {
     const m = new Map<string, Reading[]>()
@@ -37,8 +53,8 @@ function Matrix({ d }: { d: Idea }) {
 
   return (
     <div>
-      {/* On narrow screens the grid scrolls sideways; the fade at the right edge says so. */}
-      <div className="overflow-x-auto [mask-image:linear-gradient(90deg,#000_88%,transparent)] lg:[mask-image:none]">
+      {/* When the grid is wider than the page it scrolls sideways, and a fade at the right edge says so. */}
+      <div ref={scroller} className={`overflow-x-auto ${overflows ? '[mask-image:linear-gradient(90deg,#000_88%,transparent)]' : ''}`}>
         <div className="grid text-[13px]" style={{ gridTemplateColumns: `3.5rem ${columns}` }} onMouseLeave={() => setHover(null)}>
           <div className="sticky left-0 z-10 bg-paper" />
           {d.fields.map((f) => (
@@ -50,7 +66,9 @@ function Matrix({ d }: { d: Idea }) {
             const empty = d.fields.every((f) => cell(f, dec).length === 0)
             return (
               <div key={dec} className="contents">
-                <div className={`sticky left-0 z-10 border-t border-rule bg-paper pr-2 tabular-nums transition-colors ${empty ? 'py-1 text-[11px] text-faint/60' : `py-2 text-xs ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}`}>
+                <div
+                  className={`sticky left-0 z-10 border-t border-rule bg-paper pr-2 tabular-nums transition-colors ${empty ? 'py-1 text-[11px] text-faint/60' : `py-2 text-xs ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}`}
+                >
                   {dec}s
                 </div>
                 {d.fields.map((f) => (
@@ -83,7 +101,11 @@ function Matrix({ d }: { d: Idea }) {
           <ul>
             <ReadingItem r={selected} note={`${fieldOf(selected)} · ${selected.tag}`} />
           </ul>
-          <button onClick={() => setSelected(null)} className="absolute right-3 top-3 rounded p-1.5 text-faint hover:bg-wash hover:text-ink" aria-label="Close details">
+          <button
+            onClick={() => setSelected(null)}
+            className="absolute right-3 top-3 rounded p-1.5 text-faint hover:bg-wash hover:text-ink"
+            aria-label="Close details"
+          >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
               <path d="M6 6l12 12M18 6 6 18" />
             </svg>
@@ -107,7 +129,10 @@ function IdeaSection({ d }: { d: Idea }) {
           <h2 className="mt-2 font-serif text-[1.65rem] font-semibold leading-snug tracking-tight sm:text-[1.85rem]">
             {d.position}
             {d.draft && (
-              <span className="ml-2 inline-block -translate-y-1 rounded border border-rule px-1.5 align-middle font-sans text-[11px] font-normal tracking-normal text-faint" title="Proposed wording, not yet agreed">
+              <span
+                className="ml-2 inline-block -translate-y-1 rounded border border-rule px-1.5 align-middle font-sans text-[11px] font-normal tracking-normal text-faint"
+                title="Proposed wording, not yet agreed"
+              >
                 draft
               </span>
             )}
@@ -132,66 +157,95 @@ function IdeaSection({ d }: { d: Idea }) {
   )
 }
 
-export function HomePage() {
-  const sections = useMemo(() => ideas.map((d) => ({ id: d.id, mark: d.number, title: `${d.number}. ${d.name}` })), [])
-  const jump = (id: string) => (e: React.MouseEvent) => {
-    e.preventDefault()
-    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
-  }
+/** Names-only table of contents in the left margin on wide screens; marks the idea being read. */
+function Contents({ sections }: { sections: { id: string; name: string }[] }) {
+  const current = useCurrentSection(sections)
+  return (
+    <nav aria-label="Ideas" className="hidden lg:block">
+      <ol className="sticky top-24 space-y-0.5 border-l border-rule text-[13px] leading-snug">
+        {sections.map((s) => (
+          <li key={s.id}>
+            <a
+              href={`#${s.id}`}
+              onClick={(e) => {
+                e.preventDefault()
+                jumpTo(s.id)
+              }}
+              aria-current={s.id === current ? 'location' : undefined}
+              className={`-ml-px block border-l py-1 pl-3 transition-colors ${s.id === current ? 'border-ink text-ink' : 'border-transparent text-faint hover:text-ink'}`}
+            >
+              {s.name}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
 
+export function HomePage() {
+  const sections = useMemo(
+    () =>
+      ideas.map((d) => ({
+        id: d.id,
+        name: d.name,
+        mark: d.number,
+        title: `${d.number}. ${d.name}`,
+      })),
+    [],
+  )
   return (
     <div>
-      <section className="mx-auto max-w-6xl px-5 pb-12 pt-20 sm:px-8 sm:pt-28">
+      <section className="mx-auto max-w-6xl px-5 pb-16 pt-20 sm:px-8 sm:pt-28 lg:pl-[15.5rem]">
         <h1 id="hq-hero-title" className="font-serif text-[2.6rem] font-semibold leading-tight tracking-tight sm:text-6xl">
           The Informal ‘HCI Quals’
         </h1>
         <p className="mt-6 max-w-2xl font-serif text-xl leading-relaxed text-muted">
           A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI.
         </p>
-
-        <ol className="mt-14 grid gap-x-10 border-t border-rule sm:grid-cols-2 lg:grid-cols-3">
-          {ideas.map((d) => (
-            <li key={d.id} className="border-b border-rule">
-              <a href={`#${d.id}`} onClick={jump(d.id)} className="group flex gap-3 py-3.5">
-                <span className="w-5 shrink-0 text-sm tabular-nums text-faint">{d.number}</span>
-                <span className="min-w-0">
-                  <span className="block text-[15px] font-semibold tracking-tight group-hover:text-accent">{d.name}</span>
-                  <span className="mt-0.5 line-clamp-2 block font-serif text-[15px] leading-snug text-muted">{d.position}</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ol>
+        <figure className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+          <div className="w-72 shrink-0">
+            <BaseMotif />
+          </div>
+          <figcaption className="max-w-xs text-sm leading-relaxed text-muted">
+            Every idea below starts from this loop: a person acts on a computational medium, and the medium responds. Each one changes the picture in its own way.
+          </figcaption>
+        </figure>
       </section>
 
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionBar sections={sections} />
-        <p className="-mt-4 mb-12 text-xs text-faint">
-          Readings are laid out by decade (down) and subfield (across). Brighter names are core readings; select one for details. Some readings illustrate an idea, others challenge it.
-        </p>
-        <div className="space-y-28">
-          {ideas.map((d) => (
-            <IdeaSection key={d.id} d={d} />
-          ))}
-        </div>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:grid lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-x-10">
+        <Contents sections={sections} />
+        <div className="min-w-0">
+          <SectionBar sections={sections} className="lg:hidden" />
+          <p className="-mt-4 mb-12 text-xs text-faint lg:mt-0">
+            Readings are laid out by decade (down) and subfield (across). Brighter names are core readings; select one for details. Some readings illustrate an
+            idea, others challenge it.
+          </p>
+          <div className="space-y-28">
+            {ideas.map((d) => (
+              <IdeaSection key={d.id} d={d} />
+            ))}
+          </div>
 
-        {unplaced.length > 0 && (
-          <details className="group mt-28 border-t border-rule pt-6">
-            <summary className="cursor-pointer list-none text-sm text-muted hover:text-ink">
-              <span className="mr-1 inline-block transition-transform group-open:rotate-90">›</span> Not yet placed under an idea ({unplaced.length})
-            </summary>
-            <ul className="mt-4 columns-1 gap-10 text-sm sm:columns-2">
-              {unplaced.map((r) => (
-                <li key={r.id} className="mb-2 break-inside-avoid">
-                  <a href={r.url} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
-                    {shortAuthors(r)} <span className="tabular-nums text-faint">{r.year}</span> <span className="font-serif text-muted">{readingTitle(r)}</span>
-                  </a>
-                  <span className="ml-1.5 text-xs text-faint">{fieldOf(r)}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
+          {unplaced.length > 0 && (
+            <details className="group mt-28 border-t border-rule pt-6">
+              <summary className="cursor-pointer list-none text-sm text-muted hover:text-ink">
+                <span className="mr-1 inline-block transition-transform group-open:rotate-90">›</span> Not yet placed under an idea ({unplaced.length})
+              </summary>
+              <ul className="mt-4 columns-1 gap-10 text-sm sm:columns-2">
+                {unplaced.map((r) => (
+                  <li key={r.id} className="mb-2 break-inside-avoid">
+                    <a href={r.url} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                      {shortAuthors(r)} <span className="tabular-nums text-faint">{r.year}</span>{' '}
+                      <span className="font-serif text-muted">{readingTitle(r)}</span>
+                    </a>
+                    <span className="ml-1.5 text-xs text-faint">{fieldOf(r)}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </div>
       </div>
     </div>
   )

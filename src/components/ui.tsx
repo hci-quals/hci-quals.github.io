@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { jumpTo, useCurrentSection } from './sections'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Link } from 'react-router-dom'
@@ -96,42 +96,13 @@ export interface BarSection {
 }
 
 /** Sticks under the site header: names the section being read and jumps to any other. `sections` must be memoized. */
-export function SectionBar({ sections }: { sections: BarSection[] }) {
-  const [current, setCurrent] = useState<string | null>(null)
-
-  useEffect(() => {
-    let frame = 0
-    const update = () => {
-      frame = 0
-      let cur: string | null = null
-      for (const s of sections) {
-        const el = document.getElementById(s.id)
-        if (el && el.getBoundingClientRect().top <= 140) cur = s.id
-      }
-      setCurrent(cur)
-    }
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update)
-    }
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      cancelAnimationFrame(frame)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [sections])
-
-  const jump = (id: string) => {
-    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    document.getElementById(id)?.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' })
-  }
+export function SectionBar({ sections, className = '' }: { sections: BarSection[]; className?: string }) {
+  const current = useCurrentSection(sections)
 
   const title = sections.find((s) => s.id === current)?.title
 
   return (
-    <div className="sticky top-[57px] z-30 -mx-5 mb-10 border-b border-rule bg-paper/90 px-5 backdrop-blur sm:-mx-8 sm:px-8">
+    <div className={`sticky top-[57px] z-30 -mx-5 mb-10 border-b border-rule bg-paper/90 px-5 backdrop-blur sm:-mx-8 sm:px-8 ${className}`}>
       <div className="flex flex-col gap-1 py-2 sm:h-12 sm:flex-row sm:items-center sm:gap-4 sm:py-0">
         <span className={`min-w-0 flex-1 truncate font-serif text-[15px] font-semibold transition-opacity ${title ? 'opacity-100' : 'opacity-0'}`} aria-live="polite">
           {title ?? '\u00a0'}
@@ -140,7 +111,7 @@ export function SectionBar({ sections }: { sections: BarSection[] }) {
           {sections.map((s) => (
             <button
               key={s.id}
-              onClick={() => jump(s.id)}
+              onClick={() => jumpTo(s.id)}
               title={s.title}
               aria-current={s.id === current ? 'location' : undefined}
               className={`h-7 min-w-7 shrink-0 rounded px-1.5 text-xs tabular-nums transition-colors ${
