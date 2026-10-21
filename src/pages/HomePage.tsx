@@ -20,10 +20,11 @@ function Matrix({ d }: { d: Idea }) {
   }, [d])
   const cell = (field: string, decade: number) => cells.get(`${field}|${decade}`) ?? []
 
-  // Empty decades stay narrow; busier decades get proportionally more width so cells grow sideways, not into tall stacks.
-  const columns = d.decades
-    .map((dec) => Math.max(...d.fields.map((f) => cell(f, dec).length)))
-    .map((n) => (n ? `minmax(min-content, ${Math.sqrt(n)}fr)` : '2.75rem'))
+  // Time runs down the rows and subfields across the columns. Busier subfields get more width so their readings sit
+  // side by side rather than in tall stacks; no column is narrower than its widest reading.
+  const columns = d.fields
+    .map((f) => Math.max(...d.decades.map((dec) => cell(f, dec).length)))
+    .map((n) => `minmax(min-content, ${Math.sqrt(n)}fr)`)
     .join(' ')
 
   useEffect(() => {
@@ -38,38 +39,43 @@ function Matrix({ d }: { d: Idea }) {
     <div>
       {/* On narrow screens the grid scrolls sideways; the fade at the right edge says so. */}
       <div className="overflow-x-auto [mask-image:linear-gradient(90deg,#000_88%,transparent)] lg:[mask-image:none]">
-        <div className="grid min-w-[44rem] text-[13px]" style={{ gridTemplateColumns: `minmax(6.5rem, 9.5rem) ${columns}` }} onMouseLeave={() => setHover(null)}>
+        <div className="grid text-[13px]" style={{ gridTemplateColumns: `3.5rem ${columns}` }} onMouseLeave={() => setHover(null)}>
           <div className="sticky left-0 z-10 bg-paper" />
-          {d.decades.map((dec) => (
-            <div key={dec} className={`px-1 pb-2 text-xs tabular-nums transition-colors ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}>
-              {dec}s
-            </div>
-          ))}
           {d.fields.map((f) => (
-            <div key={f} className="contents">
-              <div className={`sticky left-0 z-10 border-t border-rule bg-paper py-2 pr-3 text-xs transition-colors ${hover?.field === f ? 'text-ink' : 'text-muted'}`}>{f}</div>
-              {d.decades.map((dec) => (
-                <div key={dec} className="flex flex-wrap content-start gap-0.5 border-t border-rule py-1.5 pr-1">
-                  {cell(f, dec).map((r) => {
-                    const on = selected?.id === r.id
-                    return (
-                      <button
-                        key={r.id}
-                        onClick={() => setSelected(on ? null : r)}
-                        onMouseEnter={() => setHover({ field: f, decade: dec })}
-                        onFocus={() => setHover({ field: f, decade: dec })}
-                        title={readingTitle(r)}
-                        aria-expanded={on}
-                        className={`whitespace-nowrap rounded px-1 py-0.5 text-left leading-snug transition-colors ${on ? 'bg-ink text-paper' : `hover:bg-wash ${r.tag === 'Core' ? 'text-ink' : 'text-muted'}`}`}
-                      >
-                        {shortAuthors(r)} <span className={`whitespace-nowrap tabular-nums ${on ? '' : 'text-faint'}`}>’{String(r.year).slice(2)}</span>
-                      </button>
-                    )
-                  })}
-                </div>
-              ))}
+            <div key={f} className={`flex items-end px-1 pb-2 text-xs leading-tight transition-colors ${hover?.field === f ? 'text-ink' : 'text-muted'}`}>
+              {f}
             </div>
           ))}
+          {d.decades.map((dec) => {
+            const empty = d.fields.every((f) => cell(f, dec).length === 0)
+            return (
+              <div key={dec} className="contents">
+                <div className={`sticky left-0 z-10 border-t border-rule bg-paper pr-2 tabular-nums transition-colors ${empty ? 'py-1 text-[11px] text-faint/60' : `py-2 text-xs ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}`}>
+                  {dec}s
+                </div>
+                {d.fields.map((f) => (
+                  <div key={f} className={`flex flex-wrap content-start gap-0.5 border-t border-rule pr-3 ${empty ? '' : 'py-1.5'}`}>
+                    {cell(f, dec).map((r) => {
+                      const on = selected?.id === r.id
+                      return (
+                        <button
+                          key={r.id}
+                          onClick={() => setSelected(on ? null : r)}
+                          onMouseEnter={() => setHover({ field: f, decade: dec })}
+                          onFocus={() => setHover({ field: f, decade: dec })}
+                          title={readingTitle(r)}
+                          aria-expanded={on}
+                          className={`whitespace-nowrap rounded px-1 py-0.5 text-left leading-snug transition-colors ${on ? 'bg-ink text-paper' : `hover:bg-wash ${r.tag === 'Core' ? 'text-ink' : 'text-muted'}`}`}
+                        >
+                          {shortAuthors(r)} <span className={`tabular-nums ${on ? '' : 'text-faint'}`}>’{String(r.year).slice(2)}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                ))}
+              </div>
+            )
+          })}
         </div>
       </div>
       {selected && (
@@ -161,7 +167,7 @@ export function HomePage() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionBar sections={sections} />
         <p className="-mt-4 mb-12 text-xs text-faint">
-          Readings are laid out by subfield and decade. Brighter names are core readings; select one for details. Some readings illustrate an idea, others challenge it.
+          Readings are laid out by decade (down) and subfield (across). Brighter names are core readings; select one for details. Some readings illustrate an idea, others challenge it.
         </p>
         <div className="space-y-28">
           {ideas.map((d) => (
