@@ -142,9 +142,6 @@ function IdeaSection({ d }: { d: Idea }) {
               <span className="font-sans text-xs not-italic text-faint">Open question</span> {d.problem}
             </p>
           )}
-          <p className="mt-3 text-xs text-faint">
-            {d.readings.length} readings · {d.fields.length} subfields · {d.readings[0].year}–{d.readings[d.readings.length - 1].year}
-          </p>
         </div>
         <div className="w-52 shrink-0 sm:w-60">
           <Motif idea={d.id} />
@@ -203,24 +200,15 @@ export function HomePage() {
         <p className="mt-6 max-w-2xl font-serif text-xl leading-relaxed text-muted">
           A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI.
         </p>
-        <figure className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-          <div className="w-72 shrink-0">
-            <BaseMotif />
-          </div>
-          <figcaption className="max-w-xs text-sm leading-relaxed text-muted">
-            Every idea below starts from this loop: a person acts on a computational medium, and the medium responds. Each one changes the picture in its own way.
-          </figcaption>
-        </figure>
+        <div className="mt-12 w-72">
+          <BaseMotif />
+        </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:grid lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-x-10">
         <Contents sections={sections} />
         <div className="min-w-0">
           <SectionBar sections={sections} className="lg:hidden" />
-          <p className="-mt-4 mb-12 text-xs text-faint lg:mt-0">
-            Readings are laid out by decade (down) and subfield (across). Brighter names are core readings; select one for details. Some readings illustrate an
-            idea, others challenge it.
-          </p>
           <div className="space-y-28">
             {ideas.map((d) => (
               <IdeaSection key={d.id} d={d} />

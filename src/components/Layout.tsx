@@ -79,9 +79,6 @@ export function Layout() {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer className="mt-24 border-t border-rule">
-        <div className="mx-auto max-w-5xl px-5 py-8 text-sm text-faint sm:px-8">Informal quals reading list · MIT HCI</div>
-      </footer>
     </div>
   )
 }
