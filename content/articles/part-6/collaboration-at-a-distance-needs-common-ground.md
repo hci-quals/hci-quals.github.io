@@ -24,6 +24,90 @@ readings:
     urlKind: author
     doi: null
     verified: true
+  - id: lewis-1969
+    citation: "Lewis, Convention: A Philosophical Study, Harvard University Press, 1969"
+    authors: "Lewis"
+    title: "Convention: A Philosophical Study"
+    venue: "Harvard University Press"
+    year: 1969
+    tag: Adjacent
+    description: "Lewis formalizes common knowledge using Schelling's coordination games. He argues that conventions, including the conventions of language, are coordination devices that let people form shared expectations of each other."
+    url: "https://www.google.com/search?q=Lewis+1969+Convention+A+Philosophical+Study"
+    urlKind: search
+    doi: null
+    verified: false
+  - id: clark-1986
+    citation: "Clark and Wilkes-Gibbs, “Referring as a Collaborative Process,” Cognition, 1986"
+    authors: "Clark and Wilkes-Gibbs"
+    title: "Referring as a Collaborative Process"
+    venue: "Cognition"
+    year: 1986
+    tag: Adjacent
+    description: "Clark and Wilkes-Gibbs show that speakers and listeners work out what a referring expression means together, through a series of proposals and acceptances. Across repeated rounds, their descriptions grow shorter as common ground builds up."
+    url: "https://doi.org/10.1016/0010-0277(86)90010-7"
+    urlKind: doi
+    doi: "10.1016/0010-0277(86)90010-7"
+    verified: true
+  - id: clark-1989
+    citation: "Clark and Schaefer, “Contributing to Discourse,” Cognitive Science, 1989"
+    authors: "Clark and Schaefer"
+    title: "Contributing to Discourse"
+    venue: "Cognitive Science"
+    year: 1989
+    tag: Adjacent
+    description: "Clark and Schaefer argue that each turn in a conversation adds to common ground in two phases: a presentation, then evidence from the listener that it was understood. Their contribution model is the basis for later accounts of grounding."
+    url: "https://doi.org/10.1207/s15516709cog1302_7"
+    urlKind: doi
+    doi: "10.1207/s15516709cog1302_7"
+    verified: true
+  - id: clark-1996
+    citation: "Clark, Using Language, Cambridge University Press, 1996"
+    authors: "Clark"
+    title: "Using Language"
+    venue: "Cambridge University Press"
+    year: 1996
+    tag: Adjacent
+    description: "Clark treats language use as a joint activity built on common ground. He separates communal common ground, which comes from shared membership in cultural communities, from personal common ground, which comes from experiences people have had together."
+    url: "https://doi.org/10.1017/CBO9780511620539"
+    urlKind: doi
+    doi: "10.1017/CBO9780511620539"
+    verified: true
+  - id: stalnaker-2002
+    citation: "Stalnaker, “Common Ground,” Linguistics and Philosophy, 2002"
+    authors: "Stalnaker"
+    title: "Common Ground"
+    venue: "Linguistics and Philosophy"
+    year: 2002
+    tag: Adjacent
+    description: "Stalnaker defines common ground as the propositions that participants in a conversation accept for its purposes and believe they all accept. Each new assertion updates that shared context, and what a speaker presupposes depends on it."
+    url: "https://doi.org/10.1023/A:1020867916902"
+    urlKind: doi
+    doi: "10.1023/A:1020867916902"
+    verified: true
+  - id: clark-2023
+    citation: "Clark and Fischer, “Social Robots as Depictions of Social Agents,” BBS, 2023"
+    authors: "Clark and Fischer"
+    title: "Social Robots as Depictions of Social Agents"
+    venue: "Behavioral and Brain Sciences"
+    year: 2023
+    tag: Modern
+    description: "Clark and Fischer argue that people treat social robots and chatbots as depictions of characters, and play along with the pretense that they are real agents of an unusual kind. This shapes what common ground people try to build with them."
+    url: "https://doi.org/10.1017/S0140525X22000668"
+    urlKind: doi
+    doi: "10.1017/S0140525X22000668"
+    verified: true
+  - id: clark-2025
+    citation: "Clark, “Common Ground,” Open Encyclopedia of Cognitive Science, 2025"
+    authors: "Clark"
+    title: "Common Ground"
+    venue: "Open Encyclopedia of Cognitive Science"
+    year: 2025
+    tag: Modern
+    description: "Clark surveys common ground from Schelling, Lewis and Stalnaker to the present. He contrasts communal and personal common ground, ties them to semantic and episodic memory, and asks what common ground people can build with artificial agents that have neither biographies nor communities."
+    url: "https://doi.org/10.21428/e2759450.671362c9"
+    urlKind: doi
+    doi: "10.21428/e2759450.671362c9"
+    verified: true
   - id: grudin-1988
     citation: "Grudin, “Why CSCW Applications Fail,” CSCW 1988"
     authors: "Grudin"

@@ -48,6 +48,18 @@ readings:
     urlKind: pdf
     doi: "10.1145/332040.332473"
     verified: true
+  - id: beaudouin-lafon-2000-b
+    citation: "Beaudouin-Lafon and Mackay, “Reification, Polymorphism and Reuse,” AVI 2000"
+    authors: "Beaudouin-Lafon and Mackay"
+    title: "Reification, Polymorphism and Reuse: Three Principles for Designing Visual Interfaces"
+    venue: "AVI 2000"
+    year: 2000
+    tag: Core
+    description: "Beaudouin-Lafon and Mackay propose three design principles: reify commands into objects users can manipulate, make commands polymorphic so they apply to many kinds of objects, and let users reuse earlier inputs and outputs. Together they keep interfaces powerful without multiplying commands."
+    url: "https://doi.org/10.1145/345513.345267"
+    urlKind: doi
+    doi: "10.1145/345513.345267"
+    verified: true
   - id: beaudouin-lafon-2021
     citation: "Beaudouin-Lafon, Bødker and Mackay, “Generative Theories of Interaction,” TOCHI, 2021"
     authors: "Beaudouin-Lafon, Bødker and Mackay"

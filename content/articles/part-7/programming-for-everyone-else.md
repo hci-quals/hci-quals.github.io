@@ -60,6 +60,18 @@ readings:
     urlKind: pdf
     doi: "10.1145/1922649.1922658"
     verified: true
+  - id: klokmose-2015
+    citation: "Klokmose et al., “Webstrates: Shareable Dynamic Media,” UIST 2015"
+    authors: "Klokmose, Eagan, Baader, Mackay and Beaudouin-Lafon"
+    title: "Webstrates: Shareable Dynamic Media"
+    venue: "UIST 2015"
+    year: 2015
+    tag: Modern
+    description: "Klokmose and colleagues build Webstrates, web pages whose content and code are shared and persist across users and devices. Because there is no fixed line between document and application, people can reshape their tools while they work and share those changes with others."
+    url: "https://doi.org/10.1145/2807442.2807446"
+    urlKind: doi
+    doi: "10.1145/2807442.2807446"
+    verified: true
 ---
 
 ## Abstract
