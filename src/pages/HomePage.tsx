@@ -63,16 +63,15 @@ function Matrix({ d }: { d: Idea }) {
             </div>
           ))}
           {d.decades.map((dec) => {
-            const empty = d.fields.every((f) => cell(f, dec).length === 0)
             return (
               <div key={dec} className="contents">
                 <div
-                  className={`sticky left-0 z-10 border-t border-rule bg-paper pr-2 tabular-nums transition-colors ${empty ? 'py-1 text-[11px] text-faint/60' : `py-2 text-xs ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}`}
+                  className={`sticky left-0 z-10 border-t border-rule bg-paper py-2 pr-2 text-xs tabular-nums transition-colors ${hover?.decade === dec ? 'text-ink' : 'text-faint'}`}
                 >
                   {dec}s
                 </div>
                 {d.fields.map((f) => (
-                  <div key={f} className={`flex flex-wrap content-start gap-0.5 border-t border-rule pr-3 ${empty ? '' : 'py-1.5'}`}>
+                  <div key={f} className="flex flex-wrap content-start gap-0.5 border-t border-rule py-1.5 pr-3">
                     {cell(f, dec).map((r) => {
                       const on = selected?.id === r.id
                       return (
@@ -119,35 +118,24 @@ function Matrix({ d }: { d: Idea }) {
 function IdeaSection({ d }: { d: Idea }) {
   return (
     <section id={d.id} className="scroll-mt-32">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
-        <div className="min-w-0 flex-1">
-          <p className="flex flex-wrap items-baseline gap-x-2 text-sm">
-            <span className="tabular-nums text-faint">{d.number}</span>
-            <span className="font-semibold tracking-tight">{d.name}</span>
-            {d.aka && <span className="text-faint">also {d.aka}</span>}
-          </p>
-          <h2 className="mt-2 font-serif text-[1.65rem] font-semibold leading-snug tracking-tight sm:text-[1.85rem]">
-            {d.position}
-            {d.draft && (
-              <span
-                className="ml-2 inline-block -translate-y-1 rounded border border-rule px-1.5 align-middle font-sans text-[11px] font-normal tracking-normal text-faint"
-                title="Proposed wording, not yet agreed"
-              >
-                draft
-              </span>
-            )}
-          </h2>
-          {d.problem && (
-            <p className="mt-3 font-serif text-[17px] italic text-muted">
-              <span className="font-sans text-xs not-italic text-faint">Open question</span> {d.problem}
-            </p>
+      <h2 className="font-serif text-[1.65rem] leading-snug tracking-tight sm:text-[1.9rem]">
+        <span className="block font-semibold">{d.name}</span>
+        <span className="mt-1 block text-muted">
+          {d.position}
+          {d.draft && (
+            <span
+              className="ml-2 inline-block -translate-y-1 rounded border border-rule px-1.5 align-middle font-sans text-[11px] tracking-normal text-faint"
+              title="Proposed wording, not yet agreed"
+            >
+              draft
+            </span>
           )}
-        </div>
-        <div className="w-52 shrink-0 sm:w-60">
-          <Motif idea={d.id} />
-        </div>
+        </span>
+      </h2>
+      <div className="mx-auto mt-10 w-60 sm:w-72">
+        <Motif idea={d.id} />
       </div>
-      <div className="mt-6">
+      <div className="mt-10">
         <Matrix d={d} />
       </div>
     </section>
@@ -200,7 +188,7 @@ export function HomePage() {
         <p className="mt-6 max-w-2xl font-serif text-xl leading-relaxed text-muted">
           A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI.
         </p>
-        <div className="mt-12 w-72">
+        <div className="mx-auto mt-14 w-72">
           <BaseMotif />
         </div>
       </section>
