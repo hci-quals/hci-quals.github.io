@@ -1,7 +1,7 @@
 # Reading-group sessions within each big idea. Each meeting has two idea readings that everyone reads (more when they
 # are short) and about three instantiation readings, of which each person reads at least one. Within a session the
 # readings should span several subfields and decades, and the sessions of one idea should take similar time to prepare.
-# No reading is used in two sessions. `fixed: true` marks a session the organizers chose; it is kept as given. Check with: python3 scripts/check_sessions.py
+# `date` (YYYY-MM-DD) is the meeting date once one is set. No reading is used in two sessions. `fixed: true` marks a session the organizers chose; it is kept as given. Check with: python3 scripts/check_sessions.py
 #
 # `minutes` estimates reading time for the assigned portion (the chapters or sections named in the citation); it is used
 # only to balance sessions and is not shown on the site.
@@ -256,6 +256,7 @@ minutes:
 sessions:
   augmentation:
   - theme: Founding visions of human–computer partnership
+    date: '2026-11-05'
     ideas:
     - bush-1945
     - licklider-1960

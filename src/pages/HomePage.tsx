@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ideas, unplaced, decadeOf, fieldOf, kindOf, shortAuthors, type Idea } from '../data/ideas'
+import { ideas, unplaced, decadeOf, fieldOf, kindOf, sessionLabel, shortAuthors, type Idea } from '../data/ideas'
 import { readingAuthors, readingTitle, readingVenue, type Reading } from '../data/content'
 import { Markdown } from '../components/ui'
 import { jumpTo } from '../components/sections'
@@ -61,16 +61,26 @@ function Matrix({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onS
 
   return (
     <div>
-      {showSessions && d.sessions.length > 0 && (
-        <ul className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted">
-          {d.sessions.map((s) => (
-            <li key={s.n} className="flex items-center gap-1.5">
-              <span className="h-3 w-3 rounded-sm" style={{ background: sessionColor(s.k) }} />
-              <span className="font-medium text-ink">Session {s.n}</span>
-            </li>
-          ))}
+      <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted">
+        <ul className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Key">
+          <li className="flex items-center gap-2">
+            <KindSwatch kind="idea" /> Idea reading
+          </li>
+          <li className="flex items-center gap-2">
+            <KindSwatch kind="instantiation" /> Instantiation reading
+          </li>
         </ul>
-      )}
+        {showSessions && d.sessions.length > 0 && (
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:ml-auto" aria-label="Sessions">
+            {d.sessions.map((s) => (
+              <li key={s.n} className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-sm" style={{ background: sessionColor(s.k) }} />
+                <span className="font-medium text-ink">{sessionLabel(s)}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       {/* When the grid is wider than its panel it scrolls sideways, and a fade at the right edge says so. */}
       <div ref={scroller} className={`overflow-x-auto ${overflows ? '[mask-image:linear-gradient(90deg,#000_88%,transparent)]' : ''}`}>
         <div className="grid text-[13px]" style={{ gridTemplateColumns: `3.5rem ${columns}` }} onMouseLeave={() => setHover(null)}>
@@ -206,7 +216,7 @@ function ReadingDetail({ r, idea, onJump }: { r: Reading; idea: Idea; onJump: (i
             <dt className="text-xs text-faint">Session</dt>
             <dd className="mt-0.5 flex items-center gap-2">
               <span aria-hidden className="h-3 w-3 shrink-0 rounded-sm" style={{ background: sessionColor(session.k) }} />
-              Session {session.n}
+              {sessionLabel(session)}
             </dd>
           </div>
         )}
@@ -358,7 +368,7 @@ export function HomePage() {
       <div className="min-w-0 px-5 sm:px-8 lg:flex-1 lg:overflow-y-auto lg:px-10">
         <section className="pb-16 pt-16 sm:pt-24">
           <h1 id="hq-hero-title" className="font-serif text-[2.6rem] font-semibold leading-tight tracking-tight sm:text-6xl">
-            The Informal ‘HCI Quals’
+            MIT Informal HCI Quals
           </h1>
           <p className="mt-6 max-w-2xl font-serif text-xl leading-relaxed text-muted">
             A collection of important ideas and readings from the HCI canon, assembled for an informal quals at MIT HCI.
@@ -373,14 +383,6 @@ export function HomePage() {
             >
               Reading group structure
             </button>
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted" aria-label="Key">
-              <li className="flex items-center gap-2">
-                <KindSwatch kind="idea" /> Idea reading
-              </li>
-              <li className="flex items-center gap-2">
-                <KindSwatch kind="instantiation" /> Instantiation reading
-              </li>
-            </ul>
           </div>
           <div className="mx-auto mt-14 w-72">
             <BaseMotif />

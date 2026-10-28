@@ -17,12 +17,14 @@ export interface Session {
   n: number
   /** Position within its idea, from 1; picks the session colour. */
   k: number
+  /** Meeting date, when set. */
+  date?: Date
   ideas: Reading[]
   instantiations: Reading[]
 }
 
 const sessionsDoc = parseYaml(sessionsRaw) as {
-  sessions: Record<string, { ideas: string[]; instantiations: string[] }[]>
+  sessions: Record<string, { date?: string; ideas: string[]; instantiations: string[] }[]>
 }
 let sessionCount = 0
 
@@ -70,6 +72,7 @@ export const ideas: Idea[] = doc.ideas.map((d, i) => {
   const sessions = (sessionsDoc.sessions[d.id] ?? []).map((s, k) => ({
     n: ++sessionCount,
     k: k + 1,
+    date: s.date ? new Date(`${s.date}T12:00:00`) : undefined,
     ideas: pick(s.ideas),
     instantiations: pick(s.instantiations),
   }))
@@ -108,3 +111,6 @@ export function shortAuthors(r: Reading) {
   if (names.length === 2) return `${names[0]} & ${names[1]}`
   return `${names[0]} et al.`
 }
+
+/** "Session 1 (11/5/26)": the number, plus the meeting date once one is set. */
+export const sessionLabel = (s: Session) => `Session ${s.n}${s.date ? ` (${s.date.getMonth() + 1}/${s.date.getDate()}/${String(s.date.getFullYear()).slice(2)})` : ''}`

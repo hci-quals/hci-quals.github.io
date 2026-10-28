@@ -74,7 +74,7 @@ export function Layout() {
             tabIndex={heroVisible ? -1 : undefined}
             className={`mr-auto min-w-0 truncate py-2 font-serif text-lg font-semibold tracking-tight transition-opacity duration-300 ${heroVisible ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
           >
-            The Informal ‘HCI Quals’
+            MIT Informal HCI Quals
           </Link>
           <IdeasMenu />
           <SessionsToggle />

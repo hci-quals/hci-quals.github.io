@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react'
-import { SessionsMode, sessionColor, useSessionsMode } from './sessionsMode'
+import { SessionsMode, useSessionsMode } from './sessionsMode'
 
 const KEY = 'hq-sessions'
 
@@ -35,11 +35,6 @@ export function SessionsToggle() {
         <span className={`absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full transition-all ${on ? 'left-[0.9rem] bg-paper' : 'left-0.5 bg-faint'}`} />
       </span>
       Sessions
-      <span className="hidden gap-0.5 sm:flex" aria-hidden>
-        {[1, 2, 3, 4].map((n) => (
-          <span key={n} className={`h-1.5 w-1.5 rounded-full transition-opacity ${on ? 'opacity-100' : 'opacity-30'}`} style={{ background: sessionColor(n) }} />
-        ))}
-      </span>
     </button>
   )
 }
