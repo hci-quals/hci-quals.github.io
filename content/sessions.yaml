@@ -1,0 +1,384 @@
+# Reading sessions within each big idea.
+# Each session has about three `main` readings (read by everyone) and a few `optional` ones.
+# Within a session, main readings should span at least two subfields and two decades, and the
+# sessions of one idea should take roughly the same time to read. A main reading belongs to one
+# session in the whole syllabus. Check with: python3 scripts/check_sessions.py
+#
+# `minutes` estimates reading time for the assigned portion (the chapters or sections named in the
+# citation): about 15–30 for a short essay, 45 for a conference paper, 60–90 for a long journal
+# article or several book chapters, and the running time for a talk or video.
+
+minutes:
+  # augmentation
+  bush-1945: 30
+  bainbridge-1983: 30
+  parasuraman-1997: 60
+  engelbart-1962: 90
+  bardini-2000: 60
+  licklider-1960: 30
+  horvitz-1999: 45
+  lee-2004: 75
+  shneiderman-1997: 30
+  norman-1994: 20
+  heer-2019: 45
+  victor-2014: 60
+  satyanarayan-2024: 40
+  amershi-2019: 45
+  parasuraman-2000: 60
+  noy-2023: 30
+  simkute-2024: 60
+  endsley-1995: 60
+  bastani-2025: 30
+  dell-acqua-2026: 60
+  # models
+  fitts-1954: 45
+  mackenzie-1992: 75
+  bi-2013: 45
+  accot-1997: 45
+  card-1978: 45
+  card-1983: 120
+  gershman-2015: 30
+  oulasvirta-2022: 45
+  lieder-2020: 90
+  marr-1982: 40
+  park-2023: 60
+  agnew-2024: 45
+  argyle-2023: 60
+  binz-2023: 30
+  # sensemaking
+  pirolli-1999: 90
+  pirolli-2005: 30
+  ko-2004: 45
+  fu-2007: 75
+  brandt-2010: 45
+  shneiderman-1996: 30
+  kandel-2012: 60
+  rule-2018: 45
+  victor-2011: 30
+  kery-2017: 30
+  # intuitive-theories
+  norman-1983: 30
+  kieras-1984: 60
+  eslami-2015: 45
+  gentner-1983: 60
+  devito-2017: 45
+  heider-1944: 20
+  nass-1994: 30
+  epley-2007: 75
+  shanahan-2023: 30
+  ullman-2023: 20
+  bansal-2019: 30
+  jara-ettinger-2016: 45
+  vasconcelos-2023: 60
+  bucinca-2021: 45
+  miller-2019: 120
+  # offloading
+  kirsh-1994: 60
+  hutchins-1995: 60
+  matuschak-2019: 45
+  clark-1998: 30
+  zhang-1994: 60
+  risko-2016: 45
+  hollan-2000: 75
+  lee-2025: 45
+  roediger-2006: 30
+  appleton-2022: 20
+  # situated
+  suchman-1987: 105
+  agre-1987: 45
+  alkhatib-2019: 45
+  brooks-1991: 60
+  dourish-2004: 45
+  simon-1973: 60
+  schon-1983: 90
+  landay-1995: 45
+  rittel-1973: 60
+  dorst-2011: 45
+  jansson-1991: 45
+  hartmann-2008: 45
+  dow-2010: 60
+  tohidi-2006: 45
+  shankar-2024: 45
+  # direct-manipulation
+  sutherland-1963: 60
+  shneiderman-1983: 45
+  johnson-1989: 45
+  engelbart-1968: 100
+  hutchins-1985: 90
+  gaver-1991: 30
+  beaudouin-lafon-2000: 45
+  norman-1986: 60
+  buxton-1990: 30
+  bolt-1980: 30
+  hinckley-2010: 45
+  masson-2024: 45
+  norman-2010: 15
+  subramonyam-2024: 45
+  sutherland-1968: 30
+  # reification
+  alexander-1977: 60
+  ishii-1997: 45
+  follmer-2013: 45
+  ishii-2012: 20
+  lim-2008: 75
+  houde-1997: 45
+  wilkinson-2005: 60
+  satyanarayan-2017: 45
+  stolte-2002: 45
+  bostock-2011: 45
+  # representation
+  larkin-1987: 60
+  norman-1993: 45
+  bertin-1967: 60
+  tufte-1983: 90
+  cleveland-1984: 60
+  treisman-1980: 75
+  heer-2010: 45
+  mackinlay-1986: 60
+  kim-2018: 45
+  gigerenzer-1995: 75
+  kay-2016: 45
+  padilla-2018: 60
+  hullman-2019: 60
+  hullman-2011: 45
+  iverson-1980: 60
+  green-1996: 75
+  victor-2012: 45
+  blackwell-2003: 60
+  # background
+  weiser-1991: 30
+  star-1999: 60
+  consolvo-2008: 45
+  weiser-1996: 20
+  rogers-2006: 45
+  bell-2007: 45
+  klasnja-2011: 45
+  dourish-2011: 75
+  harrison-2011: 45
+  # malleability
+  kay-1977: 45
+  papert-1980: 45
+  wobbrock-2011: 75
+  kay-1993: 90
+  woodruff-2007: 45
+  gajos-2008: 45
+  beaudouin-lafon-2021: 75
+  # end-user-programming
+  nardi-1993: 90
+  cypher-1991: 30
+  resnick-2009: 30
+  gulwani-2011: 60
+  ko-2011: 90
+  fails-2003: 30
+  wobbrock-2007: 45
+  amershi-2014: 60
+  fogarty-2008: 45
+  kulesza-2015: 45
+  myers-2000: 75
+  brown-2020: 45
+  zamfirescu-pereira-2023: 45
+  wu-2022: 45
+  arawjo-2024: 45
+  # common-ground
+  clark-1991: 60
+  dourish-1992: 30
+  olson-2000: 75
+  grudin-1988: 45
+  orlikowski-1992: 45
+  ackerman-2000: 60
+  erickson-2000: 60
+  goffman-1959: 60
+  marwick-2011: 45
+  halfaker-2013: 60
+  ostrom-1990: 60
+  kraut-2012: 45
+  matias-2019: 45
+  kittur-2008: 45
+  # beyond-being-there
+  hollan-1992: 30
+  hill-1992: 30
+  hancock-2020: 45
+  von-2004: 45
+  bigham-2010: 45
+  gray-2019: 60
+  bernstein-2010: 45
+  irani-2013: 45
+  starbird-2019: 45
+  # meta
+  grudin-1990: 45
+  hornbk-2017: 45
+  harrison-2007: 30
+  card-1986: 45
+  bdker-2006: 30
+  agre-1997: 60
+  zimmerman-2007: 45
+  gaver-2012: 45
+  cross-1982: 30
+  sengers-2005: 45
+  gray-1998: 90
+  olsen-2007: 30
+  munzner-2009: 45
+  greenberg-2008: 30
+  nielsen-1990: 30
+  mcgrath-1995: 60
+  dourish-2006: 30
+  ogbonnaya-ogburu-2020: 45
+  simmons-2011: 30
+  bardzell-2010: 45
+
+sessions:
+  augmentation:
+    - theme: Founding visions and the ironies of automation
+      main: [bush-1945, bainbridge-1983, parasuraman-1997]
+      optional: [engelbart-1962, bardini-2000]
+    - theme: Partners, agents and appropriate trust
+      main: [licklider-1960, horvitz-1999, lee-2004]
+      optional: [shneiderman-1997, norman-1994]
+    - theme: Designing AI that extends people
+      main: [victor-2014, heer-2019, satyanarayan-2024]
+      optional: [amershi-2019, parasuraman-2000]
+    - theme: What generative AI does to the people using it
+      main: [endsley-1995, noy-2023, simkute-2024]
+      optional: [bastani-2025, dell-acqua-2026]
+
+  models:
+    - theme: Movement is lawful
+      main: [fitts-1954, mackenzie-1992, bi-2013]
+      optional: [card-1978, accot-1997]
+    - theme: Modelling the user
+      main: [card-1983, gershman-2015, oulasvirta-2022]
+      optional: [lieder-2020]
+    - theme: What a model explains, and whether it can stand in for people
+      main: [marr-1982, park-2023, agnew-2024]
+      optional: [argyle-2023, binz-2023]
+
+  sensemaking:
+    - theme: Foraging for information
+      main: [pirolli-1999, pirolli-2005, ko-2004]
+      optional: [fu-2007, brandt-2010]
+    - theme: Analysis as exploration
+      main: [shneiderman-1996, kandel-2012, rule-2018]
+      optional: [victor-2011, kery-2017]
+
+  intuitive-theories:
+    - theme: Mental models of devices and feeds
+      main: [norman-1983, kieras-1984, eslami-2015]
+      optional: [gentner-1983, devito-2017]
+    - theme: Seeing minds in machines
+      main: [heider-1944, nass-1994, epley-2007]
+      optional: [shanahan-2023, ullman-2023]
+    - theme: Calibrating reliance on AI
+      main: [jara-ettinger-2016, bansal-2019, vasconcelos-2023]
+      optional: [bucinca-2021, miller-2019]
+
+  offloading:
+    - theme: Thinking with the world
+      main: [kirsh-1994, hutchins-1995, matuschak-2019]
+      optional: [clark-1998, zhang-1994]
+    - theme: What offloading costs and gives
+      main: [hollan-2000, risko-2016, lee-2025]
+      optional: [roediger-2006, appleton-2022]
+
+  situated:
+    - theme: Plans and situated actions
+      main: [suchman-1987, agre-1987, alkhatib-2019]
+      optional: [brooks-1991, dourish-2004]
+    - theme: Design as a conversation with the situation
+      main: [simon-1973, schon-1983, landay-1995]
+      optional: [rittel-1973, dorst-2011]
+    - theme: Exploring alternatives instead of committing
+      main: [jansson-1991, hartmann-2008, dow-2010]
+      optional: [tohidi-2006, shankar-2024]
+
+  direct-manipulation:
+    - theme: Where direct manipulation came from
+      main: [sutherland-1963, shneiderman-1983, johnson-1989]
+      optional: [sutherland-1968]
+    - theme: Why it feels direct
+      main: [hutchins-1985, gaver-1991, beaudouin-lafon-2000]
+      optional: [norman-1986, buxton-1990]
+    - theme: Beyond the mouse, and back again with AI
+      main: [bolt-1980, hinckley-2010, masson-2024]
+      optional: [norman-2010, subramonyam-2024]
+
+  reification:
+    - theme: Making abstractions graspable
+      main: [alexander-1977, ishii-1997, follmer-2013]
+      optional: [ishii-2012, lim-2008]
+    - theme: Prototypes and grammars as objects to think with
+      main: [houde-1997, wilkinson-2005, satyanarayan-2017]
+      optional: [stolte-2002, bostock-2011]
+
+  representation:
+    - theme: The form of a representation shapes the task
+      main: [bertin-1967, larkin-1987, norman-1993]
+      optional: [zhang-1994, tufte-1983]
+    - theme: Seeing graphics accurately
+      main: [treisman-1980, cleveland-1984, heer-2010]
+      optional: [mackinlay-1986, kim-2018]
+    - theme: Representing uncertainty for decisions
+      main: [gigerenzer-1995, kay-2016, padilla-2018]
+      optional: [hullman-2019, hullman-2011]
+    - theme: Notations as tools for thought
+      main: [iverson-1980, green-1996, victor-2012]
+      optional: [blackwell-2003]
+
+  background:
+    - theme: Calm and invisible
+      main: [weiser-1991, star-1999, consolvo-2008]
+      optional: [weiser-1996]
+    - theme: Against calm
+      main: [rogers-2006, bell-2007, klasnja-2011]
+      optional: [dourish-2011, harrison-2011]
+
+  malleability:
+    - theme: Software everyone can reshape
+      main: [kay-1977, papert-1980, wobbrock-2011]
+      optional: [kay-1993]
+    - theme: Systems that adapt to the people using them
+      main: [woodruff-2007, gajos-2008, beaudouin-lafon-2021]
+      optional: [myers-2000]
+
+  end-user-programming:
+    - theme: Languages that fit the task
+      main: [cypher-1991, nardi-1993, resnick-2009]
+      optional: [gulwani-2011, ko-2011]
+    - theme: Teaching machines by example
+      main: [fails-2003, wobbrock-2007, amershi-2014]
+      optional: [fogarty-2008, kulesza-2015]
+    - theme: Prompting as programming
+      main: [myers-2000, brown-2020, zamfirescu-pereira-2023]
+      optional: [wu-2022, arawjo-2024]
+
+  common-ground:
+    - theme: Grounding and awareness
+      main: [clark-1991, dourish-1992, olson-2000]
+      optional: [erickson-2000]
+    - theme: Why group tools fail
+      main: [grudin-1988, orlikowski-1992, ackerman-2000]
+      optional: [kittur-2008]
+    - theme: Audiences and communities
+      main: [goffman-1959, marwick-2011, halfaker-2013]
+      optional: [ostrom-1990, kraut-2012, matias-2019]
+
+  beyond-being-there:
+    - theme: Beyond imitating presence
+      main: [engelbart-1968, hill-1992, hollan-1992]
+      optional: [hancock-2020]
+    - theme: Collaborating through crowds
+      main: [von-2004, bigham-2010, gray-2019]
+      optional: [bernstein-2010, irani-2013, starbird-2019]
+
+  meta:
+    - theme: What kind of field HCI is
+      main: [grudin-1990, harrison-2007, hornbk-2017]
+      optional: [card-1986, bdker-2006]
+    - theme: Design and critique as ways of knowing
+      main: [agre-1997, zimmerman-2007, gaver-2012]
+      optional: [cross-1982, sengers-2005]
+    - theme: Evaluating systems
+      main: [gray-1998, olsen-2007, munzner-2009]
+      optional: [greenberg-2008, nielsen-1990]
+    - theme: Rigor, fieldwork and critical lenses
+      main: [mcgrath-1995, dourish-2006, ogbonnaya-ogburu-2020]
+      optional: [simmons-2011, bardzell-2010]

@@ -1,7 +1,22 @@
 import { parse as parseYaml } from 'yaml'
 import ideasRaw from '/content/ideas.yaml?raw'
 import fieldsRaw from '/content/fields.yaml?raw'
+import sessionsRaw from '/content/sessions.yaml?raw'
 import { readingById, readingAuthors, readingTitle, readings as allReadings, type Reading } from './content'
+
+export interface Session {
+  n: number
+  theme: string
+  main: Reading[]
+  optional: Reading[]
+  /** Estimated minutes to read the main readings. */
+  minutes: number
+}
+
+const sessionsDoc = parseYaml(sessionsRaw) as {
+  minutes: Record<string, number>
+  sessions: Record<string, { theme: string; main: string[]; optional?: string[] | null }[]>
+}
 
 export interface Idea {
   id: string
@@ -12,6 +27,9 @@ export interface Idea {
   problem?: string
   draft: boolean
   readings: Reading[]
+  sessions: Session[]
+  /** Session number (from 1) and role of each reading that belongs to a session. */
+  sessionOf: Map<string, { n: number; role: 'main' | 'optional' }>
   fields: string[]
   decades: number[]
 }
@@ -40,6 +58,19 @@ export const ideas: Idea[] = doc.ideas.map((d, i) => {
     .filter((r): r is Reading => !!r?.year)
     .sort(byYear)
   const present = new Set(readings.map(fieldOf))
+  const pick = (ids: string[]) => ids.map((id) => readingById.get(id)).filter((r): r is Reading => !!r)
+  const sessions = (sessionsDoc.sessions[d.id] ?? []).map((s, k) => ({
+    n: k + 1,
+    theme: s.theme,
+    main: pick(s.main),
+    optional: pick(s.optional ?? []),
+    minutes: s.main.reduce((t, id) => t + (sessionsDoc.minutes[id] ?? 0), 0),
+  }))
+  const sessionOf = new Map<string, { n: number; role: 'main' | 'optional' }>()
+  for (const s of sessions) {
+    for (const r of s.main) sessionOf.set(r.id, { n: s.n, role: 'main' })
+    for (const r of s.optional) sessionOf.set(r.id, { n: s.n, role: 'optional' })
+  }
   return {
     id: d.id,
     number: String(i + 1),
@@ -49,6 +80,8 @@ export const ideas: Idea[] = doc.ideas.map((d, i) => {
     problem: d.problem,
     draft: !!d.draft,
     readings,
+    sessions,
+    sessionOf,
     fields: fieldOrder.filter((f) => present.has(f)),
     decades: decadeSpan(readings),
   }

@@ -10,6 +10,11 @@
   --hq-rule: #e8e5df;
   --hq-wash: #f3f1ec;
   --hq-accent: #275d7a;
+  /* Session colours: four categorical hues checked for colour-blind separation on each surface. */
+  --hq-s1: #2a78d6;
+  --hq-s2: #eb6834;
+  --hq-s3: #1baf7a;
+  --hq-s4: #eda100;
 }
 /* Dark follows the system unless the header toggle has set data-theme on <html>. */
 @media (prefers-color-scheme: dark) {
@@ -22,6 +27,10 @@
     --hq-rule: #2b2a28;
     --hq-wash: #1f1e1c;
     --hq-accent: #8dbdd6;
+    --hq-s1: #3987e5;
+    --hq-s2: #d95926;
+    --hq-s3: #199e70;
+    --hq-s4: #c98500;
   }
 }
 :root[data-theme="dark"] {
@@ -33,6 +42,10 @@
   --hq-rule: #2b2a28;
   --hq-wash: #1f1e1c;
   --hq-accent: #8dbdd6;
+  --hq-s1: #3987e5;
+  --hq-s2: #d95926;
+  --hq-s3: #199e70;
+  --hq-s4: #c98500;
 }
 
 @theme inline {

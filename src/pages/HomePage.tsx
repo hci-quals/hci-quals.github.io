@@ -4,9 +4,11 @@ import { readingTitle, type Reading } from '../data/content'
 import { ReadingItem, SectionBar } from '../components/ui'
 import { jumpTo, useCurrentSection } from '../components/sections'
 import { BaseMotif, Motif } from '../components/Motif'
+import { sessionColor, useSessionsMode } from '../components/sessionsMode'
 
 /** Subfield × decade grid of an idea's readings; choosing a reading opens its details below. */
 function Matrix({ d }: { d: Idea }) {
+  const { on: showSessions } = useSessionsMode()
   const [selected, setSelected] = useState<Reading | null>(null)
   const [hover, setHover] = useState<{ field: string; decade: number } | null>(null)
   const panel = useRef<HTMLDivElement>(null)
@@ -51,8 +53,31 @@ function Matrix({ d }: { d: Idea }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [selected])
 
+  const hours = (m: number) => (m % 60 ? `${Math.floor(m / 60)} h ${m % 60} m` : `${m / 60} h`)
+
   return (
     <div>
+      {showSessions && d.sessions.length > 0 && (
+        <ul className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted">
+          {d.sessions.map((s) => (
+            <li key={s.n} className="flex items-center gap-1.5" title={s.theme}>
+              <span className="h-3 w-3 rounded-sm" style={{ background: `color-mix(in srgb, ${sessionColor(s.n)} 24%, transparent)`, boxShadow: `inset 0 0 0 1px ${sessionColor(s.n)}` }} />
+              <span className="font-semibold text-ink">Session {s.n}</span>
+              <span className="tabular-nums">{hours(s.minutes)}</span>
+            </li>
+          ))}
+          <li className="flex items-center gap-3 text-faint sm:ml-auto">
+            <span className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded-sm" style={{ boxShadow: 'inset 0 0 0 1px var(--hq-muted)', background: 'color-mix(in srgb, var(--hq-muted) 20%, transparent)' }} />
+              main
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded-sm" style={{ outline: '1px dashed var(--hq-muted)', outlineOffset: '-1px' }} />
+              optional
+            </span>
+          </li>
+        </ul>
+      )}
       {/* When the grid is wider than the page it scrolls sideways, and a fade at the right edge says so. */}
       <div ref={scroller} className={`overflow-x-auto ${overflows ? '[mask-image:linear-gradient(90deg,#000_88%,transparent)]' : ''}`}>
         <div className="grid text-[13px]" style={{ gridTemplateColumns: `3.5rem ${columns}` }} onMouseLeave={() => setHover(null)}>
@@ -74,16 +99,25 @@ function Matrix({ d }: { d: Idea }) {
                   <div key={f} className="flex flex-wrap content-start gap-0.5 border-t border-rule py-1.5 pr-3">
                     {cell(f, dec).map((r) => {
                       const on = selected?.id === r.id
+                      const session = showSessions ? d.sessionOf.get(r.id) : undefined
+                      // With sessions shown, main readings get a tinted pill, optional ones a dashed outline, and the rest recede.
+                      const pill = session
+                        ? session.role === 'main'
+                          ? { background: `color-mix(in srgb, ${sessionColor(session.n)} 24%, transparent)`, boxShadow: `inset 0 0 0 1px ${sessionColor(session.n)}` }
+                          : { outline: `1px dashed ${sessionColor(session.n)}`, outlineOffset: '-1px' }
+                        : undefined
                       return (
                         <button
                           key={r.id}
                           onClick={() => setSelected(on ? null : r)}
                           onMouseEnter={() => setHover({ field: f, decade: dec })}
                           onFocus={() => setHover({ field: f, decade: dec })}
-                          title={readingTitle(r)}
+                          title={session ? `${readingTitle(r)} · Session ${session.n}${session.role === 'optional' ? ', optional' : ''}` : readingTitle(r)}
                           aria-expanded={on}
-                          className={`whitespace-nowrap rounded px-1 py-0.5 text-left leading-snug transition-colors ${on ? 'bg-ink text-paper' : `hover:bg-wash ${r.tag === 'Core' ? 'text-ink' : 'text-muted'}`}`}
+                          style={on ? undefined : pill}
+                          className={`whitespace-nowrap rounded px-1 py-0.5 text-left leading-snug transition-[color,background-color,box-shadow,opacity] ${on ? 'bg-ink text-paper' : `hover:bg-wash ${r.tag === 'Core' ? 'text-ink' : 'text-muted'}`} ${showSessions && !session && !on ? 'opacity-35' : ''}`}
                         >
+                          {session && <span className={`mr-1 text-[10px] font-semibold tabular-nums ${on ? '' : 'text-muted'}`}>{session.n}</span>}
                           {shortAuthors(r)} <span className={`tabular-nums ${on ? '' : 'text-faint'}`}>’{String(r.year).slice(2)}</span>
                         </button>
                       )
