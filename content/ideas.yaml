@@ -17,7 +17,7 @@ ideas:
 
   - id: models
     name: Model of behaviour
-    position: Behaviour must be modelled at multiple levels and understanding the mechanisms that produce behaviour are need to build useful interactions.
+    position: Behaviour must be modelled at multiple levels and understanding the mechanisms that produce behaviour is needed to build useful interactions.
     problem: Do these models need to know internal mechanisms?
     readings: [fitts-1954, card-1978, card-1983, mackenzie-1992, accot-1997, zhai-2003, bi-2013, palin-2019, card-1991,
       marr-1982, anderson-1990, gallistel-1990, gershman-2015, lieder-2020, oulasvirta-2022,
@@ -35,7 +35,7 @@ ideas:
     position: People act on their intuitive theory of the system, not on the system itself.
     readings: [heider-1944, gentner-1983, kieras-1984, norman-1983, norman-1988, nass-1994, epley-2007, jara-ettinger-2016, lake-2017, ullman-2020, gambino-2020,
       eslami-2015, devito-2017, doshi-velez-2017, bansal-2019, kocielnik-2019, miller-2019, liao-2020, bansal-2021, bucinca-2021, vasconcelos-2023,
-      kulesza-2015, zamfirescu-pereira-2023, mitchell-2023, shanahan-2023, ullman-2023, klokmose-2015]
+      kulesza-2015, zamfirescu-pereira-2023, mitchell-2023, shanahan-2023, ullman-2023]
 
   - id: offloading
     name: Cognitive offloading
@@ -84,7 +84,7 @@ ideas:
   - id: malleability
     name: Malleability
     position: Existing software should be modifiable by people to fit their needs.
-    readings: [kay-1977, papert-1980, kay-1993, nardi-1993, myers-2000, woodruff-2007, gajos-2008, wobbrock-2011, beaudouin-lafon-2021]
+    readings: [kay-1977, papert-1980, kay-1993, nardi-1993, myers-2000, woodruff-2007, gajos-2008, wobbrock-2011, klokmose-2015, beaudouin-lafon-2021]
 
   - id: end-user-programming
     name: End-user programming
