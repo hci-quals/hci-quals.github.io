@@ -2,21 +2,29 @@ import { parse as parseYaml } from 'yaml'
 import ideasRaw from '/content/ideas.yaml?raw'
 import fieldsRaw from '/content/fields.yaml?raw'
 import sessionsRaw from '/content/sessions.yaml?raw'
+import kindsRaw from '/content/reading-kinds.yaml?raw'
 import { readingById, readingAuthors, readingTitle, readings as allReadings, type Reading } from './content'
 
+/** Idea readings introduce or argue a big idea; instantiation readings take up an earlier one. */
+export type Kind = 'idea' | 'instantiation'
+const kindsDoc = parseYaml(kindsRaw) as Record<Kind, string[]>
+const kindByReading = new Map<string, Kind>([...kindsDoc.idea.map((id) => [id, 'idea'] as const), ...kindsDoc.instantiation.map((id) => [id, 'instantiation'] as const)])
+export const kindOf = (r: Reading): Kind => kindByReading.get(r.id) ?? 'instantiation'
+
+/** One meeting of the reading group: everyone reads the idea readings and at least one instantiation reading. */
 export interface Session {
+  /** Number across the whole syllabus, from 1. */
   n: number
-  theme: string
-  main: Reading[]
-  optional: Reading[]
-  /** Estimated minutes to read the main readings. */
-  minutes: number
+  /** Position within its idea, from 1; picks the session colour. */
+  k: number
+  ideas: Reading[]
+  instantiations: Reading[]
 }
 
 const sessionsDoc = parseYaml(sessionsRaw) as {
-  minutes: Record<string, number>
-  sessions: Record<string, { theme: string; main: string[]; optional?: string[] | null }[]>
+  sessions: Record<string, { ideas: string[]; instantiations: string[] }[]>
 }
+let sessionCount = 0
 
 export interface Idea {
   id: string
@@ -28,8 +36,8 @@ export interface Idea {
   draft: boolean
   readings: Reading[]
   sessions: Session[]
-  /** Session number (from 1) and role of each reading that belongs to a session. */
-  sessionOf: Map<string, { n: number; role: 'main' | 'optional' }>
+  /** The session each reading belongs to, if any. */
+  sessionOf: Map<string, Session>
   fields: string[]
   decades: number[]
 }
@@ -60,17 +68,13 @@ export const ideas: Idea[] = doc.ideas.map((d, i) => {
   const present = new Set(readings.map(fieldOf))
   const pick = (ids: string[]) => ids.map((id) => readingById.get(id)).filter((r): r is Reading => !!r)
   const sessions = (sessionsDoc.sessions[d.id] ?? []).map((s, k) => ({
-    n: k + 1,
-    theme: s.theme,
-    main: pick(s.main),
-    optional: pick(s.optional ?? []),
-    minutes: s.main.reduce((t, id) => t + (sessionsDoc.minutes[id] ?? 0), 0),
+    n: ++sessionCount,
+    k: k + 1,
+    ideas: pick(s.ideas),
+    instantiations: pick(s.instantiations),
   }))
-  const sessionOf = new Map<string, { n: number; role: 'main' | 'optional' }>()
-  for (const s of sessions) {
-    for (const r of s.main) sessionOf.set(r.id, { n: s.n, role: 'main' })
-    for (const r of s.optional) sessionOf.set(r.id, { n: s.n, role: 'optional' })
-  }
+  const sessionOf = new Map<string, Session>()
+  for (const s of sessions) for (const r of [...s.ideas, ...s.instantiations]) sessionOf.set(r.id, s)
   return {
     id: d.id,
     number: String(i + 1),

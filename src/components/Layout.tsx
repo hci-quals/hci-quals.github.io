@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { SessionsProvider, SessionsToggle } from './SessionsToggle'
+import { IdeasMenu } from './IdeasMenu'
 
 function isDark() {
   const t = document.documentElement.dataset.theme
@@ -66,7 +67,7 @@ export function Layout() {
     <SessionsProvider>
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-5xl items-center gap-4 px-5 sm:px-8">
+        <div className="flex h-14 items-center gap-2 px-5 sm:gap-4 sm:px-8 lg:px-10">
           <Link
             to="/"
             aria-hidden={heroVisible}
@@ -75,6 +76,7 @@ export function Layout() {
           >
             The Informal ‘HCI Quals’
           </Link>
+          <IdeasMenu />
           <SessionsToggle />
           <ThemeToggle />
         </div>

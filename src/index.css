@@ -81,3 +81,17 @@ body {
 .prose-hq strong { font-weight: 600; }
 .prose-hq a { color: var(--hq-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .prose-hq blockquote { display: none; }
+
+/* Reading-group structure in the side panel: compact headings, readable lists. */
+.prose-panel { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; }
+.prose-panel h2 { margin: 1.75em 0 0.5em; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hq-muted); }
+.prose-panel h2:first-child { margin-top: 0.5em; }
+.prose-panel h3 { margin: 1.1em 0 0.35em; font-size: 0.95rem; font-weight: 600; }
+.prose-panel ul { margin: 0 0 0.75em; }
+.prose-panel li { margin: 0.25em 0; }
+.prose-panel strong { font-weight: 600; }
+
+/* The phone sheet slides up when it opens. */
+@keyframes hq-sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.hq-sheet { animation: hq-sheet-in 220ms ease-out; }
+@media (prefers-reduced-motion: reduce) { .hq-sheet { animation: none; } }

@@ -19,11 +19,12 @@ export function useCurrentSection(sections: { id: string }[]) {
       if (!frame) frame = requestAnimationFrame(update)
     }
     update()
-    window.addEventListener('scroll', onScroll, { passive: true })
+    // Capture scrolls from any scrolling pane, not just the window: on wide screens the page scrolls inside a pane.
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true })
     window.addEventListener('resize', onScroll)
     return () => {
       cancelAnimationFrame(frame)
-      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('scroll', onScroll, { capture: true })
       window.removeEventListener('resize', onScroll)
     }
   }, [sections])
