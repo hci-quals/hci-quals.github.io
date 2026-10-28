@@ -17,6 +17,11 @@ Visions:
   - appleton-2022
   - nielsen-2014
 Cognitive science:
+  - clark-1986
+  - clark-1989
+  - clark-1996
+  - clark-2023
+  - clark-2025
   - binz-2023
   - ullman-2023
   - dillion-2023
@@ -53,6 +58,9 @@ Cognitive science:
   - tversky-2002
   - fitts-1954
   - clark-1991
+Philosophy:
+  - lewis-1969
+  - stalnaker-2002
 Human factors:
   - bainbridge-1983
   - endsley-1995
@@ -60,6 +68,7 @@ Human factors:
   - parasuraman-2000
   - lee-2004
 HCI theory:
+  - beaudouin-lafon-2000-b
   - norman-1983
   - norman-1986
   - norman-1988
@@ -165,6 +174,7 @@ Visualization:
   - heer-2007
   - lundgard-2022
 Programming & tools:
+  - klokmose-2015
   - barke-2023
   - landay-1995
   - hartmann-2006

@@ -15,6 +15,7 @@ idea:
   - bertin-1967
   - engelbart-1968
   - sutherland-1968
+  - lewis-1969
   - simon-1969
   - rittel-1973
   - simon-1973
@@ -37,6 +38,7 @@ idea:
   - tufte-1983
   - cleveland-1984
   - hutchins-1985
+  - clark-1986
   - furnas-1986
   - mackinlay-1986
   - norman-1986
@@ -46,6 +48,7 @@ idea:
   - suchman-1987
   - grudin-1988
   - norman-1988
+  - clark-1989
   - anderson-1990
   - buxton-1990
   - gallistel-1990
@@ -73,6 +76,7 @@ idea:
   - endsley-1995
   - gigerenzer-1995
   - hutchins-1995
+  - clark-1996
   - green-1996
   - shneiderman-1996
   - weiser-1996
@@ -89,6 +93,7 @@ idea:
   - star-1999
   - ackerman-2000
   - beaudouin-lafon-2000
+  - beaudouin-lafon-2000-b
   - erickson-2000
   - hollan-2000
   - olson-2000
@@ -133,6 +138,7 @@ idea:
   - victor-2012
   - nielsen-2014
   - victor-2014
+  - klokmose-2015
   - dombrowski-2016
   - jara-ettinger-2016
   - oulasvirta-2016
@@ -162,6 +168,7 @@ idea:
   - wei-2022
   - wu-2022
   - argyle-2023
+  - clark-2023
   - park-2023
   - shanahan-2023
   - yao-2023
@@ -195,6 +202,7 @@ instantiation:
   - dey-2001
   - hertzum-2001
   - bellotti-2002
+  - stalnaker-2002
   - stolte-2002
   - tversky-2002
   - wilson-2002
@@ -327,5 +335,6 @@ instantiation:
   - tankelevitch-2024
   - bastani-2025
   - brynjolfsson-2025
+  - clark-2025
   - lee-2025
   - dell-acqua-2026
