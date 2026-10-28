@@ -121,7 +121,9 @@ function Matrix({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onS
 
 function IdeaSection({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onSelect: (r: Reading, d: Idea) => void }) {
   return (
-    <section id={d.id} className="scroll-mt-20 lg:scroll-mt-8" aria-labelledby={`${d.id}-name`}>
+    // Each idea runs edge to edge of its pane, separated from the next by a full-width rule.
+    <section id={d.id} className="-mx-5 scroll-mt-14 border-t border-ink/15 px-5 pb-24 pt-16 sm:-mx-8 sm:px-8 lg:-mx-10 lg:scroll-mt-0 lg:px-10" aria-labelledby={`${d.id}-name`}>
+      <div className="mx-auto max-w-5xl">
       <h2 className="font-serif text-[1.65rem] leading-snug tracking-tight sm:text-[1.9rem]">
         <span id={`${d.id}-name`} className="block font-semibold">
           {d.name}
@@ -143,6 +145,7 @@ function IdeaSection({ d, selectedId, onSelect }: { d: Idea; selectedId?: string
       </div>
       <div className="mt-10">
         <Matrix d={d} selectedId={selectedId} onSelect={(r) => onSelect(r, d)} />
+      </div>
       </div>
     </section>
   )
@@ -384,15 +387,15 @@ export function HomePage() {
           </div>
         </section>
 
+        <div>
+          {ideas.map((d) => (
+            <IdeaSection key={d.id} d={d} selectedId={selected?.idea.id === d.id ? selected.r.id : undefined} onSelect={select} />
+          ))}
+        </div>
         <div className="mx-auto max-w-5xl pb-24">
-          <div className="space-y-28">
-            {ideas.map((d) => (
-              <IdeaSection key={d.id} d={d} selectedId={selected?.idea.id === d.id ? selected.r.id : undefined} onSelect={select} />
-            ))}
-          </div>
 
           {unplaced.length > 0 && (
-            <details className="group mt-28 border-t border-rule pt-6">
+            <details className="group border-t border-rule pt-6">
               <summary className="cursor-pointer list-none text-sm text-muted hover:text-ink">
                 <span className="mr-1 inline-block transition-transform group-open:rotate-90">›</span> Not yet placed under an idea ({unplaced.length})
               </summary>
