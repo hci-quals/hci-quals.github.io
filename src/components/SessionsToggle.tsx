@@ -6,9 +6,10 @@ const KEY = 'hq-sessions'
 export function SessionsProvider({ children }: { children: ReactNode }) {
   const [on, setOnState] = useState(() => {
     try {
-      return localStorage.getItem(KEY) === 'on'
+      // On unless this browser has switched it off.
+      return localStorage.getItem(KEY) !== 'off'
     } catch {
-      return false
+      return true
     }
   })
   const setOn = (next: boolean) => {
