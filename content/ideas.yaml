@@ -17,7 +17,7 @@ ideas:
 
   - id: models
     name: Model of behaviour
-    position: Behaviour must be modelled at multiple levels and understanding the mechanisms that produce behaviour is needed to build useful interactions.
+    position: Useful interactions require modelling behaviour at multiple levels and understanding the cognitive mechanisms behind it.
     problem: Do these models need to know internal mechanisms?
     readings: [fitts-1954, card-1978, card-1983, mackenzie-1992, accot-1997, zhai-2003, bi-2013, palin-2019, card-1991,
       marr-1982, anderson-1990, gallistel-1990, gershman-2015, lieder-2020, oulasvirta-2022,
