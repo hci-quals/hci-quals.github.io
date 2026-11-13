@@ -24,15 +24,15 @@ note: "The Google Doc lists this paper twice as Implementation Papers #1 and #2,
 
 ## Main idea
 
-In a high-school mathematics setting, students who used ordinary GPT-4 (which will give answers away) did worse, in the group’s telling, than students who used a version instructed to give hints rather than answers. The result was described as intuitively unsurprising, and as evidence that *unguarded* generative AI can harm learning.
+In a high-school mathematics setting, students who used ordinary GPT-4 (which will give answers away) did worse than students who used a version instructed to give hints rather than answers. The result is intuitively unsurprising, and evidence that *unguarded* generative AI can harm learning.
 
 ## What is the paper trying to do?
 
-A field experiment on whether and how generative AI helps or hurts math learning, including a “tutor-style” or guardrailed condition. The meeting discussion did not reconstruct the full experimental design; it focused on the contrast between standard GPT-4 and a hints-without-answers condition, and on what is being automated.
+A field experiment on whether and how generative AI helps or hurts math learning, including a “tutor-style” or guardrailed condition. What carries the result is the contrast between standard GPT-4 and a hints-without-answers condition, and what is being automated.
 
 ## What kind of contribution is it?
 
-An empirical instantiation of the ironies and deskilling discussion, moved into a *learning* context rather than a monitoring-of-operators context. The implementation-paper tables in the shared doc were not filled in.
+An empirical instantiation of the ironies and of deskilling, moved into a *learning* context rather than a monitoring-of-operators context.
 
 ## Why does it matter?
 
@@ -40,6 +40,6 @@ It makes the ironies concrete in education: easier practice or easier answers in
 
 ## Hot takes / discussion
 
-The group stressed that this is not the same setup as an operator monitoring a plant. Students are not monitoring the model in Bainbridge’s sense; they are trying to learn. That separation matters. A more interesting framing, they suggested, is whether *the teacher* is the one being automated. Teachers still have to set learning goals — in the study, they worked with teachers to prime the hints. That raises the abstraction-level question already posed for monitoring: do you need every teacher to set learning goals, or can a school district set them? Learning goals also depend on local context (for example, a school known for the arts may need different emphases in math). The teacher’s input may be exactly that situated understanding, which a district-level goal might miss.
+This is not the same setup as an operator monitoring a plant. Students are not monitoring the model in Bainbridge’s sense; they are trying to learn. That separation matters. A sharper framing is whether *the teacher* is the one being automated. Teachers still have to set learning goals — in the study, they worked with teachers to prime the hints. That raises the abstraction-level question already posed for monitoring: do you need every teacher to set learning goals, or can a school district set them? Learning goals also depend on local context (for example, a school known for the arts may need different emphases in math). The teacher’s input may be exactly that situated understanding, which a district-level goal might miss.
 
-This maps onto Session 2’s broader argument that some human goal has to be specified at *some* level of abstraction, and onto Session 1’s questions about goal refinement and unspecified problems.
+This maps onto the broader argument that some human goal has to be specified at *some* level of abstraction, and onto the questions about goal refinement and unspecified problems.

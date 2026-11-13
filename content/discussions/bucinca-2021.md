@@ -28,11 +28,11 @@ When people make a decision with an AI, a *cognitive forcing function* — havin
 
 ## What is the paper trying to do?
 
-Test an interaction design that forces thinking before advice, in an AI-assisted decision task (recalled in the meeting as something like choosing a salad ingredient from statistics on flavor and nutrition). The system behind the study, the group noted, was not a modern GPT: it is a 2021 paper with a more deterministic machine-learning model, and the experimenters knew the correct and incorrect answers. The intended lesson is therefore about the general situation in which an AI gives you something that may not be correct for your case — a situation that may get rarer as models improve, but is unlikely to vanish.
+Test an interaction design that forces thinking before advice, in an AI-assisted decision task — something like choosing a salad ingredient from statistics on flavor and nutrition. The system behind the study was not a modern GPT: it is a 2021 paper with a more deterministic machine-learning model, and the experimenters knew the correct and incorrect answers. The intended lesson is therefore about the general situation in which an AI gives you something that may not be correct for your case — a situation that may get rarer as models improve, but is unlikely to vanish.
 
 ## What kind of contribution is it?
 
-An empirical HCI experiment on overreliance and explanations, used here as an instantiation of both Parasuraman (misuse / overreliance) and Bainbridge (an irony: a “less automated” or more effortful intervention works better, and people dislike it). The paper was also cited earlier in the Bainbridge discussion as evidence that AI explanations do not reliably support learning or skill retention, because people do not read them carefully enough — even when the explanations are good and correct.
+An empirical HCI experiment on overreliance and explanations, an instantiation of both Parasuraman (misuse / overreliance) and Bainbridge (an irony: a “less automated” or more effortful intervention works better, and people dislike it). Read with Bainbridge, it is also evidence that AI explanations do not reliably support learning or skill retention, because people do not read them carefully enough — even when the explanations are good and correct.
 
 ## Why does it matter?
 
@@ -40,6 +40,6 @@ It gives a concrete design pattern (think first, then see the model) and a warni
 
 ## Hot takes / discussion
 
-The corollary the group emphasized is that people *hated* cognitive forcing functions. They found them unhelpful and reported trusting the system less. An intermediate layer improved performance and made people like the system less. That was called a perfect example of an irony of automation: using *lesser* automation improved performance, and an intervention that helped also made the experience worse — an irony in itself. Explanations, in this light, are a form of monitoring and oversight, and they do not automatically do the work one hopes.
+The corollary is that people *hated* cognitive forcing functions. They found them unhelpful and reported trusting the system less. An intermediate layer improved performance and made people like the system less. It is a perfect example of an irony of automation: using *lesser* automation improved performance, and an intervention that helped also made the experience worse — an irony in itself. Explanations, in this light, are a form of monitoring and oversight, and they do not automatically do the work one hopes.
 
-The paper was nominated, earlier in the hour, as a test case for the shared-context / capability-model framing developed around Parasuraman: forcing people to think first changes how they stand in relation to the model’s apparent knowledge, which is exactly where overreliance was said to live.
+It is a test case for the shared-context / capability-model framing developed around Parasuraman: forcing people to think first changes how they stand in relation to the model’s apparent knowledge, which is exactly where overreliance lives.
