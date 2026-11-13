@@ -20,8 +20,8 @@ readings:
     year: 2019
     tag: Core
     description: "Amershi and colleagues propose 18 guidelines for designing AI systems and test them with designers on real products. The guidelines are widely used in industry."
-    url: "https://doi.org/10.1145/3290605.3300233"
-    urlKind: doi
+    url: "http://dl.acm.org/doi/10.1145/3290605.3300233"
+    urlKind: publisher
     doi: "10.1145/3290605.3300233"
     verified: false
   - id: yang-2020

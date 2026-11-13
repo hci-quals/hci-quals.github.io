@@ -49,15 +49,15 @@ readings:
     doi: "10.1518/001872097778543886"
     verified: false
   - id: parasuraman-2000
-    citation: "Parasuraman, Sheridan and Wickens, “A Model for Types and Levels of Human Interaction with Automation,” IEEE Trans. SMC-A, 2000"
+    citation: "Parasuraman, Sheridan and Wickens, “A Model for Types and Levels of Human Interaction with Automation,” IEEE TSMC, 2000"
     authors: "Parasuraman, Sheridan and Wickens"
     title: "A Model for Types and Levels of Human Interaction with Automation"
     venue: "IEEE Transactions on Systems, Man, and Cybernetics, Part A"
     year: 2000
     tag: Adjacent
     description: "Parasuraman, Sheridan, and Wickens describe automation along four stages (information acquisition, analysis, decision, action), each with its own level. The model is the standard way to specify how much a system automates."
-    url: "https://doi.org/10.1109/3468.844354"
-    urlKind: doi
+    url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=844354"
+    urlKind: pdf
     doi: "10.1109/3468.844354"
     verified: true
   - id: lee-2004

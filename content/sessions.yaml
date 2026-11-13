@@ -253,6 +253,7 @@ minutes:
   heer-2012: 45
   yi-2007: 45
   bansal-2021: 45
+  collins-2024: 60
 sessions:
   augmentation:
   - theme: Founding visions of human–computer partnership
@@ -274,13 +275,15 @@ sessions:
     - bastani-2025
     - bucinca-2021
   - theme: Who takes the initiative
+    date: '2026-11-19'
     ideas:
-    - horvitz-1999
+    - collins-2024
     - parasuraman-2000
     instantiations:
-    - shneiderman-1997
-    - amershi-2019
     - barke-2023
+    - amershi-2019
+    - shneiderman-1997
+    fixed: true
   - theme: Augmenting intellect at work today
     ideas:
     - engelbart-1962

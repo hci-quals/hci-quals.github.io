@@ -96,6 +96,18 @@ readings:
     urlKind: arxiv
     doi: null
     verified: true
+  - id: collins-2024
+    citation: "Collins et al., “Building Machines That Learn and Think with People,” Nature Human Behaviour, 2024"
+    authors: "Collins, Sucholutsky, Bhatt, Chandra, Wong, Lee, Zhang, Zhi-Xuan, Ho, Mansinghka, Weller, Tenenbaum and Griffiths"
+    title: "Building Machines That Learn and Think with People"
+    venue: "Nature Human Behaviour"
+    year: 2024
+    tag: Core
+    description: "Collins and colleagues argue that machines should learn and think with people, not only as models of a person working alone. The perspective uses cognitive science to say how that partnership should be built."
+    url: "https://www.nature.com/articles/s41562-024-01991-9.pdf"
+    urlKind: pdf
+    doi: "10.1038/s41562-024-01991-9"
+    verified: true
   - id: kapoor-2024
     citation: "Kapoor, Stroebl, Siegel, Nadgir and Narayanan, “AI Agents That Matter,” 2024"
     authors: "Kapoor, Stroebl, Siegel, Nadgir and Narayanan"
