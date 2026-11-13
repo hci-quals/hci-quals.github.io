@@ -1,13 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ideas, unplaced, decadeOf, fieldOf, kindOf, sessionLabel, shortAuthors, type Idea } from '../data/ideas'
+import { ideas, unplaced, decadeOf, fieldOf, kindOf, sessionLabel, shortAuthors, type Idea, type Session } from '../data/ideas'
 import { readingAuthors, readingTitle, readingVenue, type Reading } from '../data/content'
+import { discussionMarkdown, sessionSynthesis } from '../data/discussions'
 import { Markdown } from '../components/ui'
 import { jumpTo } from '../components/sections'
 import { BaseMotif, Motif } from '../components/Motif'
 import { sessionColor, useSessionsMode } from '../components/sessionsMode'
 import structureMd from '/content/reading-group.md?raw'
 
-type Panel = { type: 'structure' } | { type: 'reading'; r: Reading; idea: Idea }
+type Panel = { type: 'structure' } | { type: 'reading'; r: Reading; idea: Idea } | { type: 'session'; idea: Idea; session: Session }
+
+function panelLabel(panel: Panel) {
+  if (panel.type === 'reading') return readingTitle(panel.r)
+  if (panel.type === 'session') return sessionLabel(panel.session)
+  return 'Reading group structure'
+}
 
 const ideasOfReading = new Map<string, Idea[]>()
 for (const d of ideas) for (const r of d.readings) ideasOfReading.set(r.id, [...(ideasOfReading.get(r.id) ?? []), d])
@@ -20,7 +27,7 @@ function KindSwatch({ kind }: { kind: 'idea' | 'instantiation' }) {
 }
 
 /** Decade × subfield grid of an idea's readings; choosing a reading shows it in the side panel. */
-function Matrix({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onSelect: (r: Reading) => void }) {
+function Matrix({ d, selectedId, activeSession, onSelect, onOpenSession }: { d: Idea; selectedId?: string; activeSession?: number; onSelect: (r: Reading) => void; onOpenSession: (s: Session) => void }) {
   const { on: showSessions } = useSessionsMode()
   const [hover, setHover] = useState<{ field: string; decade: number } | null>(null)
   const scroller = useRef<HTMLDivElement>(null)
@@ -75,7 +82,14 @@ function Matrix({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onS
             {d.sessions.map((s) => (
               <li key={s.n} className="flex items-center gap-1.5">
                 <span className="h-3 w-3 rounded-sm" style={{ background: sessionColor(s.k) }} />
-                <span className="font-medium text-ink">{sessionLabel(s)}</span>
+                <button
+                  type="button"
+                  onClick={() => onOpenSession(s)}
+                  aria-pressed={activeSession === s.n}
+                  className={`font-medium hover:text-accent ${activeSession === s.n ? 'text-accent' : 'text-ink'}`}
+                >
+                  {sessionLabel(s)}
+                </button>
               </li>
             ))}
           </ul>
@@ -129,7 +143,7 @@ function Matrix({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onS
   )
 }
 
-function IdeaSection({ d, selectedId, onSelect }: { d: Idea; selectedId?: string; onSelect: (r: Reading, d: Idea) => void }) {
+function IdeaSection({ d, selectedId, activeSession, onSelect, onOpenSession }: { d: Idea; selectedId?: string; activeSession?: number; onSelect: (r: Reading, d: Idea) => void; onOpenSession: (s: Session, d: Idea) => void }) {
   return (
     // Each idea runs edge to edge of its pane, separated from the next by a full-width rule.
     <section id={d.id} className="-mx-5 scroll-mt-14 border-t border-ink/15 px-5 pb-24 pt-16 sm:-mx-8 sm:px-8 lg:-mx-10 lg:scroll-mt-0 lg:px-10" aria-labelledby={`${d.id}-name`}>
@@ -154,19 +168,20 @@ function IdeaSection({ d, selectedId, onSelect }: { d: Idea; selectedId?: string
         <Motif idea={d.id} />
       </div>
       <div className="mt-10">
-        <Matrix d={d} selectedId={selectedId} onSelect={(r) => onSelect(r, d)} />
+        <Matrix d={d} selectedId={selectedId} activeSession={activeSession} onSelect={(r) => onSelect(r, d)} onOpenSession={(s) => onOpenSession(s, d)} />
       </div>
       </div>
     </section>
   )
 }
 
-function ReadingDetail({ r, idea, onJump }: { r: Reading; idea: Idea; onJump: (id: string) => void }) {
+function ReadingDetail({ r, idea, onJump, onOpenSession }: { r: Reading; idea: Idea; onJump: (id: string) => void; onOpenSession: (s: Session) => void }) {
   const kind = kindOf(r)
   const session = idea.sessionOf.get(r.id)
   const venue = readingVenue(r)
   const doiUrl = r.doi ? `https://doi.org/${r.doi}` : null
   const others = (ideasOfReading.get(r.id) ?? []).filter((d) => d.id !== idea.id)
+  const discussion = discussionMarkdown(r.id)
   return (
     <article>
       <p className="flex items-center gap-2 text-xs font-medium text-muted">
@@ -194,6 +209,7 @@ function ReadingDetail({ r, idea, onJump }: { r: Reading; idea: Idea; onJump: (i
         )}
       </div>
       <p className="mt-6 font-serif text-[17px] leading-relaxed">{r.description}</p>
+      {discussion && <Markdown className="prose-panel prose-entry mt-8">{discussion}</Markdown>}
       <dl className="mt-8 space-y-4 border-t border-rule pt-5 text-sm">
         <div>
           <dt className="text-xs text-faint">Big idea</dt>
@@ -214,9 +230,11 @@ function ReadingDetail({ r, idea, onJump }: { r: Reading; idea: Idea; onJump: (i
         {session && (
           <div>
             <dt className="text-xs text-faint">Session</dt>
-            <dd className="mt-0.5 flex items-center gap-2">
-              <span aria-hidden className="h-3 w-3 shrink-0 rounded-sm" style={{ background: sessionColor(session.k) }} />
-              {sessionLabel(session)}
+            <dd className="mt-0.5">
+              <button type="button" onClick={() => onOpenSession(session)} className="flex items-center gap-2 text-left hover:text-accent">
+                <span aria-hidden className="h-3 w-3 shrink-0 rounded-sm" style={{ background: sessionColor(session.k) }} />
+                {sessionLabel(session)}
+              </button>
             </dd>
           </div>
         )}
@@ -238,18 +256,44 @@ function StructureDetail() {
   )
 }
 
+function SessionDetail({ idea, session }: { idea: Idea; session: Session }) {
+  const note = sessionSynthesis(
+    idea.id,
+    session.theme,
+    session.ideas.map((r) => r.id),
+  )
+  return (
+    <article>
+      <p className="flex items-center gap-2 text-xs font-medium text-muted">
+        <span aria-hidden className="h-3 w-3 shrink-0 rounded-sm" style={{ background: sessionColor(session.k) }} />
+        {sessionLabel(session)}
+      </p>
+      {note ? (
+        <Markdown className="prose-panel prose-entry mt-4">{note}</Markdown>
+      ) : (
+        <>
+          <h2 className="mt-3 font-serif text-[1.55rem] font-semibold leading-snug tracking-tight">{session.theme}</h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted">This session has no discussion notes yet.</p>
+        </>
+      )}
+    </article>
+  )
+}
+
 const CloseIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden>
     <path d="M6 6l12 12M18 6 6 18" />
   </svg>
 )
 
-function PanelBody({ panel, onJump }: { panel: Panel; onJump: (id: string) => void }) {
-  return panel.type === 'reading' ? <ReadingDetail r={panel.r} idea={panel.idea} onJump={onJump} /> : <StructureDetail />
+function PanelBody({ panel, onJump, onOpenSession }: { panel: Panel; onJump: (id: string) => void; onOpenSession: (s: Session, idea: Idea) => void }) {
+  if (panel.type === 'reading') return <ReadingDetail r={panel.r} idea={panel.idea} onJump={onJump} onOpenSession={(s) => onOpenSession(s, panel.idea)} />
+  if (panel.type === 'session') return <SessionDetail idea={panel.idea} session={panel.session} />
+  return <StructureDetail />
 }
 
 /** On phones the side panel becomes a sheet over the page. */
-function Sheet({ panel, onClose, onJump }: { panel: Panel; onClose: () => void; onJump: (id: string) => void }) {
+function Sheet({ panel, onClose, onJump, onOpenSession }: { panel: Panel; onClose: () => void; onJump: (id: string) => void; onOpenSession: (s: Session, idea: Idea) => void }) {
   const close = useRef<HTMLButtonElement>(null)
   useEffect(() => {
     // Only act as a modal sheet on narrow screens; on wide ones the side panel shows the same content.
@@ -264,7 +308,7 @@ function Sheet({ panel, onClose, onJump }: { panel: Panel; onClose: () => void; 
     }
   }, [onClose])
   return (
-    <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label={panel.type === 'reading' ? readingTitle(panel.r) : 'Reading group structure'}>
+    <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label={panelLabel(panel)}>
       <div className="absolute inset-0 bg-ink/30 backdrop-blur-[2px]" onClick={onClose} />
       <div className="hq-sheet absolute inset-x-0 bottom-0 max-h-[85dvh] overflow-y-auto rounded-t-2xl border-t border-rule bg-paper px-5 pb-10 pt-3 shadow-2xl">
         <div className="sticky top-0 -mx-5 mb-2 flex justify-end bg-paper px-3 pb-1">
@@ -273,7 +317,7 @@ function Sheet({ panel, onClose, onJump }: { panel: Panel; onClose: () => void; 
             <CloseIcon />
           </button>
         </div>
-        <PanelBody panel={panel} onJump={onJump} />
+        <PanelBody panel={panel} onJump={onJump} onOpenSession={onOpenSession} />
       </div>
     </div>
   )
@@ -348,6 +392,8 @@ export function HomePage() {
   }
   const close = useMemo(() => () => setPanel(null), [])
   const select = (r: Reading, d: Idea) => (panel?.type === 'reading' && panel.r.id === r.id && panel.idea.id === d.id ? close() : show({ type: 'reading', r, idea: d }))
+  const openSession = (session: Session, idea: Idea) =>
+    panel?.type === 'session' && panel.session.n === session.n && panel.idea.id === idea.id ? close() : show({ type: 'session', idea, session })
   const jump = (id: string) => {
     if (!window.matchMedia('(min-width: 1024px)').matches) close()
     jumpTo(id)
@@ -361,6 +407,7 @@ export function HomePage() {
   }, [panel, close])
 
   const selected = panel?.type === 'reading' ? panel : undefined
+  const activeSession = panel?.type === 'session' ? panel : undefined
 
   return (
     // On wide screens the page splits into two panes that scroll on their own; on narrow ones details open in a sheet.
@@ -391,7 +438,14 @@ export function HomePage() {
 
         <div>
           {ideas.map((d) => (
-            <IdeaSection key={d.id} d={d} selectedId={selected?.idea.id === d.id ? selected.r.id : undefined} onSelect={select} />
+            <IdeaSection
+              key={d.id}
+              d={d}
+              selectedId={selected?.idea.id === d.id ? selected.r.id : undefined}
+              activeSession={activeSession?.idea.id === d.id ? activeSession.session.n : undefined}
+              onSelect={select}
+              onOpenSession={openSession}
+            />
           ))}
         </div>
         <div className="mx-auto max-w-5xl pb-24">
@@ -430,9 +484,9 @@ export function HomePage() {
                 <CloseIcon />
               </button>
             </div>
-            <PanelBody panel={panel} onJump={jump} />
+            <PanelBody panel={panel} onJump={jump} onOpenSession={openSession} />
           </aside>
-          <Sheet panel={panel} onClose={close} onJump={jump} />
+          <Sheet panel={panel} onClose={close} onJump={jump} onOpenSession={openSession} />
         </>
       )}
     </div>

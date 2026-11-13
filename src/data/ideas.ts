@@ -17,6 +17,8 @@ export interface Session {
   n: number
   /** Position within its idea, from 1; picks the session colour. */
   k: number
+  /** Meeting theme from sessions.yaml. */
+  theme: string
   /** Meeting date, when set. */
   date?: Date
   ideas: Reading[]
@@ -24,7 +26,7 @@ export interface Session {
 }
 
 const sessionsDoc = parseYaml(sessionsRaw) as {
-  sessions: Record<string, { date?: string; ideas: string[]; instantiations: string[] }[]>
+  sessions: Record<string, { date?: string; theme?: string; ideas: string[]; instantiations: string[] }[]>
 }
 let sessionCount = 0
 
@@ -72,6 +74,7 @@ export const ideas: Idea[] = doc.ideas.map((d, i) => {
   const sessions = (sessionsDoc.sessions[d.id] ?? []).map((s, k) => ({
     n: ++sessionCount,
     k: k + 1,
+    theme: s.theme ?? '',
     date: s.date ? new Date(`${s.date}T12:00:00`) : undefined,
     ideas: pick(s.ideas),
     instantiations: pick(s.instantiations),

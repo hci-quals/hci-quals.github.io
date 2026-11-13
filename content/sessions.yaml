@@ -266,13 +266,13 @@ sessions:
     - yang-2020
     fixed: true
   - theme: The ironies of automation
+    date: '2026-11-12'
     ideas:
     - bainbridge-1983
     - parasuraman-1997
     instantiations:
-    - lee-2004
-    - simkute-2024
     - bastani-2025
+    - bucinca-2021
   - theme: Who takes the initiative
     ideas:
     - horvitz-1999
@@ -358,7 +358,7 @@ sessions:
     - shanahan-2023
     instantiations:
     - bansal-2021
-    - bucinca-2021
+    - lee-2004
     - vasconcelos-2023
   offloading:
   - theme: Thinking with the world

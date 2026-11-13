@@ -13,7 +13,7 @@ ideas:
       bainbridge-1983, endsley-1995, parasuraman-1997, parasuraman-2000, lee-2004,
       norman-1994, shneiderman-1997, horvitz-1998, horvitz-1999, shneiderman-2020, amershi-2019, yang-2020, heer-2019,
       yao-2023, sumers-2024, kapoor-2024, satyanarayan-2024, lee-2022, barke-2023,
-      noy-2023, brynjolfsson-2025, dell-acqua-2026, simkute-2024, tankelevitch-2024, lee-2025, bastani-2025, doshi-2024, jakesch-2023, sharma-2024]
+      noy-2023, brynjolfsson-2025, dell-acqua-2026, simkute-2024, tankelevitch-2024, lee-2025, bastani-2025, bucinca-2021, doshi-2024, jakesch-2023, sharma-2024]
 
   - id: models
     name: Model of behaviour
@@ -34,7 +34,7 @@ ideas:
     name: Intuitive theories
     position: People act on their intuitive theory of the system, not on the system itself.
     readings: [heider-1944, gentner-1983, kieras-1984, norman-1983, norman-1988, nass-1994, epley-2007, jara-ettinger-2016, lake-2017, ullman-2020, gambino-2020,
-      eslami-2015, devito-2017, doshi-velez-2017, bansal-2019, kocielnik-2019, miller-2019, liao-2020, bansal-2021, bucinca-2021, vasconcelos-2023,
+      eslami-2015, devito-2017, doshi-velez-2017, bansal-2019, kocielnik-2019, miller-2019, liao-2020, bansal-2021, lee-2004, bucinca-2021, vasconcelos-2023,
       kulesza-2015, zamfirescu-pereira-2023, mitchell-2023, shanahan-2023, ullman-2023, klokmose-2015]
 
   - id: offloading
