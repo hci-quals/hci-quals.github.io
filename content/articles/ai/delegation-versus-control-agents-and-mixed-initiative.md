@@ -120,6 +120,18 @@ readings:
     urlKind: arxiv
     doi: null
     verified: true
+  - id: shneiderman-maes-2026
+    citation: "Lampe (moderator), Maes and Shneiderman, “Direct Manipulation vs. Interface Agents (A Reprise),” UIST 2026 Keynote Debate"
+    authors: "Maes and Shneiderman"
+    title: "Direct Manipulation vs. Interface Agents (A Reprise)"
+    venue: "UIST 2026 Keynote Debate"
+    year: 2026
+    tag: Modern
+    description: "Maes and Shneiderman return to their 1997 debate for the era of generative AI agents, arguing over tools versus agents, anthropomorphism, delegation and responsibility. They agree that AI should augment people, but disagree on whether the agent metaphor can serve that goal."
+    url: "/readings/uist-2026-keynote-debate.pdf"
+    urlKind: pdf
+    doi: null
+    verified: true
 ---
 
 ## Abstract

@@ -29,7 +29,7 @@ pairs:
     newer: [lee-2025, bastani-2025]
     question: When does offloading thinking to AI help, and when does it erode skill?
   - older: [shneiderman-1997]
-    newer: [shneiderman-2020, yao-2023]
+    newer: [shneiderman-2020, yao-2023, shneiderman-maes-2026]
     question: Is the control-versus-delegation tradeoff real for LLM agents?
   - older: [clark-1991]
     newer: [hancock-2020]
