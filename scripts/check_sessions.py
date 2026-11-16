@@ -3,7 +3,8 @@
 
 Errors (exit non-zero):
 - every reading is categorized exactly once as an idea or an instantiation reading;
-- every idea has 2-4 sessions; each session has at least two idea readings and one to three instantiation readings,
+- every idea has 2-4 sessions; each session has at least two idea readings and one to three instantiation readings
+  (a `fixed` session may have more),
   each listed under the right kind and belonging to that idea, with a reading-time estimate;
 - no reading appears in two sessions anywhere;
 - each session's readings span at least two subfields and two decades;
@@ -71,7 +72,7 @@ def main():
                     home[rid].append(where)
             if len(s['ideas']) < 2:
                 errors.append(f'{where}: {len(s["ideas"])} idea readings (want at least 2)')
-            if not 1 <= len(s['instantiations']) <= 3:
+            if not 1 <= len(s['instantiations']) <= (99 if s.get('fixed') else 3):
                 errors.append(f'{where}: {len(s["instantiations"])} instantiation readings (want 1-3)')
             elif len(s['instantiations']) < 3:
                 notes.append(f'{where}: only {len(s["instantiations"])} instantiation readings')

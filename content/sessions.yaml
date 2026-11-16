@@ -254,6 +254,7 @@ minutes:
   yi-2007: 45
   bansal-2021: 45
   collins-2024: 60
+  shneiderman-maes-2026: 30
 sessions:
   augmentation:
   - theme: Founding visions of human–computer partnership
@@ -283,6 +284,7 @@ sessions:
     - barke-2023
     - amershi-2019
     - shneiderman-1997
+    - shneiderman-maes-2026
     fixed: true
   - theme: Augmenting intellect at work today
     ideas:
