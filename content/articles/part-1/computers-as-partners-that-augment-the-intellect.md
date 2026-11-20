@@ -72,6 +72,18 @@ readings:
     urlKind: video
     doi: null
     verified: true
+  - id: carter-2017
+    citation: "Carter and Nielsen, “Using Artificial Intelligence to Augment Human Intelligence,” Distill, 2017"
+    authors: "Carter and Nielsen"
+    title: "Using Artificial Intelligence to Augment Human Intelligence"
+    venue: "Distill"
+    year: 2017
+    tag: Modern
+    description: "Carter and Nielsen argue that machine learning models can become tools for thought by turning the concepts they learn into interface objects people can manipulate. They call this artificial intelligence augmentation and set it against using AI to answer questions for people."
+    url: "https://distill.pub/2017/aia/"
+    urlKind: open
+    doi: "10.23915/distill.00009"
+    verified: true
   - id: pirolli-1999-b
     citation: "Pirolli and Card, “Information Foraging,” Psychological Review, 1999"
     authors: "Pirolli and Card"

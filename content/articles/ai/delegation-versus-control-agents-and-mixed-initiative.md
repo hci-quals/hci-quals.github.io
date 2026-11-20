@@ -132,6 +132,18 @@ readings:
     urlKind: pdf
     doi: null
     verified: true
+  - id: jones-2026
+    citation: "Jones, Wu and Agrawala, “Co-DSL: Human-LLM Co-design of Reusable Spatial Concepts for Layout Generation,” 2026"
+    authors: "Jones, Wu and Agrawala"
+    title: "Co-DSL: Human-LLM Co-design of Reusable Spatial Concepts for Layout Generation"
+    venue: "arXiv"
+    year: 2026
+    tag: Modern
+    description: "Jones, Wu, and Agrawala have a person and an LLM build a library of reusable spatial concepts together, with the LLM writing example scenarios that show how each concept behaves. New layout requests are turned into graphs of these concepts and solved, so the person shapes the vocabulary the system works in, not each output."
+    url: "https://arxiv.org/abs/2610.15290"
+    urlKind: arxiv
+    doi: null
+    verified: true
 ---
 
 ## Abstract

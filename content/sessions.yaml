@@ -255,6 +255,9 @@ minutes:
   bansal-2021: 45
   collins-2024: 60
   shneiderman-maes-2026: 30
+  yao-2023: 45
+  jones-2026: 45
+  carter-2017: 45
 sessions:
   augmentation:
   - theme: Founding visions of human–computer partnership
@@ -287,13 +290,17 @@ sessions:
     - shneiderman-maes-2026
     fixed: true
   - theme: Augmenting intellect at work today
+    date: '2026-12-03'
     ideas:
     - engelbart-1962
-    - heer-2019
+    - endsley-1995
     instantiations:
-    - noy-2023
-    - dell-acqua-2026
+    - yao-2023
+    - jones-2026
     - tankelevitch-2024
+    - carter-2017
+    - satyanarayan-2024
+    fixed: true
   models:
   - theme: Movement and text entry are lawful
     ideas:
